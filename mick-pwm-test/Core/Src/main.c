@@ -93,8 +93,8 @@ int main(void)
   // NEEDED TO START PWM
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
 
-  int temp_arr = 10670;	// (0.0015 s pulse width) * (500,000 Hz clock) = 750
-  int temp_ccr = 670;	// (pulse width + 20 ms) * (500,000 Hz clock) = 10,750
+  int temp_arr = 10750;	// (0.0015 s pulse width) * (500,000 Hz clock) = 750
+  int temp_ccr = 750;	// (pulse width + 20 ms) * (500,000 Hz clock) = 10,750
   int is_increasing = 1;
 
   /* USER CODE END 2 */
@@ -193,7 +193,7 @@ static void MX_TIM4_Init(void)
 
   /* USER CODE END TIM4_Init 1 */
   htim4.Instance = TIM4;
-  htim4.Init.Prescaler = 8;
+  htim4.Init.Prescaler = 7;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim4.Init.Period = 10750;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
