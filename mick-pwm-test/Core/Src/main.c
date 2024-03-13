@@ -65,11 +65,11 @@ void set_motor_speed(int motor_speed) {
   // 100 = Full Counterclockwise Rotation
 
   // converting motor speed to pulse width (in ms)
-  double pulse_width = (1.3) + (0.4 * (motor_speed/100));
+  double pulse_width = (1.28) + (0.44 * ((double)motor_speed/100));
 
-  TIM4->CCR2 = (pulse_width / 1000) * (PROCESSOR_CLOCK / PRESCALER);
+  int temp_ccr2 = (pulse_width / 1000) * (PROCESSOR_CLOCK / PRESCALER);
 
-  TIM4->ARR = TIM4->CCR2 + ((20 / 1000) * (PROCESSOR_CLOCK / PRESCALER));
+  TIM4->CCR2 = temp_ccr2;
 }
 
 
@@ -132,9 +132,7 @@ int main(void)
 
   int is_increasing = 1;
 
-  // Should see motor spin immediately
-  // More for testing to make sure the code is running on STM board
-  set_full_clockwise_rotation();
+  int delay_num = 1000000;
 
   /* USER CODE END 2 */
 
@@ -143,15 +141,27 @@ int main(void)
   while (1)
   {
 	  // software delay
-    for (int i = 0; i < 10000; ++i);
+    for (int i = 0; i < delay_num; ++i);
 
-    set_motor_speed(motor_speed);
+    set_no_rotation();
+
+    for (int i = 0; i < delay_num; ++i);
+
+    set_motor_speed(40);
+
+    for (int i = 0; i < delay_num; ++i);
+
+    set_motor_speed(70);
+
+    for (int i = 0; i < delay_num; ++i);
+
+    set_motor_speed(0);
+
+    for (int i = 0; i < delay_num; ++i);
+
+    set_motor_speed(100);
     
-    if (is_increasing)  ++motor_speed;
-    else                --motor_speed;
-
-    if (motor_speed == 0)   is_increasing = 1;
-    if (motor_speed == 100) is_increasing = 0;
+    for (int i = 0; i < delay_num; ++i);
 
     /* USER CODE END WHILE */
 
@@ -225,7 +235,7 @@ static void MX_TIM4_Init(void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 7;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 10750;
+  htim4.Init.Period = 10000;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim4) != HAL_OK)

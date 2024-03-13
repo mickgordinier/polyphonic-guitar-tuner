@@ -60,8 +60,8 @@ all: main-build
 main-build: mick-pwm.elf secondary-outputs
 
 # Tool invocations
-mick-pwm.elf mick-pwm.map: $(OBJS) $(USER_OBJS) C:\Users\mickg\Desktop\EECS_373_final_project\mick-pwm-test\STM32L4R5ZITXP_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "mick-pwm.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\mickg\Desktop\EECS_373_final_project\mick-pwm-test\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="mick-pwm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+mick-pwm.elf mick-pwm.map: $(OBJS) $(USER_OBJS) N:\final_project_373\mick-pwm-test\STM32L4R5ZITXP_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "mick-pwm.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"N:\final_project_373\mick-pwm-test\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="mick-pwm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
