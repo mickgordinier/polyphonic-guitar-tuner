@@ -31,7 +31,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define	PROCESSOR_CLOCK	4000000 // 4MHz clock
+#define PRESCALER 8             // Prescaling clock to 500kHz
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -56,6 +57,36 @@ static void MX_TIM4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+void set_motor_speed(int motor_speed) {
+  // Can change motorspeed from 0 - 100
+  // 0 = Full Clockwise Rotation
+  // 50 = No Rotation
+  // 100 = Full Counterclockwise Rotation
+
+  // converting motor speed to pulse width (in ms)
+  double pulse_width = (1.3) + (0.4 * (motor_speed/100));
+
+  TIM4->CCR2 = (pulse_width / 1000) * (PROCESSOR_CLOCK / PRESCALER);
+
+  TIM4->ARR = TIM4->CCR2 + ((20 / 1000) * (PROCESSOR_CLOCK / PRESCALER));
+}
+
+
+void set_no_rotation() {
+	set_motor_speed(50);
+}
+
+void set_max_clockwise_rotation() {
+  set_motor_speed(0);
+}
+
+void set_max_counterclockwise_rotation() {
+  set_motor_speed(100);
+}
+
+
+
 
 /* USER CODE END 0 */
 
@@ -93,9 +124,17 @@ int main(void)
   // NEEDED TO START PWM
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
 
-  int temp_arr = 10750;	// (0.0015 s pulse width) * (500,000 Hz clock) = 750
-  int temp_ccr = 750;	// (pulse width + 20 ms) * (500,000 Hz clock) = 10,750
+  // Can change motorspeed from 0 - 100
+  // 0 = Full Clockwise Rotation
+  // 50 = No Rotation
+  // 100 = Full Counterclockwise Rotation
+  int motor_speed = 50;
+
   int is_increasing = 1;
+
+  // Should see motor spin immediately
+  // More for testing to make sure the code is running on STM board
+  set_full_clockwise_rotation();
 
   /* USER CODE END 2 */
 
@@ -103,26 +142,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  for (int i = 0 ; i < 20000; ++i);
+	  // software delay
+    for (int i = 0; i < 10000; ++i);
 
-	  if (is_increasing) {
-		  temp_ccr = temp_ccr + 1;
-	  } else {
-		  temp_ccr = temp_ccr - 1;
-	  }
+    set_motor_speed(motor_speed);
+    
+    if (is_increasing)  ++motor_speed;
+    else                --motor_speed;
 
-	  temp_arr = temp_ccr + 10000;
+    if (motor_speed == 0)   is_increasing = 1;
+    if (motor_speed == 100) is_increasing = 0;
 
-	  if (temp_ccr == 0.00135 * 500000) {
-		  is_increasing = 0;
-	  }
-
-	  if (temp_ccr == 0.0013 * 500000) {
-		  is_increasing = 1;
-	  }
-
-	  TIM4->CCR2 = temp_ccr;
-	  TIM4->ARR = temp_arr;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
