@@ -25,6 +25,7 @@
 #define ARM_MATH_CM4
 #include "arm_math.h"
 #include "math.h"
+#include <stdint.h>
 
 
 #define BUFFER_LENGTH 4096
@@ -108,6 +109,25 @@ void maxIndex(float32_t * fftStart, uint32_t * maxIndices, int start, int length
 
 }
 
+void apply_hanning_window(float32_t * signal, uint32_t length){
+	for (int i = 0; i < length; ++i){
+		float32_t han_value = 0.5f * (1.0f - cosf(2 * PI * i / (length - 1)));
+		signal[i] *= han_value;
+	}
+}
+
+void find_peaks(float32_t* data, uint32_t length, int32_t* peaks, uint32_t* num_peaks) {
+    float32_t threshold = 0; // Adjust if needed
+    *num_peaks = 0;
+
+    for (uint32_t i = 1; i < length - 1; ++i) {
+        if (data[i] > threshold && data[i] > data[i-1] && data[i] > data[i+1]) {
+            peaks[*num_peaks] = i;
+            (*num_peaks)++;
+        }
+    }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -157,13 +177,17 @@ int main(void)
 
   arm_rfft_fast_init_f32(&fftHandler, BUFFER_LENGTH);
 
-  float32_t FFT_IN[BUFFER_LENGTH];
+  float32_t signal[BUFFER_LENGTH];
   float32_t FFT_OUT[BUFFER_LENGTH];
-  float32_t FFT_MAG[BUFFER_LENGTH/2];
+  float32_t autocorrelation[BUFFER_LENGTH/2];
 
-   volatile uint16_t ADC_BUFFER[BUFFER_LENGTH];
+  uint32_t LOWEST_PERIOD = SAMPLING_RATE / 440; //440hz max
+  uint32_t HIGHEST_PERIOD = SAMPLING_RATE / 60; //60 Hz min (change to 50)
 
-  float32_t freq_resolution = (float32_t)SAMPLING_RATE / (float32_t)BUFFER_LENGTH;
+
+   volatile uint32_t ADC_BUFFER[BUFFER_LENGTH];
+
+//  float32_t freq_resolution = (float32_t)SAMPLING_RATE / (float32_t)BUFFER_LENGTH;
 
   HAL_TIM_Base_Start_IT(&htim1);
 
@@ -174,56 +198,101 @@ int main(void)
   while (1)
   {
 
-	  HAL_ADC_Start_DMA(&hadc1, (uint16_t *) &ADC_BUFFER, BUFFER_LENGTH);
+	  //HAL_ADC_Start_DMA(&hadc1, (uint16_t *) &ADC_BUFFER, BUFFER_LENGTH);
+
+	  //Test signal with harmonics
+	  for (int i = 0; i < BUFFER_LENGTH; ++i){
+		  float32_t r = (float32_t)i / (float32_t)SAMPLING_RATE;
+		  r *= 3.14158265359 * 2;
+		  r *= 82; //Hz
+
+		  float32_t s = sin(r); //+ sin(r*4) * 0.5 + sin(r*3) * 0.25;
+		  signal[i] = s;
+	  }
 
 
-//	  for (i = 0; i < BUFFER_LENGTH; ++i){
-//		  float32_t r = (float32_t)i / (float32_t)SAMPLING_RATE;
-//		  r *= 3.14158265359 * 2;
-//		  r *= 400; //Hz
-//
-//		  float32_t s = sin(r) + sin(r*4) * 0.5 + sin(r*3) * 0.25;
-//		  FFT_IN[i] = s;
+	  //while(convFlag == 0) {;}
+
+
+//	  for(int i = 0; i < BUFFER_LENGTH; i++) {
+//		  signal[i] = (double)(ADC_BUFFER[i]);
 //	  }
 
 
-	  while(convFlag == 0) {;}
-	  for(int i = 0; i < BUFFER_LENGTH; i++) {
-		  FFT_IN[i] = (double)(ADC_BUFFER[i]);
+	  apply_hanning_window(&signal, BUFFER_LENGTH);
+
+
+	  arm_rfft_fast_f32(&fftHandler, &signal, &FFT_OUT, 0);
+
+	  //Apply inverse fft to get autocorrelated signal (1 = ifft)
+	  //float32_t REAL_FFT[BUFFER_LENGTH/2];
+	  arm_cmplx_mag_squared_f32(FFT_OUT,FFT_OUT,BUFFER_LENGTH/2);
+	  arm_rfft_fast_f32(&fftHandler, FFT_OUT, autocorrelation, 1);
+
+	  //Normalize 1/N
+	  for(int i = 0; i < BUFFER_LENGTH/2; ++i){
+		  autocorrelation[i] /= BUFFER_LENGTH;
 	  }
 
+	  uint32_t peaks[BUFFER_LENGTH/2];
+	  uint32_t num_peaks = 0;
 
-	  arm_rfft_fast_f32(&fftHandler, &FFT_IN, &FFT_OUT, 0);
-	  arm_cmplx_mag_f32(FFT_OUT,FFT_MAG,BUFFER_LENGTH/2);
-
-	  //Set freq below 50 Hz = 0
-	  for(int i = 0; i < 50; i++) {
-		  FFT_MAG[i] = 0;
-	  }
+	  find_peaks(autocorrelation, BUFFER_LENGTH/2, peaks, &num_peaks);
 
 
-	  //Set freq above 500 Hz = 0
-	  for(int i =500; i< BUFFER_LENGTH; ++i){
-		  FFT_MAG[i] = 0;
-	  }
+	  //I DONT THINK THE CODE BELOW IS CORRECTLY IMPLEMENTING THE PYTHON CODE AND GETTING VALID PEAKS
+	 //GOD DAMMIT I FUKING HATE C MAN WHY CANT I JUST LOGICALLY INDEX OR USE VECTORS AT THE VERY LEAST
 
-	  uint32_t maxInd[8];
-	  float32_t FFT_M[BUFFER_LENGTH/2];
-	  for(int i =0; i < BUFFER_LENGTH/2; ++i){
-		  FFT_M[i] = FFT_MAG[i];
-	  }
-	  maxIndex(&FFT_M[0], &maxInd, 50, 450);
+	  float32_t freq = 0.0f;
+	     if (num_peaks > 0) {
+	         // Get the highest valid peak
+	         uint32_t valid_peak_index = 0;
+	         float32_t max_value = -99999;
+	         for (uint32_t i = 0; i < num_peaks; ++i) {
+	             int32_t peak = peaks[i];
+	             //peak greater than lowest period and smaller than largest possible period
+	             if (peak > LOWEST_PERIOD && peak < HIGHEST_PERIOD) {
+	                 if (autocorrelation[peak] > max_value) {
+	                     valid_peak_index = peak;
+	                     max_value = autocorrelation[peak];
+	                 }
+	             }
+	         }
+	         if (max_value > -99999) {
+	             freq = (float32_t)SAMPLING_RATE / valid_peak_index;
+	         }
+	     }
 
-	  uint32_t minInd = maxInd[0];
-	  float32_t minInd_Val = FFT_MAG[minInd];
-
-	  //for(int i = 0; i < 6)
-
-	  //uint32_t minInd, minVal;
-	  //arm_min_f32(&maxInd, 6, &minInd, &minVal);
-
-
-	  float32_t freq_at_max = minInd * freq_resolution;
+	     float32_t fundamental_freq = freq;
+//
+//	  //Set freq below 50 Hz = 0
+//	  for(int i = 0; i < 50; i++) {
+//		  FFT_MAG[i] = 0;
+//	  }
+//
+//
+//	  //Set freq above 500 Hz = 0
+//	  for(int i =500; i< BUFFER_LENGTH; ++i){
+//		  FFT_MAG[i] = 0;
+//	  }
+//
+//	  uint32_t maxInd[8];
+//	  float32_t FFT_M[BUFFER_LENGTH/2];
+//	  for(int i =0; i < BUFFER_LENGTH/2; ++i){
+//		  FFT_M[i] = FFT_MAG[i];
+//	  }
+//	  maxIndex(&FFT_M[0], &maxInd, 50, 450);
+//
+//	  uint32_t minInd = maxInd[0];
+//	  float32_t minInd_Val = FFT_MAG[minInd];
+//
+//	  for(int i = 0; i < 6)
+//
+//	  uint32_t minInd, minVal;
+//	  arm_min_f32(&maxInd, 6, &minInd, &minVal);
+//
+//
+//	  float32_t freq_at_max = minInd * freq_resolution;
 
 	  //j = 0;
 
