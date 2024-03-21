@@ -76,9 +76,9 @@ def autocorrelation_via_fft(x):
 if __name__ == "__main__":
     generated_signal = record_audio(1, SAMPLING_RATE)#generate_signal()
     generated_signal = np.hanning(len(generated_signal)) * generated_signal
-    plot_signal(generated_signal)
+    #plot_signal(generated_signal)
     autocorrelated = autocorrelation_via_fft(generated_signal)#maxAbsoluteScaling(autocorrelationWithShiftingLag(generated_signal))
-    plot_signal(autocorrelated)
+    #plot_signal(autocorrelated)
 
 
     peaks, _ = find_peaks(autocorrelated, height=0)
@@ -99,36 +99,13 @@ if __name__ == "__main__":
     else:
         freq = None  # Handle the case where no valid peak was found
 
-    print("Detected frequency: ", freq)
+    notes = ("E (low)", "A", "D", "G", "B", "E (high)")
+    string_freqs = [82.41, 110.0, 146.83, 196.0, 247, 329.63]
 
+    freqs_normalized = np.abs(string_freqs - freq)
+    index = np.argmin(freqs_normalized)
+    detected_note = notes[index]
+    print(freq)
+    print("Detected string: ", detected_note, " at frequency ", freq, ". Your string is ", freq - string_freqs[index], " Hz off.")
 
-    # peaks, _ = find_peaks(autocorrelated, height=0)
-    # dist = np.diff(peaks)
-    # period = np.median(dist) / SAMPLING_RATE
-    # freq = 1 / period
-
-    # print(freq)
-    ###
-
-    # x = autocorrelated
-    # X = fft(x)
-
-    # X[500:] = 0
-
-
-
-    # N = len(X)
-    # n = np.arange(N)
-    # T = N/SAMPLING_RATE
-    # freq = n/T 
-
-    # plt.figure(figsize = (12, 6))
-    # plt.subplot(121)
-
-    # plt.stem(freq, np.abs(X), 'b', \
-    #         markerfmt=" ", basefmt="-b")
-    # plt.xlabel('Freq (Hz)')
-    # plt.ylabel('FFT Amplitude |X(freq)|')
-    # plt.show()
-
-
+ 
