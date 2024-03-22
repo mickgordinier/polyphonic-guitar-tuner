@@ -116,6 +116,18 @@ void apply_hanning_window(float32_t * signal, uint32_t length){
 	}
 }
 
+//void find_peaks(float32_t* data, uint32_t length, int32_t* peaks, uint32_t* num_peaks) {
+//    float32_t threshold = 0.3; // Adjust if needed
+//    *num_peaks = 0;
+//
+//    for (uint32_t i = 1; i < length - 1; ++i) {
+//        if (data[i] > threshold && data[i] > data[i-1] && data[i] > data[i+1]) {
+//            peaks[*num_peaks] = i;
+//            (*num_peaks)++;
+//        }
+//    }
+//}
+
 void find_peaks(float32_t* data, uint32_t length, int32_t* peaks, uint32_t* num_peaks) {
     float32_t threshold = 0; // Adjust if needed
     *num_peaks = 0;
@@ -126,6 +138,47 @@ void find_peaks(float32_t* data, uint32_t length, int32_t* peaks, uint32_t* num_
             (*num_peaks)++;
         }
     }
+}
+
+
+void autocorrelate(float32_t* x, uint32_t N, float32_t* autocorrelation) {
+    float32_t* p_fft_input;
+    float32_t* p_fft_output;
+    arm_rfft_fast_instance_f32 fftInstance;
+
+    // Allocate memory for the input and output arrays
+    p_fft_input = (float32_t *)malloc(sizeof(float32_t) * N * 2);  // FFT input is 2x for complex numbers
+    p_fft_output = (float32_t *)malloc(sizeof(float32_t) * N * 2); // FFT output is also 2x for complex numbers
+
+    // Initialize the FFT instance
+    arm_rfft_fast_init_f32(&fftInstance, N);
+
+    // Zero-pad the input array and copy the real signal into the input array
+    for (uint32_t i = 0; i < N; ++i) {
+        p_fft_input[i * 2] = x[i];     // Real part
+        p_fft_input[i * 2 + 1] = 0.0f; // Imaginary part, which is zero
+    }
+
+    // Calculate the FFT
+    arm_rfft_fast_f32(&fftInstance, p_fft_input, p_fft_output, 0);
+
+    // Calculate the power spectrum (magnitude squared)
+    for (uint32_t i = 0; i < N; ++i) {
+        arm_cmplx_mag_squared_f32(&p_fft_output[i * 2], &p_fft_output[i], 1);
+    }
+
+    // Inverse FFT to get autocorrelation
+    // Since the input is power spectrum (real-valued), output array can be smaller
+    arm_rfft_fast_f32(&fftInstance, p_fft_output, autocorrelation, 1);
+
+    // Normalize the output by the number of points
+    for (uint32_t i = 0; i < N; ++i) {
+        autocorrelation[i] /= (float32_t)N;
+    }
+
+    // Free the malloc'ed memory
+    free(p_fft_input);
+    free(p_fft_output);
 }
 
 /* USER CODE END 0 */
@@ -175,14 +228,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  arm_rfft_fast_init_f32(&fftHandler, BUFFER_LENGTH);
+  //arm_rfft_fast_init_f32(&fftHandler, BUFFER_LENGTH);
 
   float32_t signal[BUFFER_LENGTH];
   float32_t FFT_OUT[BUFFER_LENGTH];
-  float32_t autocorrelation[BUFFER_LENGTH/2];
+  float32_t autocorrelation[BUFFER_LENGTH];
 
   uint32_t LOWEST_PERIOD = SAMPLING_RATE / 440; //440hz max
-  uint32_t HIGHEST_PERIOD = SAMPLING_RATE / 60; //60 Hz min (change to 50)
+  uint32_t HIGHEST_PERIOD = SAMPLING_RATE / 50; //60 Hz min (change to 50)
 
 
    volatile uint32_t ADC_BUFFER[BUFFER_LENGTH];
@@ -222,44 +275,49 @@ int main(void)
 	  apply_hanning_window(&signal, BUFFER_LENGTH);
 
 
-	  arm_rfft_fast_f32(&fftHandler, &signal, &FFT_OUT, 0);
+	  /////////////TEST
+	  autocorrelate(signal, BUFFER_LENGTH,  autocorrelation);
+	  /////////////
 
-	  //Apply inverse fft to get autocorrelated signal (1 = ifft)
-	  //float32_t REAL_FFT[BUFFER_LENGTH/2];
-	  arm_cmplx_mag_squared_f32(FFT_OUT,FFT_OUT,BUFFER_LENGTH/2);
-	  arm_rfft_fast_f32(&fftHandler, FFT_OUT, autocorrelation, 1);
+
+
+//	  arm_rfft_fast_f32(&fftHandler, &signal, &FFT_OUT, 0);
+//
+//	  //Apply inverse fft to get autocorrelated signal (1 = ifft
+//	  float32_t MAG_SQUARED[BUFFER_LENGTH/2];
+//	  arm_cmplx_mag_squared_f32(FFT_OUT,MAG_SQUARED,BUFFER_LENGTH/2);
+//
+//	  arm_rfft_fast_f32(&fftHandler, FFT_OUT, autocorrelation, 1);
 
 	  //Normalize 1/N
-	  for(int i = 0; i < BUFFER_LENGTH/2; ++i){
-		  autocorrelation[i] /= BUFFER_LENGTH;
-	  }
+//	  for(int i = 0; i < BUFFER_LENGTH/2; ++i){
+//		  autocorrelation[i] /= BUFFER_LENGTH;
+//	  }
+
 
 	  uint32_t peaks[BUFFER_LENGTH/2];
 	  uint32_t num_peaks = 0;
 
-	  find_peaks(autocorrelation, BUFFER_LENGTH/2, peaks, &num_peaks);
+	  find_peaks(autocorrelation, BUFFER_LENGTH/2, peaks, &num_peaks); //returns peak indices
 
-
-	  //I DONT THINK THE CODE BELOW IS CORRECTLY IMPLEMENTING THE PYTHON CODE AND GETTING VALID PEAKS
-	 //GOD DAMMIT I FUKING HATE C MAN WHY CANT I JUST LOGICALLY INDEX OR USE VECTORS AT THE VERY LEAST
 
 	  float32_t freq = 0.0f;
 	     if (num_peaks > 0) {
 	         // Get the highest valid peak
-	         uint32_t valid_peak_index = 0;
-	         float32_t max_value = -99999;
+	         uint32_t max_peak_index = 0;
+	         float32_t max_value = 0;
 	         for (uint32_t i = 0; i < num_peaks; ++i) {
 	             int32_t peak = peaks[i];
 	             //peak greater than lowest period and smaller than largest possible period
-	             if (peak > LOWEST_PERIOD && peak < HIGHEST_PERIOD) {
+	             if (peak > LOWEST_PERIOD && peak < HIGHEST_PERIOD) { //if valid peak
 	                 if (autocorrelation[peak] > max_value) {
-	                     valid_peak_index = peak;
+	                     max_peak_index = peak;
 	                     max_value = autocorrelation[peak];
 	                 }
 	             }
 	         }
-	         if (max_value > -99999) {
-	             freq = (float32_t)SAMPLING_RATE / valid_peak_index;
+	         if (max_value > 0) {
+	             freq = (float32_t)SAMPLING_RATE / max_peak_index;
 	         }
 	     }
 
