@@ -116,17 +116,6 @@ void apply_hanning_window(float32_t * signal, uint32_t length){
 	}
 }
 
-//void find_peaks(float32_t* data, uint32_t length, int32_t* peaks, uint32_t* num_peaks) {
-//    float32_t threshold = 0.3; // Adjust if needed
-//    *num_peaks = 0;
-//
-//    for (uint32_t i = 1; i < length - 1; ++i) {
-//        if (data[i] > threshold && data[i] > data[i-1] && data[i] > data[i+1]) {
-//            peaks[*num_peaks] = i;
-//            (*num_peaks)++;
-//        }
-//    }
-//}
 
 void find_peaks(float32_t* data, uint32_t length, int32_t* peaks, uint32_t* num_peaks) {
     float32_t threshold = 0; // Adjust if needed
@@ -142,43 +131,29 @@ void find_peaks(float32_t* data, uint32_t length, int32_t* peaks, uint32_t* num_
 
 
 void autocorrelate(float32_t* x, uint32_t N, float32_t* autocorrelation) {
-    float32_t* p_fft_input;
-    float32_t* p_fft_output;
+
     arm_rfft_fast_instance_f32 fftInstance;
 
-    // Allocate memory for the input and output arrays
-    p_fft_input = (float32_t *)malloc(sizeof(float32_t) * N * 2);  // FFT input is 2x for complex numbers
-    p_fft_output = (float32_t *)malloc(sizeof(float32_t) * N * 2); // FFT output is also 2x for complex numbers
 
     // Initialize the FFT instance
     arm_rfft_fast_init_f32(&fftInstance, N);
 
-    // Zero-pad the input array and copy the real signal into the input array
-    for (uint32_t i = 0; i < N; ++i) {
-        p_fft_input[i * 2] = x[i];     // Real part
-        p_fft_input[i * 2 + 1] = 0.0f; // Imaginary part, which is zero
+    float32_t output[N];
+    arm_rfft_fast_f32(&fftInstance, x, output, 0);
+
+    float32_t power_spectrum[N/2];
+    //arm_cmplx_mag_squared_f32(output, power_spectrum, N/2);
+    power_spectrum[0] = output[0] * output[0];
+    power_spectrum[1] = output[1] * output[1];
+
+    // Rest of the frequency bins (upto N/2)
+    for (uint32_t i = 1; i < N / 2; ++i) {
+        power_spectrum[2 * i] = output[2 * i] * output[2 * i] + output[2 * i + 1] * output[2 * i + 1]; // Real part
+        power_spectrum[2 * i + 1] = 0; // Imaginary part is 0
     }
 
-    // Calculate the FFT
-    arm_rfft_fast_f32(&fftInstance, p_fft_input, p_fft_output, 0);
+    arm_rfft_fast_f32(&fftInstance, power_spectrum, autocorrelation, 1);
 
-    // Calculate the power spectrum (magnitude squared)
-    for (uint32_t i = 0; i < N; ++i) {
-        arm_cmplx_mag_squared_f32(&p_fft_output[i * 2], &p_fft_output[i], 1);
-    }
-
-    // Inverse FFT to get autocorrelation
-    // Since the input is power spectrum (real-valued), output array can be smaller
-    arm_rfft_fast_f32(&fftInstance, p_fft_output, autocorrelation, 1);
-
-    // Normalize the output by the number of points
-    for (uint32_t i = 0; i < N; ++i) {
-        autocorrelation[i] /= (float32_t)N;
-    }
-
-    // Free the malloc'ed memory
-    free(p_fft_input);
-    free(p_fft_output);
 }
 
 /* USER CODE END 0 */
@@ -251,49 +226,31 @@ int main(void)
   while (1)
   {
 
-	  //HAL_ADC_Start_DMA(&hadc1, (uint16_t *) &ADC_BUFFER, BUFFER_LENGTH);
+	  HAL_ADC_Start_DMA(&hadc1, (uint16_t *) &ADC_BUFFER, BUFFER_LENGTH);
 
 	  //Test signal with harmonics
-	  for (int i = 0; i < BUFFER_LENGTH; ++i){
-		  float32_t r = (float32_t)i / (float32_t)SAMPLING_RATE;
-		  r *= 3.14158265359 * 2;
-		  r *= 82; //Hz
-
-		  float32_t s = sin(r); //+ sin(r*4) * 0.5 + sin(r*3) * 0.25;
-		  signal[i] = s;
-	  }
-
-
-	  //while(convFlag == 0) {;}
-
-
-//	  for(int i = 0; i < BUFFER_LENGTH; i++) {
-//		  signal[i] = (double)(ADC_BUFFER[i]);
+//	  for (int i = 0; i < BUFFER_LENGTH; ++i){
+//		  float32_t r = (float32_t)i / (float32_t)SAMPLING_RATE;
+//		  r *= 3.14158265359 * 2;
+//		  r *= 110; //Hz
+//
+//		  float32_t s = sin(r); //+ sin(r*4) * 0.5 + sin(r*3) * 0.25;
+//		  signal[i] = s;
 //	  }
+
+
+	  while(convFlag == 0) {;}
+
+
+	  for(int i = 0; i < BUFFER_LENGTH; i++) {
+		  signal[i] = (double)(ADC_BUFFER[i]);
+	  }
 
 
 	  apply_hanning_window(&signal, BUFFER_LENGTH);
 
 
-	  /////////////TEST
 	  autocorrelate(signal, BUFFER_LENGTH,  autocorrelation);
-	  /////////////
-
-
-
-//	  arm_rfft_fast_f32(&fftHandler, &signal, &FFT_OUT, 0);
-//
-//	  //Apply inverse fft to get autocorrelated signal (1 = ifft
-//	  float32_t MAG_SQUARED[BUFFER_LENGTH/2];
-//	  arm_cmplx_mag_squared_f32(FFT_OUT,MAG_SQUARED,BUFFER_LENGTH/2);
-//
-//	  arm_rfft_fast_f32(&fftHandler, FFT_OUT, autocorrelation, 1);
-
-	  //Normalize 1/N
-//	  for(int i = 0; i < BUFFER_LENGTH/2; ++i){
-//		  autocorrelation[i] /= BUFFER_LENGTH;
-//	  }
-
 
 	  uint32_t peaks[BUFFER_LENGTH/2];
 	  uint32_t num_peaks = 0;
@@ -322,37 +279,6 @@ int main(void)
 	     }
 
 	     float32_t fundamental_freq = freq;
-//
-//	  //Set freq below 50 Hz = 0
-//	  for(int i = 0; i < 50; i++) {
-//		  FFT_MAG[i] = 0;
-//	  }
-//
-//
-//	  //Set freq above 500 Hz = 0
-//	  for(int i =500; i< BUFFER_LENGTH; ++i){
-//		  FFT_MAG[i] = 0;
-//	  }
-//
-//	  uint32_t maxInd[8];
-//	  float32_t FFT_M[BUFFER_LENGTH/2];
-//	  for(int i =0; i < BUFFER_LENGTH/2; ++i){
-//		  FFT_M[i] = FFT_MAG[i];
-//	  }
-//	  maxIndex(&FFT_M[0], &maxInd, 50, 450);
-//
-//	  uint32_t minInd = maxInd[0];
-//	  float32_t minInd_Val = FFT_MAG[minInd];
-//
-//	  for(int i = 0; i < 6)
-//
-//	  uint32_t minInd, minVal;
-//	  arm_min_f32(&maxInd, 6, &minInd, &minVal);
-//
-//
-//	  float32_t freq_at_max = minInd * freq_resolution;
-
-	  //j = 0;
 
 	  convFlag = 0;
 
