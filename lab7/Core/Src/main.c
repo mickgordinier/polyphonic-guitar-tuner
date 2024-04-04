@@ -26,6 +26,8 @@
 #include "arm_math.h"
 #include "math.h"
 #include <stdint.h>
+#include <stdio.h>
+#include <string.h>
 
 
 #define BUFFER_LENGTH 4096
@@ -91,24 +93,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
 }
 
 
-void maxIndex(float32_t * fftStart, uint32_t * maxIndices, int start, int length) {
-
-	int maxVal, maxInd;
-
-	fftStart += start;
-
-	for(int i = 0; i < 8; ++i){
-
-		arm_max_f32(fftStart, length, &maxVal, &maxInd);
-		maxIndices[i] = maxInd + start;
-
-		//sample without replacement
-		fftStart[maxInd] = 0;
-	}
-
-
-}
-
 void apply_hanning_window(float32_t * signal, uint32_t length){
 	for (int i = 0; i < length; ++i){
 		float32_t han_value = 0.5f * (1.0f - cosf(2 * PI * i / (length - 1)));
@@ -128,6 +112,7 @@ void find_peaks(float32_t* data, uint32_t length, int32_t* peaks, uint32_t* num_
         }
     }
 }
+
 
 
 void autocorrelate(float32_t* x, uint32_t N, float32_t* autocorrelation) {
@@ -170,9 +155,13 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
 	convFlag = 0;
-
-	float32_t string_freqs[6] = {329.63, 246.94, 196.0, 146.83, 110.0, 82.41};
-	float32_t measured_freqs[6];
+	//E (low), A, D, G, B, E (high)
+	float32_t string_freqs[6] = {82.41, 110.0, 146.83, 196.0, 246.94, 329.63};
+	float32_t measured_freq;
+	char *strings[] = {"E (low)", "A", "D", "G", "B", "E (high)" };
+	char * E_high = "E (high)";
+	char *detected_string;
+	float32_t string_offset;
 
   /* USER CODE END 1 */
 
@@ -209,7 +198,6 @@ int main(void)
   //arm_rfft_fast_init_f32(&fftHandler, BUFFER_LENGTH);
 
   float32_t signal[BUFFER_LENGTH];
-  float32_t FFT_OUT[BUFFER_LENGTH];
   float32_t autocorrelation[BUFFER_LENGTH];
 
   uint32_t LOWEST_PERIOD = SAMPLING_RATE / 440; //440hz max
@@ -277,11 +265,42 @@ int main(void)
 	             }
 	         }
 	         if (max_value > 0) {
-	             freq = (float32_t)SAMPLING_RATE / max_peak_index;
+	             measured_freq = (float32_t)SAMPLING_RATE / max_peak_index;
 	         }
 	     }
 
-	     float32_t fundamental_freq = freq;
+
+	     //Match frequency to string
+
+	     //find smallest magnitude of distance
+	     float32_t min_freqs[6];
+	     for(int i = 0; i < 6; ++i){
+	    	 min_freqs[i] = string_freqs[i] - measured_freq;
+	     }
+
+	     arm_abs_f32(min_freqs, min_freqs, 6);
+
+	     //find the argmin
+	     float32_t current_min = min_freqs[0];
+	     uint8_t index = 0;;
+	     for(int i = 0; i < 6; ++i){
+	    	 if (min_freqs[i] < current_min){
+	    		 current_min = min_freqs[i];
+	    		 index = i;
+	    	 }
+	     }
+
+	     //assign detected string
+	     detected_string = strings[index];
+
+	     //manually compensate for high E being off
+	     if(strcmp(detected_string, E_high) == 0){
+	    	measured_freq += 2.0; //subject to change, but add 2Hz
+	     }
+
+	     string_offset = measured_freq - string_freqs[index];
+
+
 
 	  convFlag = 0;
 
