@@ -33,9 +33,6 @@
 #define BUFFER_LENGTH 4096
 #define SAMPLING_RATE 20000
 
-#define PROCESSOR_CLOCK 4000000
-#define PRESCALER 8
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -322,12 +319,6 @@ int main(void)
 
 	     string_offset = measured_freq - string_freqs[index];
 
-
-	      set_motor_speed(44);
-
-	     for (int i = 0; i < 1000000; ++i);
-
-	     //set_motor_speed(55);
 
 
 	  convFlag = 0;

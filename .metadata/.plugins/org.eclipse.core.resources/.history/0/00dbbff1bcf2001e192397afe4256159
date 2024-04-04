@@ -322,12 +322,13 @@ int main(void)
 
 	     string_offset = measured_freq - string_freqs[index];
 
+	     for (int i = 0; i < delay_num; ++i);
 
-	      set_motor_speed(44);
+	      set_motor_speed(40);
 
-	     for (int i = 0; i < 1000000; ++i);
+	     for (int i = 0; i < delay_num; ++i);
 
-	     //set_motor_speed(55);
+	     set_motor_speed(70);
 
 
 	  convFlag = 0;

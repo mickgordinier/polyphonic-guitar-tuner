@@ -323,7 +323,7 @@ int main(void)
 	     string_offset = measured_freq - string_freqs[index];
 
 
-	      set_motor_speed(44);
+	      set_motor_speed(45);
 
 	     for (int i = 0; i < 1000000; ++i);
 

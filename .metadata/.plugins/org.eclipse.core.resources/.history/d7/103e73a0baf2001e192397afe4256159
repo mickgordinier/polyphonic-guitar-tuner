@@ -33,9 +33,6 @@
 #define BUFFER_LENGTH 4096
 #define SAMPLING_RATE 20000
 
-#define PROCESSOR_CLOCK 4000000
-#define PRESCALER 8
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -149,20 +146,6 @@ void autocorrelate(float32_t* x, uint32_t N, float32_t* autocorrelation) {
     arm_abs_f32(autocorrelation, autocorrelation, BUFFER_LENGTH);
 }
 
-
-void set_motor_speed(int motor_speed) {
-  // Can change motorspeed from 0 - 100
-  // 0 = Full Clockwise Rotation
-  // 50 = No Rotation
-  // 100 = Full Counterclockwise Rotation
-
-  // converting motor speed to pulse width (in ms)
-  double pulse_width = (1.28) + (0.44 * ((double)motor_speed/100));
-
-  int temp_ccr2 = (pulse_width / 1000) * (PROCESSOR_CLOCK / PRESCALER);
-
-  TIM4->CCR2 = temp_ccr2;
-}
 /* USER CODE END 0 */
 
 /**
@@ -229,8 +212,6 @@ int main(void)
 //  float32_t freq_resolution = (float32_t)SAMPLING_RATE / (float32_t)BUFFER_LENGTH;
 
   HAL_TIM_Base_Start_IT(&htim1);
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
-
 
   /* USER CODE END 2 */
 
@@ -322,12 +303,6 @@ int main(void)
 
 	     string_offset = measured_freq - string_freqs[index];
 
-
-	      set_motor_speed(44);
-
-	     for (int i = 0; i < 1000000; ++i);
-
-	     //set_motor_speed(55);
 
 
 	  convFlag = 0;
