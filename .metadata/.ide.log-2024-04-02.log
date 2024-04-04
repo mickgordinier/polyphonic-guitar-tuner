@@ -1,0 +1,1285 @@
+2024-04-02 13:22:52,290 [INFO] Activator:176 - 
+
+
+2024-04-02 13:22:52,306 [INFO] Activator:177 - !SESSION log4j initialized
+2024-04-02 13:23:01,096 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-04-02 13:23:02,827 [INFO] ApplicationProperties:184 - Using Application install path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037
+2024-04-02 13:23:02,849 [INFO] DbMcusXml:78 - Set database path to: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\/mcu/
+2024-04-02 13:23:02,850 [INFO] ApiDb:274 - Set plugin database path to: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\/plugins/boardmanager/
+2024-04-02 13:23:02,850 [WARN] ApiDb:259 - Overriding images path with different value:  => C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\/plugins/mcufinder/images/
+2024-04-02 13:23:02,858 [INFO] ApiDb:250 - Set database path to: C:\Users\nates\.stmcufinder\plugins\mcufinder//mcu/
+2024-04-02 13:23:02,859 [INFO] DbMcusAds:125 - Set database path to: C:\Users\nates\.stmcufinder\plugins\mcufinder//mcu/
+2024-04-02 13:23:02,861 [INFO] CrossReferenceDbSqlite:203 - Set database path to: C:\Users\nates\.stmcufinder\plugins\mcufinder//mcu/cs/
+2024-04-02 13:23:02,995 [INFO] RulesReader:64 - Compatibility file has been processed (297 Rules)
+2024-04-02 13:23:03,099 [INFO] DbMcusXml:78 - Set database path to: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\/mcu/
+2024-04-02 13:23:03,099 [INFO] ApiDb:274 - Set plugin database path to: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\/plugins/boardmanager/
+2024-04-02 13:23:03,099 [INFO] ApiDb:261 - Set plugin images path to: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\/plugins/mcufinder/images/
+2024-04-02 13:23:03,100 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\nates\.stmcufinder\plugins\mcufinder/ => C:\Users\nates\.stmcufinder\plugins\mcufinder
+2024-04-02 13:23:03,100 [INFO] ApiDb:250 - Set database path to: C:\Users\nates\.stmcufinder\plugins\mcufinder//mcu/
+2024-04-02 13:23:03,100 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\nates\.stmcufinder\plugins\mcufinder/ => C:\Users\nates\.stmcufinder\plugins\mcufinder
+2024-04-02 13:23:03,100 [INFO] DbMcusAds:125 - Set database path to: C:\Users\nates\.stmcufinder\plugins\mcufinder//mcu/
+2024-04-02 13:23:03,100 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\nates\.stmcufinder\plugins\mcufinder/ => C:\Users\nates\.stmcufinder\plugins\mcufinder
+2024-04-02 13:23:03,100 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\nates\.stmcufinder\plugins\mcufinder/ => C:\Users\nates\.stmcufinder\plugins\mcufinder
+2024-04-02 13:23:03,100 [INFO] CrossReferenceDbSqlite:203 - Set database path to: C:\Users\nates\.stmcufinder\plugins\mcufinder//mcu/cs/
+2024-04-02 13:23:03,185 [INFO] MainPanel:264 - HeapMemory: 268435456
+2024-04-02 13:23:03,290 [INFO] DbMcusXml:78 - Set database path to: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\/mcu/
+2024-04-02 13:23:03,291 [INFO] ApiDb:274 - Set plugin database path to: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\/plugins/boardmanager/
+2024-04-02 13:23:03,291 [INFO] ApiDb:261 - Set plugin images path to: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\/plugins/mcufinder/images/
+2024-04-02 13:23:03,291 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\nates\.stmcufinder\plugins\mcufinder/ => C:\Users\nates\.stmcufinder\plugins\mcufinder
+2024-04-02 13:23:03,291 [INFO] ApiDb:250 - Set database path to: C:\Users\nates\.stmcufinder\plugins\mcufinder//mcu/
+2024-04-02 13:23:03,291 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\nates\.stmcufinder\plugins\mcufinder/ => C:\Users\nates\.stmcufinder\plugins\mcufinder
+2024-04-02 13:23:03,291 [INFO] DbMcusAds:125 - Set database path to: C:\Users\nates\.stmcufinder\plugins\mcufinder//mcu/
+2024-04-02 13:23:03,292 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\nates\.stmcufinder\plugins\mcufinder/ => C:\Users\nates\.stmcufinder\plugins\mcufinder
+2024-04-02 13:23:03,292 [WARN] DbFile:41 - Overriding database path with different value: C:\Users\nates\.stmcufinder\plugins\mcufinder/ => C:\Users\nates\.stmcufinder\plugins\mcufinder
+2024-04-02 13:23:03,292 [INFO] CrossReferenceDbSqlite:203 - Set database path to: C:\Users\nates\.stmcufinder\plugins\mcufinder//mcu/cs/
+2024-04-02 13:23:03,335 [INFO] ApplicationProperties:184 - Using Application install path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037
+2024-04-02 13:23:03,338 [INFO] PluginManage:196 - Search for loadable plugins [exclusion list=, ]
+2024-04-02 13:23:03,340 [INFO] PluginManage:310 - Check plugin analytics
+2024-04-02 13:23:03,512 [INFO] AnalyticsPlugin:253 - Accepted Software Licenses: 
+2024-04-02 13:23:03,512 [INFO] AnalyticsPlugin:255 - Accepted CMSIS Pack Licenses: STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 13:23:03,512 [INFO] AnalyticsPlugin:257 - Accepted Firmware Licenses: FW.G0.1.6.0,FW.L4.1.18.0
+2024-04-02 13:23:03,515 [INFO] PluginManage:359 - Loaded plugin analytics (category:tool,tabindex:-1)
+2024-04-02 13:23:03,516 [INFO] PluginManage:310 - Check plugin cadmodel
+2024-04-02 13:23:03,530 [INFO] CADModel:105 - Init CAD model plugin
+2024-04-02 13:23:03,530 [INFO] PluginManage:359 - Loaded plugin cadmodel (category:power,tabindex:5)
+2024-04-02 13:23:03,530 [INFO] PluginManage:310 - Check plugin clock
+2024-04-02 13:23:03,549 [INFO] PluginManage:359 - Loaded plugin clock (category:base,tabindex:2)
+2024-04-02 13:23:03,550 [INFO] PluginManage:310 - Check plugin ddr
+2024-04-02 13:23:03,553 [INFO] PluginManage:359 - Loaded plugin ddr (category:tool,tabindex:6)
+2024-04-02 13:23:03,553 [INFO] PluginManage:310 - Check plugin filemanager
+2024-04-02 13:23:03,702 [INFO] PluginManage:359 - Loaded plugin filemanager (category:base,tabindex:10)
+2024-04-02 13:23:03,702 [INFO] PluginManage:310 - Check plugin ipmanager
+2024-04-02 13:23:03,718 [INFO] PluginManage:359 - Loaded plugin ipmanager (category:base,tabindex:5)
+2024-04-02 13:23:03,718 [INFO] PluginManage:310 - Check plugin lpbam
+2024-04-02 13:23:03,736 [INFO] PluginManage:359 - Loaded plugin lpbam (category:base,tabindex:0)
+2024-04-02 13:23:03,736 [INFO] PluginManage:310 - Check plugin memorymap
+2024-04-02 13:23:03,759 [INFO] PluginManage:359 - Loaded plugin memorymap (category:base,tabindex:4)
+2024-04-02 13:23:03,760 [INFO] PluginManage:310 - Check plugin pinoutandconfiguration
+2024-04-02 13:23:03,777 [INFO] PluginManage:359 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2024-04-02 13:23:03,777 [INFO] PluginManage:310 - Check plugin pinoutconfig
+2024-04-02 13:23:03,886 [WARN] SupportedApi:132 - Cannot load RTOS API schema: s4s-elt-must-match.1: The content of 'definitions' must match (annotation?, (simpleType | complexType)?, (unique | key | keyref)*)). A problem was found starting at: attribute.
+2024-04-02 13:23:04,024 [INFO] PluginManage:359 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2024-04-02 13:23:04,024 [INFO] PluginManage:310 - Check plugin power
+2024-04-02 13:23:04,046 [INFO] PluginManage:359 - Loaded plugin power (category:power,tabindex:4)
+2024-04-02 13:23:04,046 [INFO] PluginManage:310 - Check plugin projectmanager
+2024-04-02 13:23:04,062 [INFO] PluginManage:359 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2024-04-02 13:23:04,062 [INFO] PluginManage:310 - Check plugin thirdparty
+2024-04-02 13:23:04,343 [INFO] PluginManage:359 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2024-04-02 13:23:04,343 [WARN] IntegrityCheckThread:84 - waiting for thirdparty lock release [integrity check]
+2024-04-02 13:23:04,352 [INFO] PluginManage:310 - Check plugin tools
+2024-04-02 13:23:04,352 [INFO] IntegrityCheckThread:86 - entering critical section [integrity check]
+2024-04-02 13:23:04,353 [INFO] ThirdPartyUpdaterWithRetryManager:70 - Updater plugin not ready yet. [1/15]
+2024-04-02 13:23:04,388 [INFO] PluginManage:359 - Loaded plugin tools (category:base,tabindex:7)
+2024-04-02 13:23:04,388 [INFO] PluginManage:310 - Check plugin tutovideos
+2024-04-02 13:23:04,595 [INFO] PluginManage:359 - Loaded plugin tutovideos (category:base,tabindex:-1)
+2024-04-02 13:23:04,596 [INFO] PluginManage:310 - Check plugin updater
+2024-04-02 13:23:04,606 [INFO] PluginManage:359 - Loaded plugin updater (category:base,tabindex:12)
+2024-04-02 13:23:04,606 [INFO] PluginManage:310 - Check plugin userauth
+2024-04-02 13:23:04,612 [INFO] UserAuth:114 - Init User Auth plugin
+2024-04-02 13:23:04,612 [INFO] PluginManage:359 - Loaded plugin userauth (category:base,tabindex:14)
+2024-04-02 13:23:04,612 [INFO] PluginManage:283 - PluginManage : Loaded plugins [17]
+2024-04-02 13:23:04,821 [INFO] PinOutPanel:1499 - setPackage(No Configuration,No Configuration)
+2024-04-02 13:23:04,900 [INFO] CADModel:165 - CPN selected for project level
+2024-04-02 13:23:04,900 [INFO] CADModel:114 - Register for checkConnection events
+2024-04-02 13:23:04,926 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:04,926 [INFO] PluginManager:220 - loadIPPluginJar : add adc
+2024-04-02 13:23:04,959 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:04,959 [INFO] PluginManager:220 - loadIPPluginJar : add aes
+2024-04-02 13:23:04,995 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:04,995 [INFO] PluginManager:220 - loadIPPluginJar : add can
+2024-04-02 13:23:05,015 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,015 [INFO] PluginManager:220 - loadIPPluginJar : add comp
+2024-04-02 13:23:05,045 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,045 [INFO] PluginManager:220 - loadIPPluginJar : add cryp
+2024-04-02 13:23:05,071 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,071 [INFO] PluginManager:220 - loadIPPluginJar : add dfsdm
+2024-04-02 13:23:05,083 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,084 [INFO] PluginManager:220 - loadIPPluginJar : add dma
+2024-04-02 13:23:05,120 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,120 [INFO] PluginManager:220 - loadIPPluginJar : add dma3
+2024-04-02 13:23:05,137 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,137 [INFO] PluginManager:220 - loadIPPluginJar : add fatfs
+2024-04-02 13:23:05,181 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,181 [INFO] PluginManager:220 - loadIPPluginJar : add fmc
+2024-04-02 13:23:05,197 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,197 [INFO] PluginManager:220 - loadIPPluginJar : add freertos
+2024-04-02 13:23:05,215 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,215 [INFO] PluginManager:220 - loadIPPluginJar : add genericplugin
+2024-04-02 13:23:05,291 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,291 [INFO] PluginManager:220 - loadIPPluginJar : add gfxmmu
+2024-04-02 13:23:05,398 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,398 [INFO] PluginManager:220 - loadIPPluginJar : add gic
+2024-04-02 13:23:05,410 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,411 [INFO] PluginManager:220 - loadIPPluginJar : add gpio
+2024-04-02 13:23:05,493 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,493 [INFO] PluginManager:220 - loadIPPluginJar : add gtzc
+2024-04-02 13:23:05,520 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,520 [INFO] PluginManager:220 - loadIPPluginJar : add hash
+2024-04-02 13:23:05,568 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,568 [INFO] PluginManager:220 - loadIPPluginJar : add i2c
+2024-04-02 13:23:05,601 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,602 [INFO] PluginManager:220 - loadIPPluginJar : add i2s
+2024-04-02 13:23:05,638 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,639 [INFO] PluginManager:220 - loadIPPluginJar : add i3c
+2024-04-02 13:23:05,733 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,733 [INFO] PluginManager:220 - loadIPPluginJar : add ipddr
+2024-04-02 13:23:05,811 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,811 [INFO] PluginManager:220 - loadIPPluginJar : add linkedlist
+2024-04-02 13:23:05,845 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,845 [INFO] PluginManager:220 - loadIPPluginJar : add lorawan
+2024-04-02 13:23:05,877 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,877 [INFO] PluginManager:220 - loadIPPluginJar : add ltdc
+2024-04-02 13:23:05,890 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,890 [INFO] PluginManager:220 - loadIPPluginJar : add mdma
+2024-04-02 13:23:05,901 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,901 [INFO] PluginManager:220 - loadIPPluginJar : add nvic
+2024-04-02 13:23:05,932 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,932 [INFO] PluginManager:220 - loadIPPluginJar : add opamp
+2024-04-02 13:23:05,985 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:05,985 [INFO] PluginManager:220 - loadIPPluginJar : add openamp
+2024-04-02 13:23:06,022 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,022 [INFO] PluginManager:220 - loadIPPluginJar : add pdm2pcm
+2024-04-02 13:23:06,035 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,037 [INFO] PluginManager:220 - loadIPPluginJar : add plateformsettings
+2024-04-02 13:23:06,055 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,056 [INFO] PluginManager:220 - loadIPPluginJar : add quadspi
+2024-04-02 13:23:06,068 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,068 [INFO] PluginManager:220 - loadIPPluginJar : add resmgrutility
+2024-04-02 13:23:06,218 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,219 [INFO] PluginManager:220 - loadIPPluginJar : add sai
+2024-04-02 13:23:06,304 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,304 [INFO] PluginManager:220 - loadIPPluginJar : add spi
+2024-04-02 13:23:06,372 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,372 [INFO] PluginManager:220 - loadIPPluginJar : add stm32_wpan
+2024-04-02 13:23:06,392 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,392 [INFO] PluginManager:220 - loadIPPluginJar : add tim
+2024-04-02 13:23:06,439 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,439 [INFO] PluginManager:220 - loadIPPluginJar : add touchsensing
+2024-04-02 13:23:06,459 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,459 [INFO] PluginManager:220 - loadIPPluginJar : add tracer_emb
+2024-04-02 13:23:06,480 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,480 [INFO] PluginManager:220 - loadIPPluginJar : add ts
+2024-04-02 13:23:06,500 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,500 [INFO] PluginManager:220 - loadIPPluginJar : add tsc
+2024-04-02 13:23:06,522 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,522 [INFO] PluginManager:220 - loadIPPluginJar : add ucpd
+2024-04-02 13:23:06,563 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,563 [INFO] PluginManager:220 - loadIPPluginJar : add usart
+2024-04-02 13:23:06,603 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:23:06,603 [INFO] PluginManager:220 - loadIPPluginJar : add usbx
+2024-04-02 13:23:06,738 [INFO] CADModel:165 - CPN selected for project level
+2024-04-02 13:23:06,739 [INFO] CADModel:114 - Register for checkConnection events
+2024-04-02 13:23:06,739 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-04-02 13:23:06,739 [ERROR] CADModel:125 - Updater not yet initialized, retry later 
+2024-04-02 13:23:06,934 [INFO] CADModel:165 - CPN selected for project level
+2024-04-02 13:23:06,934 [INFO] CADModel:114 - Register for checkConnection events
+2024-04-02 13:23:06,934 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-04-02 13:23:06,934 [ERROR] CADModel:125 - Updater not yet initialized, retry later 
+2024-04-02 13:23:06,938 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-04-02 13:23:07,094 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-04-02 13:23:07,106 [INFO] DbMcusAds:53 - JSON generation date=Wed Nov 29 05:52:27 EST 2023 (1701255147349)
+2024-04-02 13:23:07,106 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-04-02 13:23:07,181 [WARN] DetailPanel:346 - Failed to get advertising image, set to default
+2024-04-02 13:23:07,279 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-04-02 13:23:07,282 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-04-02 13:23:07,282 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-04-02 13:23:07,282 [WARN] DetailPanel:346 - Failed to get advertising image, set to default
+2024-04-02 13:23:07,283 [FATAL] Updater:308 - Updater called before beeing initialized
+2024-04-02 13:23:07,352 [ERROR] Updater:1120 - MainUpdater not yet initialized. External WinMGr cannot be set.
+2024-04-02 13:23:07,353 [INFO] ThirdPartyUpdaterWithRetryManager:70 - Updater plugin not ready yet. [2/15]
+2024-04-02 13:23:07,362 [INFO] Updater:1056 - Updater Version found : 6.10.0
+2024-04-02 13:23:07,378 [INFO] ApplicationProperties:184 - Using Application install path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037
+2024-04-02 13:23:08,957 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Apr 02, 2024 1:23:08 PM java.util.prefs.WindowsPreferences <init>
+2024-04-02 13:23:08,959 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0xffffffff80000002. Windows RegCreateKeyEx(...) returned error code 5.
+2024-04-02 13:23:08,959 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-04-02 13:23:09,234 [INFO] MainUpdater:2873 - connection check result : 10
+2024-04-02 13:23:09,234 [INFO] MainUpdater:3567 - Updater definition file requires update
+2024-04-02 13:23:09,235 [INFO] MainUpdater:290 - Updater Check For Update Now.
+2024-04-02 13:23:09,235 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.100
+2024-04-02 13:23:09,249 [INFO] McuFinderGlobals:63 - Set McuFinder mode to 2 (CubeIDE integrated)
+2024-04-02 13:23:09,250 [INFO] ServerAccessManage:473 - Download File updaters.zip
+2024-04-02 13:23:09,308 [INFO] FileExtend:240 - Unzip File : updaters.zip
+2024-04-02 13:23:09,308 [INFO] FileExtend:255 - Standard Zip Deflate
+2024-04-02 13:23:09,530 [INFO] UserAuth:404 - Internet connection configuration mode: 1
+2024-04-02 13:23:09,597 [INFO] JxBrowserEngine:152 - Initiate JxBrowser Engine with user profile folder
+2024-04-02 13:23:09,744 [INFO] ServerAccessManage:473 - Download File PacksControlFlags.xml
+2024-04-02 13:23:09,851 [INFO] ServerAccessManage:473 - Download File cubemx.pidx
+2024-04-02 13:23:10,353 [WARN] MainUpdater:1194 - Updater busy. Cannot search thirdparties
+2024-04-02 13:23:10,353 [INFO] ThirdPartyUpdaterWithRetryManager:96 - Updater plugin is busy. [1/15]
+2024-04-02 13:23:10,711 [INFO] ServerAccessManage:473 - Download File STMicroelectronics.X-CUBE-TOUCHGFX.pdsc
+2024-04-02 13:23:11,486 [ERROR] ServerAccessManage:1172 - Problem during Server Connection :  IO error PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2024-04-02 13:23:11,487 [ERROR] ServerAccessManage:651 - Problem during Server Connection :  : wolfSSL.I-CUBE-wolfSSL.pdsc.
+2024-04-02 13:23:11,686 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.23.2
+2024-04-02 13:23:11,687 [INFO] PopulateThirdPartyThread:66 - Ending populate Thread
+2024-04-02 13:23:11,689 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.23.2
+2024-04-02 13:23:11,689 [INFO] LoadServerUpdatesThread:375 - End of LoadServerUpdate Thread
+2024-04-02 13:23:11,806 [INFO] CheckServerUpdateThread:120 - End of CheckServer Thread
+2024-04-02 13:23:12,308 [INFO] WebApp:161 - Instantiating new browser for Auth
+2024-04-02 13:23:12,943 [INFO] WebApp:780 - Register for checkConnection events
+2024-04-02 13:23:12,943 [INFO] WebApp:414 - Apply proxy settings
+2024-04-02 13:23:12,943 [INFO] WebApp:499 - Chromium requires no authentication
+2024-04-02 13:23:12,950 [INFO] WebApp:442 - Direct internet connection detected
+2024-04-02 13:23:13,106 [INFO] WebApp:192 - Starting web application
+2024-04-02 13:23:13,106 [INFO] WebApp:544 - Web application path used C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\db\plugins\mcufinder\reactClient1\index.html
+2024-04-02 13:23:13,530 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SMBUS.2.1.0
+2024-04-02 13:23:13,547 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.23.1
+2024-04-02 13:23:13,560 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.23.0
+2024-04-02 13:23:13,563 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOUCHGFX.4.23.2
+2024-04-02 13:23:13,610 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-F7.1.1.0
+2024-04-02 13:23:13,634 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-MOTENV1.4.3.2
+2024-04-02 13:23:13,643 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-FLIGHT1.5.0.2
+2024-04-02 13:23:13,663 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-DISPLAY.3.0.0
+2024-04-02 13:23:13,689 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE1.7.0.0
+2024-04-02 13:23:13,706 [WARN] PackLoader:240 - Cannot read IP mode file for emotas.I-CUBE-CANOPEN.1.3.0
+2024-04-02 13:23:13,731 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLEMGR.3.1.0
+2024-04-02 13:23:13,746 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-SMARTAG2.1.2.0
+2024-04-02 13:23:13,765 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2024-04-02 13:23:13,766 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2024-04-02 13:23:13,768 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2024-04-02 13:23:13,769 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2024-04-02 13:23:13,770 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 1 : Invalid condition id : UX_CORESTACK_Condition cause : null
+2024-04-02 13:23:13,775 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-WL.2.0.0
+2024-04-02 13:23:13,794 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-MOTENV1.5.0.0
+2024-04-02 13:23:13,813 [WARN] PackLoader:240 - Cannot read IP mode file for WES.I-CUBE-Cesium.1.3.0
+2024-04-02 13:23:13,829 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-BLE2.3.3.0
+2024-04-02 13:23:13,845 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 13:23:13,932 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-G0.1.1.0
+2024-04-02 13:23:13,949 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SAFEA1.1.2.2
+2024-04-02 13:23:13,964 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC4.3.0.0
+2024-04-02 13:23:13,970 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-SIGFOX1.3.2.0
+2024-04-02 13:23:13,983 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-EEPRMA1.5.1.0
+2024-04-02 13:23:14,022 [WARN] PackLoader:240 - Cannot read IP mode file for SEGGER.I-CUBE-embOS.1.3.1
+2024-04-02 13:23:14,068 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-GNSS1.6.0.0
+2024-04-02 13:23:14,096 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-F4.1.1.0
+2024-04-02 13:23:14,128 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-L5.2.0.0
+2024-04-02 13:23:14,145 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC6.3.1.0
+2024-04-02 13:23:14,159 [WARN] PackLoader:240 - Cannot read IP mode file for ITTIA_DB.I-CUBE-ITTIADB.8.8.0
+2024-04-02 13:23:14,172 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC7.1.0.1
+2024-04-02 13:23:14,186 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-NFC6.3.0.0
+2024-04-02 13:23:14,200 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AI.8.1.0
+2024-04-02 13:23:14,233 [WARN] ConditionMgr:438 - getConditionDescription Invalid condition id : LAN8742 Phy interface Condition cause : null
+2024-04-02 13:23:14,234 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-L4.2.0.0
+2024-04-02 13:23:14,235 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : LAN8742 Phy interface Condition cause : null
+2024-04-02 13:23:14,235 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : LAN8742 Phy interface Condition cause : null
+2024-04-02 13:23:14,236 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : LAN8742 Phy interface Condition cause : null
+2024-04-02 13:23:14,250 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SFXS2LP1.4.0.0
+2024-04-02 13:23:14,274 [WARN] ConditionMgr:438 - getConditionDescription Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2024-04-02 13:23:14,274 [WARN] ConditionMgr:438 - getConditionDescription Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2024-04-02 13:23:14,276 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-WB.2.0.0
+2024-04-02 13:23:14,276 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2024-04-02 13:23:14,277 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2024-04-02 13:23:14,277 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2024-04-02 13:23:14,277 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2024-04-02 13:23:14,277 [WARN] ConditionMgr:1039 - genDependencies : Invalid condition id : UX DEVICE CLASS RTOS Condition cause : null
+2024-04-02 13:23:14,298 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-SUBG2.5.0.0
+2024-04-02 13:23:14,329 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-G4.2.0.0
+2024-04-02 13:23:14,354 [WARN] PackLoader:240 - Cannot read IP mode file for Infineon.AIROC-Wi-Fi-Bluetooth-STM32.1.5.1
+2024-04-02 13:23:14,364 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-SNS-MOTENVWB1.1.3.1
+2024-04-02 13:23:14,378 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ISPU.2.0.0
+2024-04-02 13:23:14,424 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-MEMS1.10.0.0
+2024-04-02 13:23:14,551 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-FREERTOS.1.1.0
+2024-04-02 13:23:14,565 [WARN] PackLoader:240 - Cannot read IP mode file for portGmbH.I-Cube-SoM-uGOAL.1.1.0
+2024-04-02 13:23:14,579 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-ALS.1.0.1
+2024-04-02 13:23:14,584 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.FP-ATR-ASTRA1.2.0.0
+2024-04-02 13:23:14,604 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-TOF1.3.4.1
+2024-04-02 13:23:14,643 [WARN] PackLoader:240 - Cannot read IP mode file for STMicroelectronics.X-CUBE-AZRTOS-H7.3.2.0
+2024-04-02 13:23:14,645 [INFO] ThirdParty:978 - Integrity check success = true
+2024-04-02 13:23:14,645 [INFO] IntegrityCheckThread:100 - exiting critical section [integrity check]
+2024-04-02 13:23:14,645 [INFO] IntegrityCheckThread:103 - End integrity checks thread
+2024-04-02 13:23:34,013 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2024-04-02 13:23:34,014 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-04-02 13:23:34,016 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2024-04-02 13:43:23,744 [INFO] McuFinderGlobals:63 - Set McuFinder mode to 2 (CubeIDE integrated)
+2024-04-02 13:43:23,768 [INFO] MainUpdater:2873 - connection check result : 10
+2024-04-02 13:43:23,773 [INFO] MainUpdater:2873 - connection check result : 10
+2024-04-02 13:43:23,931 [INFO] MicroXplorer:468 - Change Database Path : 
+2024-04-02 13:43:23,931 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.100
+2024-04-02 13:43:23,936 [WARN] ThirdParty:871 - waiting for thirdparty lock release [close project]
+2024-04-02 13:43:23,936 [INFO] ThirdParty:873 - entering critical section [close project]
+2024-04-02 13:43:23,937 [INFO] ThirdParty:883 - exiting critical section [close project]
+2024-04-02 13:43:23,939 [INFO] PinOutPanel:1499 - setPackage(No Configuration,No Configuration)
+2024-04-02 13:43:23,942 [INFO] UtilMem:75 - Begin LoadConfig() Used Memory: 630501416 Bytes (1064304640)
+2024-04-02 13:43:23,943 [INFO] MicroXplorer:468 - Change Database Path : 
+2024-04-02 13:43:23,944 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.100
+2024-04-02 13:43:23,944 [INFO] OpenFileManager:312 - Change cursor
+2024-04-02 13:43:23,954 [INFO] ThirdPartyDownloadManager:103 - Found SW packSTMicroelectronics.X-CUBE-ALGOBUILD.1.3.0up-to-date on disk
+2024-04-02 13:43:23,995 [INFO] Mcu:2016 - Initializing MCU STM32L4R5ZITxP STM32L4R5ZITxP STM32L4R5ZIT6P
+2024-04-02 13:43:26,957 [INFO] Context:659 - Trying to add GPIOservice into a context  which must be forbidden
+2024-04-02 13:43:27,783 [INFO] ApiDbMcu:508 - Load IP Config File for STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 13:43:28,009 [INFO] RtosManager:555 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2024-04-02 13:43:28,009 [INFO] RtosManager:555 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2024-04-02 13:43:28,009 [INFO] RtosManager:555 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2024-04-02 13:43:28,010 [INFO] RtosManager:555 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2024-04-02 13:43:28,010 [WARN] ModelIntegratedComponent:184 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2024-04-02 13:43:28,025 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,026 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,027 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,028 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,028 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,028 [WARN] ModelIntegratedComponent:63 - No mode defined for component null
+2024-04-02 13:43:28,816 [INFO] ThirdPartyModel:298 - Start build external matchings
+2024-04-02 13:43:29,088 [INFO] ThirdPartyModel:316 - End build external matchings
+2024-04-02 13:43:29,104 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (ADC1) : Parameter (CommonPathInternal) has invalid value (null|null|null|null)
+2024-04-02 13:43:29,104 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (ADC1) currently not set
+2024-04-02 13:43:29,104 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Request) has Id (ADC1) currently not set
+2024-04-02 13:43:29,104 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (ADC1) currently not set
+2024-04-02 13:43:29,104 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (ADC1) currently not set
+2024-04-02 13:43:29,104 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (ADC1) currently not set
+2024-04-02 13:43:29,104 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (SignalID) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Polarity) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (RequestNumber) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (SyncSignalID) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (SyncPolarity) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (SyncEnable) has Id (ADC1) currently not set
+2024-04-02 13:43:29,105 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (EventEnable) has Id (ADC1) currently not set
+2024-04-02 13:43:29,106 [INFO] ImportTextPane:194 - (OptionalMessage_ERROR) IP (DMA) : Parameter (SyncRequestNumber) has Id (ADC1) currently not set
+2024-04-02 13:43:29,564 [INFO] UtilMem:75 - End LoadConfig() Used Memory: 629291968 Bytes (1073741824)
+2024-04-02 13:43:29,703 [INFO] ApiDb:581 - Connected to CubeFinder SQLite database (C:\Users\nates\.stmcufinder\plugins\mcufinder\mcu\cube-finder-db.db)
+2024-04-02 13:43:29,795 [INFO] ApiDb:668 - CubeFinder database Data Model version=2.1
+2024-04-02 13:43:29,795 [INFO] ApiDb:669 - CubeFinder database Configuration version=3.0.39
+2024-04-02 13:43:29,796 [INFO] ApiDb:670 - CubeFinder database generation date=2024-02-19 (1708350410)
+2024-04-02 13:43:29,796 [INFO] ApiDb:671 - CubeFinder database FW Pack versions=[FP-ATR-ASTRA1_V2.0.0, FP-SNS-FLIGHT1_V5.0.1, FP-SNS-FLIGHT1_V5.0.2, FP-SNS-MOTENV1_V4.3.1, FP-SNS-MOTENV1_V4.3.2, FP-SNS-MOTENVWB1_V1.3.1, FP-SNS-SMARTAG2_V1.2.0, STM32Cube_FW_C0_V1.1.0, STM32Cube_FW_F4_V1.28.0, STM32Cube_FW_F7_V1.17.0, STM32Cube_FW_G0_V1.6.2, STM32Cube_FW_G4_V1.5.2, STM32Cube_FW_H5_V0.5.1, STM32Cube_FW_H5_V1.1.1, STM32Cube_FW_H5_V1.2.0RC2, STM32Cube_FW_H7_V1.11.0, STM32Cube_FW_L0_V1.12.2, STM32Cube_FW_L5_V1.5.0, STM32Cube_FW_U5_V1.3.0RC4, STM32Cube_FW_U5_V1.4.0, STM32Cube_FW_WBA_V1.0.0RC1, STM32Cube_FW_WBA_V1.1.0RC1, STM32Cube_FW_WBA_V1.2.0, STM32Cube_FW_WBA_V1.2.0RC2, STM32Cube_FW_WB_V1.15.0RC1, STM32Cube_FW_WB_V1.16.0, STM32Cube_FW_WB_V1.16.0RC2, STM32Cube_FW_WB_V1.18.0, STM32Cube_FW_WL_V1.3.0, X-CUBE-ALGOBUILD_V1.3.0, X-CUBE-ALS_V1.0.1, X-CUBE-AZRTOS-F4_V1.1.0, X-CUBE-AZRTOS-F7_V1.1.0, X-CUBE-AZRTOS-G0_V1.1.0, X-CUBE-AZRTOS-G4_V2.0.0, X-CUBE-AZRTOS-H7_V3.2.0, X-CUBE-AZRTOS-L4_V1.0.0, X-CUBE-AZRTOS-L4_V2.0.0, X-CUBE-AZRTOS-L5_V1.1.0, X-CUBE-AZRTOS-WB_V2.0.0, X-CUBE-AZRTOS-WL_V2.0.0, X-CUBE-BLE1_V7.0.0, X-CUBE-BLE2_V3.3.0, X-CUBE-BLEMGR_V3.0.0, X-CUBE-EEPRMA1_V4.1.0, X-CUBE-EEPRMA1_V5.1.0, X-CUBE-FREERTOS_V1.1.0, X-CUBE-GNSS1_V6.0.0, X-CUBE-MEMS1_V10.0.0, X-CUBE-MEMS1_V9.1.0, X-CUBE-MEMS1_V9.4.0, X-CUBE-MEMS1_V9.6.0, X-CUBE-NFC4_V3.0.0, X-CUBE-NFC7_V1.0.1, X-CUBE-SFXS2LP1_V4.0.0, X-CUBE-SUBG2_V5.0.0, X-CUBE-TOF1_V3.4.0]
+2024-04-02 13:43:32,271 [INFO] ApiDb:240 - Found 371 in-development CPN: [B-G473E-ZEST1S, B-WB1M-WPAN1, B-WL5M-SUBG1, NUCLEO-C031C6, NUCLEO-H503RB, NUCLEO-H563ZI, NUCLEO-U545RE-Q, NUCLEO-U5A5ZJ-Q, NUCLEO-WBA52CG, NUCLEO-WBA55CG, STEVAL-MKBOXPRO, STEVAL-PROTEUS1, STEVAL-STWINBX1, STM320518-EVAL, STM32C0116-DK, STM32C011D6Y3TR, STM32C011D6Y6TR, STM32C011F4P3, STM32C011F4P6, STM32C011F4U3, STM32C011F4U6TR, STM32C011F6P3, STM32C011F6P6, STM32C011F6U3, STM32C011F6U6TR, STM32C011J4M3, STM32C011J4M6, STM32C011J6M3, STM32C011J6M6, STM32C0316-DK, STM32C031C4T3, STM32C031C4T6, STM32C031C4U3, STM32C031C4U6, STM32C031C6T3, STM32C031C6T6, STM32C031C6U3, STM32C031C6U6, STM32C031F4P3, STM32C031F4P6, STM32C031F6P3, STM32C031F6P6, STM32C031G4U3, STM32C031G4U6, STM32C031G6U3, STM32C031G6U6, STM32C031K4T3, STM32C031K4T6, STM32C031K4U3, STM32C031K4U6, STM32C031K6T3, STM32C031K6T6, STM32C031K6U3, STM32C031K6U6, STM32G071K8TXN, STM32G071K8UXN, STM32G081GBU6N, STM32G081KBT6N, STM32G081KBUXN, STM32G0B1CCT6N, STM32G0B1KCT6, STM32G0B1NEY6TR, STM32G0B1RCT6N, STM32G0C1CCT6, STM32G0C1CCT6N, STM32G0C1CCU6N, STM32G0C1CET6N, STM32G0C1CEU6N, STM32G0C1KCT6, STM32G0C1NEY6TR, STM32G0C1RCI6N, STM32G0C1RCT6N, STM32G0C1REI6N, STM32G0C1RET6N, STM32G0C1VCI6, STM32G0C1VEI6, STM32G471CCT6, STM32G471CCU6, STM32G471CET3, STM32G471CET6, STM32G471CEU3, STM32G471CEU6, STM32G471MCT6, STM32G471MET3, STM32G471MET6, STM32G471MEY6TR, STM32G471QCT6, STM32G471QET3, STM32G471RCT6, STM32G471RET3, STM32G471RET6, STM32G471VCH6, STM32G471VCI6, STM32G471VCT6, STM32G471VEH3, STM32G471VEH6, STM32G471VEI3, STM32G471VEI6, STM32G471VET3, STM32G471VET6, STM32G474CCT6, STM32H503CBT6, STM32H503CBU6, STM32H503EBY6TR, STM32H503KBU6, STM32H503RBT6, STM32H562AGI6, STM32H562AII6, STM32H562IGK6, STM32H562IGT6, STM32H562IIK6, STM32H562IIT6, STM32H562RGT6, STM32H562RGV6, STM32H562RIT6, STM32H562RIV6, STM32H562VGT6, STM32H562VIT6, STM32H562ZGT6, STM32H562ZIT6, STM32H563AGI6, STM32H563AII3Q, STM32H563AII6, STM32H563IGK6, STM32H563IGT6, STM32H563IIK3Q, STM32H563IIK6, STM32H563IIT3Q, STM32H563IIT6, STM32H563MIY3QTR, STM32H563RGT6, STM32H563RGV6, STM32H563RIT6, STM32H563RIV6, STM32H563VGT6, STM32H563VIT3Q, STM32H563VIT6, STM32H563ZGT6, STM32H563ZIT3Q, STM32H563ZIT6, STM32H573AII3Q, STM32H573AII6, STM32H573I-DK, STM32H573IIK3Q, STM32H573IIK6, STM32H573IIT3Q, STM32H573IIT6, STM32H573MIY3QTR, STM32H573RIT6, STM32H573RIV6, STM32H573VIT3Q, STM32H573VIT6, STM32H573ZIT3Q, STM32H573ZIT6, STM32L4R5QGI6STR, STM32MP131AAE3, STM32MP131AAF3, STM32MP131AAG3, STM32MP131CAE3, STM32MP131CAF3, STM32MP131CAG3, STM32MP131DAE7, STM32MP131DAF7, STM32MP131DAG7, STM32MP131FAE7, STM32MP131FAF7, STM32MP131FAG7, STM32MP133AAE3, STM32MP133AAF3, STM32MP133AAG3, STM32MP133CAE3, STM32MP133CAF3, STM32MP133CAG3, STM32MP133DAE7, STM32MP133DAF7, STM32MP133DAG7, STM32MP133FAE7, STM32MP133FAF7, STM32MP133FAG7, STM32MP135AAE3, STM32MP135AAF3, STM32MP135AAG3, STM32MP135CAE3, STM32MP135CAF3, STM32MP135CAG3, STM32MP135DAE7, STM32MP135DAF7, STM32MP135DAG7, STM32MP135F-DK, STM32MP135FAE7, STM32MP135FAF7, STM32MP135FAF7T, STM32MP135FAF7U, STM32MP135FAG7, STM32U535CBT6, STM32U535CBT6Q, STM32U535CBU6, STM32U535CBU6Q, STM32U535CCT6, STM32U535CCT6Q, STM32U535CCU6, STM32U535CCU6Q, STM32U535CET6, STM32U535CET6Q, STM32U535CEU6, STM32U535CEU6Q, STM32U535JEY6QTR, STM32U535NCY6QTR, STM32U535NEY6QTR, STM32U535RBI6, STM32U535RBI6Q, STM32U535RBT6, STM32U535RBT6Q, STM32U535RCI6, STM32U535RCI6Q, STM32U535RCT6, STM32U535RCT6Q, STM32U535REI6, STM32U535REI6Q, STM32U535RET6, STM32U535RET6Q, STM32U535VCI6, STM32U535VCI6Q, STM32U535VCT6, STM32U535VCT6Q, STM32U535VEI6, STM32U535VEI6Q, STM32U535VET6, STM32U535VET6Q, STM32U545CET6, STM32U545CET6Q, STM32U545CEU6, STM32U545CEU6Q, STM32U545JEY6QTR, STM32U545NEY6QTR, STM32U545REI6, STM32U545REI6Q, STM32U545RET6, STM32U545RET6Q, STM32U545VEI6, STM32U545VEI6Q, STM32U545VET6, STM32U545VET6Q, STM32U595AIH6, STM32U595AIH6Q, STM32U595AJH6, STM32U595AJH6Q, STM32U595QII6, STM32U595QII6Q, STM32U595QJI6, STM32U595QJI6Q, STM32U595RIT6, STM32U595RIT6Q, STM32U595RJT6, STM32U595RJT6Q, STM32U595VIT6, STM32U595VIT6Q, STM32U595VJT6, STM32U595VJT6Q, STM32U595ZIT6, STM32U595ZIT6Q, STM32U595ZIY6QTR, STM32U595ZJT6, STM32U595ZJT6Q, STM32U595ZJY6QTR, STM32U599BJY6QTR, STM32U599NIH6Q, STM32U599NJH6Q, STM32U599VIT6Q, STM32U599VJT6, STM32U599VJT6Q, STM32U599ZIT6Q, STM32U599ZIY6QTR, STM32U599ZJT6Q, STM32U599ZJY6QTR, STM32U5A5AJH6, STM32U5A5AJH6Q, STM32U5A5QJI6, STM32U5A5QJI6Q, STM32U5A5RJT6, STM32U5A5RJT6Q, STM32U5A5VJT6, STM32U5A5VJT6Q, STM32U5A5ZJT6, STM32U5A5ZJT6Q, STM32U5A5ZJY6QTR, STM32U5A9BJY6QTR, STM32U5A9J-DK, STM32U5A9NJH6Q, STM32U5A9VJT6Q, STM32U5A9ZJT6Q, STM32U5A9ZJY6QTR, STM32U5F7VIT6, STM32U5F7VIT6Q, STM32U5F7VJT6, STM32U5F7VJT6Q, STM32U5F9BJY6QTR, STM32U5F9NJH6Q, STM32U5F9VIT6Q, STM32U5F9VJT6Q, STM32U5F9ZIJ6QTR, STM32U5F9ZIT6Q, STM32U5F9ZJJ6QTR, STM32U5F9ZJT6Q, STM32U5G7VJT6, STM32U5G7VJT6Q, STM32U5G9BJY6QTR, STM32U5G9J-DK1, STM32U5G9J-DK2, STM32U5G9NJH6Q, STM32U5G9VJT6Q, STM32U5G9ZJJ6QTR, STM32U5G9ZJT6Q, STM32WB1MMCH6, STM32WBA50KEU6, STM32WBA50KEU6TR, STM32WBA50KGU6, STM32WBA50KGU6TR, STM32WBA52CEU6, STM32WBA52CEU6TR, STM32WBA52CEU7, STM32WBA52CEU7TR, STM32WBA52CGU6, STM32WBA52CGU6TR, STM32WBA52CGU6U, STM32WBA52CGU7, STM32WBA52CGU7TR, STM32WBA52KEU6, STM32WBA52KEU6TR, STM32WBA52KGU6, STM32WBA52KGU6TR, STM32WBA54CEU6, STM32WBA54CEU6TR, STM32WBA54CEU7, STM32WBA54CEU7TR, STM32WBA54CGU6, STM32WBA54CGU6TR, STM32WBA54CGU7, STM32WBA54CGU7TR, STM32WBA54KEU6, STM32WBA54KEU6TR, STM32WBA54KEU7, STM32WBA54KEU7TR, STM32WBA54KGU6, STM32WBA54KGU6TR, STM32WBA54KGU7, STM32WBA54KGU7TR, STM32WBA55CEU6, STM32WBA55CEU6TR, STM32WBA55CEU7, STM32WBA55CEU7TR, STM32WBA55CGU6, STM32WBA55CGU6TR, STM32WBA55CGU6U, STM32WBA55CGU7, STM32WBA55CGU7TR, STM32WBA55G-DK1, STM32WBA55HEF6, STM32WBA55HEF7, STM32WBA55HGF6, STM32WBA55HGF7, STM32WBA55UEI6, STM32WBA55UEI6TR, STM32WBA55UEI7, STM32WBA55UEI7TR, STM32WBA55UGI6, STM32WBA55UGI6TR, STM32WBA55UGI7, STM32WBA55UGI7TR, STM32WL5MOCH6, STM32WL5MOCH6TR]
+2024-04-02 13:43:32,275 [INFO] DbMcus:218 - Found 3930 MCUs, 3930 are supported
+2024-04-02 13:43:32,275 [INFO] ApiDb:423 - Load user favorites file C:\Users\nates/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2024-04-02 13:43:32,276 [INFO] ApiDb:427 - User favorites MCUs=[]
+2024-04-02 13:43:32,276 [INFO] DbMcus:224 - Set 0 / 0 favorites MCUs
+2024-04-02 13:43:32,647 [INFO] MicroXplorer:468 - Change Database Path : 
+2024-04-02 13:43:32,647 [INFO] MicroXplorer:498 - Change Database Version : DB.6.0.100
+2024-04-02 13:43:32,648 [WARN] ThirdParty:833 - waiting for thirdparty lock release [change project]
+2024-04-02 13:43:32,648 [INFO] ThirdParty:835 - entering critical section [change project]
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USBPD 4.1
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 6.0.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.1.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics LIBJPEG 8.0.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SMBUS 2.1.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 2.0.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.23.1
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.23.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.23.2
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F7 1.1.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 2.0.0
+2024-04-02 13:43:32,648 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC6 3.1.0
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :ITTIA_DB I-CUBE-ITTIADB 8.8.0
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 4.3.2
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.3.0
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G0 1.1.0
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SAFEA1 1.2.2
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 3.0.0
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 5.0.0
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics STM32_WPAN 1.0.0
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-FLIGHT1 5.0.2
+2024-04-02 13:43:32,649 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 2.0.0
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :Infineon AIROC-Wi-Fi-Bluetooth-STM32 1.5.1
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 3.0.0
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENVWB1 1.3.1
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 7.0.0
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-SIGFOX1 3.2.0
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ISPU 2.0.0
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 5.1.0
+2024-04-02 13:43:32,650 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :emotas I-CUBE-CANOPEN 1.3.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 10.0.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.1.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.1
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC6 3.0.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :portGmbH I-Cube-SoM-uGOAL 1.1.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.1
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 3.1.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 1.0.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-SMARTAG2 1.2.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 2.0.0
+2024-04-02 13:43:32,651 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.1
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 5.0.0
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.1.0
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 2.0.0
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :WES I-CUBE-Cesium 1.3.0
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 2.0.0
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 4.0.0
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.3.0
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.4.1
+2024-04-02 13:43:32,652 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.2.0
+2024-04-02 13:43:32,653 [INFO] ThirdParty:1030 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2024-04-02 13:43:32,653 [INFO] ThirdParty:841 - exiting critical section [change project]
+2024-04-02 13:43:32,980 [INFO] PinOutPanel:1499 - setPackage(No Configuration,No Configuration)
+2024-04-02 13:43:32,981 [INFO] PinOutPanel:1499 - setPackage(STM32L4R5ZITxP,LQFP144)
+2024-04-02 13:43:33,537 [INFO] UtilMem:75 - Before build in PCC Used Memory: 652545224 Bytes (1073741824)
+2024-04-02 13:43:34,520 [INFO] UtilMem:75 - After build in PCC Used Memory: 797248712 Bytes (1073741824)
+2024-04-02 13:43:34,560 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,560 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,560 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,560 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,560 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,561 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,561 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,561 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,561 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,561 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,561 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,561 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,561 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,562 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,562 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,562 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,562 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,562 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,562 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,562 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,563 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,563 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,563 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,563 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,563 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,564 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,564 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,564 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,564 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,565 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,565 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,565 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,566 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,566 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,566 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,566 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,567 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,567 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,568 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,568 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,568 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,569 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,569 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,569 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,569 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,570 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,570 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,570 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,570 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,571 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,571 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,571 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,571 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,572 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,572 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,572 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,573 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,573 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,574 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,574 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,575 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,575 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2024-04-02 13:43:34,820 [INFO] CADModel:165 - CPN selected for project levelSTM32L4R5ZIT6P
+2024-04-02 13:43:34,821 [INFO] CADModel:114 - Register for checkConnection events
+2024-04-02 13:43:34,872 [INFO] OpenFileManager:343 - Restore cursor
+2024-04-02 13:44:12,438 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-04-02 13:44:14,742 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 689626488 Bytes (1073741824)
+2024-04-02 13:44:16,636 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 716777680 Bytes (1073741824)
+2024-04-02 13:44:19,069 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 760817872 Bytes (1073741824)
+2024-04-02 13:44:19,658 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DAC
+2024-04-02 13:44:19,659 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8L4
+2024-04-02 13:44:19,659 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 13:44:19,659 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-04-02 13:44:19,659 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-04-02 13:44:19,659 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-02 13:44:19,659 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: LPUART
+2024-04-02 13:44:19,659 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-02 13:44:19,660 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-04-02 13:44:19,662 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-02 13:44:19,662 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SAI
+2024-04-02 13:44:19,671 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:19,672 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:19,672 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:19,673 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:19,673 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:19,674 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-04-02 13:44:19,996 [INFO] IP:3348 - RTE Config file name : RTE_Component
+2024-04-02 13:44:19,996 [INFO] IP:3366 - RTE template : RTE_Components.ftl
+2024-04-02 13:44:20,067 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp_save
+2024-04-02 13:44:20,479 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp
+2024-04-02 13:44:20,829 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp_save
+2024-04-02 13:44:21,000 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp
+2024-04-02 13:44:22,602 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 13:44:22,700 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp_save
+2024-04-02 13:44:22,819 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp
+2024-04-02 13:44:22,830 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp_save
+2024-04-02 13:44:22,923 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp
+2024-04-02 13:44:22,955 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 13:44:23,080 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 13:44:23,096 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 13:44:23,180 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 13:44:23,194 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 13:44:23,291 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 13:44:23,295 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 13:44:23,327 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c_save
+2024-04-02 13:44:23,441 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c
+2024-04-02 13:44:23,461 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h_save
+2024-04-02 13:44:23,548 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h
+2024-04-02 13:44:23,576 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 13:44:23,645 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 13:44:23,652 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 13:44:23,716 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 13:44:23,731 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 13:44:23,795 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 13:44:23,824 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c_save
+2024-04-02 13:44:23,948 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c
+2024-04-02 13:44:23,962 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp_save
+2024-04-02 13:44:24,027 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp
+2024-04-02 13:44:24,053 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h_save
+2024-04-02 13:44:24,144 [INFO] CodeEngine:335 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h
+2024-04-02 13:44:24,200 [WARN] IPConfigManager:3440 - IP not found : TIM
+2024-04-02 13:44:24,204 [WARN] CodeGenerator:3939 - IP not found : null
+2024-04-02 13:44:24,231 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h_save
+2024-04-02 13:44:24,330 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h
+2024-04-02 13:44:24,351 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c_save
+2024-04-02 13:44:24,536 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c
+2024-04-02 13:44:25,244 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 307mS.
+2024-04-02 13:44:25,244 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:25,244 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:25,244 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:25,244 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:25,245 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:44:25,262 [INFO] ProjectBuilder:8685 - Time for Copy ThirdParty[1] : 16mS.
+2024-04-02 13:44:25,269 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-04-02 13:44:25,612 [INFO] ConfigFileManager:1495 - The Die is : DIE470
+2024-04-02 13:44:25,622 [INFO] ApiDbMcu:508 - Load IP Config File for FATFS
+2024-04-02 13:44:25,636 [INFO] ApiDbMcu:508 - Load IP Config File for FREERTOS
+2024-04-02 13:44:25,660 [INFO] ApiDbMcu:508 - Load IP Config File for TOUCHSENSING
+2024-04-02 13:44:25,676 [INFO] ApiDbMcu:508 - Load IP Config File for USB_DEVICE
+2024-04-02 13:44:25,689 [INFO] ApiDbMcu:508 - Load IP Config File for USB_HOST
+2024-04-02 13:44:26,803 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2024-04-02 13:44:28,542 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 3273mS.
+2024-04-02 13:44:28,544 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 13:44:28,548 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 13:56:47,488 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-04-02 13:56:48,994 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 891551672 Bytes (1073741824)
+2024-04-02 13:56:50,572 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 918195664 Bytes (1073741824)
+2024-04-02 13:56:57,125 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 717202880 Bytes (1073741824)
+2024-04-02 13:56:57,549 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DAC
+2024-04-02 13:56:57,550 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8L4
+2024-04-02 13:56:57,550 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 13:56:57,550 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-04-02 13:56:57,550 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-04-02 13:56:57,550 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-02 13:56:57,550 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: LPUART
+2024-04-02 13:56:57,550 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-02 13:56:57,550 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-04-02 13:56:57,551 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-02 13:56:57,551 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SAI
+2024-04-02 13:56:57,552 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:56:57,552 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:56:57,552 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:56:57,552 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:56:57,552 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:56:57,553 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-04-02 13:56:57,567 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-04-02 13:56:57,567 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 13:56:57,567 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 13:56:57,567 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 13:56:57,567 [INFO] Argument:325 - Argument : Initvalue: null
+2024-04-02 13:56:57,567 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 13:56:57,567 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : Statevalue: null
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : Statevalue: null
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-04-02 13:56:57,568 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-04-02 13:56:57,568 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2024-04-02 13:56:57,569 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2024-04-02 13:56:57,752 [INFO] IP:3348 - RTE Config file name : RTE_Component
+2024-04-02 13:56:57,752 [INFO] IP:3366 - RTE template : RTE_Components.ftl
+2024-04-02 13:56:57,759 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp_save
+2024-04-02 13:56:57,971 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp
+2024-04-02 13:56:58,213 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp_save
+2024-04-02 13:56:58,306 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp
+2024-04-02 13:56:59,722 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 13:56:59,810 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp_save
+2024-04-02 13:56:59,909 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp
+2024-04-02 13:56:59,915 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp_save
+2024-04-02 13:56:59,974 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp
+2024-04-02 13:56:59,985 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 13:57:00,104 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 13:57:00,109 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 13:57:00,165 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 13:57:00,169 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 13:57:00,249 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 13:57:00,252 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 13:57:00,270 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c_save
+2024-04-02 13:57:00,421 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c
+2024-04-02 13:57:00,427 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h_save
+2024-04-02 13:57:00,484 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h
+2024-04-02 13:57:00,503 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 13:57:00,563 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 13:57:00,569 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 13:57:00,632 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 13:57:00,644 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 13:57:00,705 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 13:57:00,723 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c_save
+2024-04-02 13:57:00,833 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c
+2024-04-02 13:57:00,838 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp_save
+2024-04-02 13:57:00,891 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp
+2024-04-02 13:57:00,907 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h_save
+2024-04-02 13:57:00,996 [INFO] CodeEngine:335 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h
+2024-04-02 13:57:01,017 [WARN] IPConfigManager:3440 - IP not found : TIM
+2024-04-02 13:57:01,018 [WARN] CodeGenerator:3939 - IP not found : null
+2024-04-02 13:57:01,031 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h_save
+2024-04-02 13:57:01,110 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h
+2024-04-02 13:57:01,122 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c_save
+2024-04-02 13:57:01,278 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c
+2024-04-02 13:57:01,886 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 230mS.
+2024-04-02 13:57:01,887 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:57:01,887 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:57:01,887 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:57:01,887 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:57:01,887 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 13:57:01,893 [INFO] ProjectBuilder:8685 - Time for Copy ThirdParty[1] : 5mS.
+2024-04-02 13:57:01,898 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-04-02 13:57:02,214 [INFO] ConfigFileManager:1495 - The Die is : DIE470
+2024-04-02 13:57:03,927 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2029mS.
+2024-04-02 13:57:03,928 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 13:57:03,935 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 15:14:30,149 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-04-02 15:14:39,204 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 904213000 Bytes (1073741824)
+2024-04-02 15:14:40,613 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 741709576 Bytes (1073741824)
+2024-04-02 15:14:46,331 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 715881472 Bytes (1073741824)
+2024-04-02 15:14:46,765 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DAC
+2024-04-02 15:14:46,765 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8L4
+2024-04-02 15:14:46,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 15:14:46,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-04-02 15:14:46,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-04-02 15:14:46,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-02 15:14:46,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: LPUART
+2024-04-02 15:14:46,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-02 15:14:46,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-04-02 15:14:46,767 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-02 15:14:46,767 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SAI
+2024-04-02 15:14:46,768 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:46,768 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:46,768 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:46,768 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:46,768 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:46,770 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-04-02 15:14:46,779 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-04-02 15:14:46,779 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 15:14:46,779 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 15:14:46,779 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 15:14:46,779 [INFO] Argument:325 - Argument : Initvalue: null
+2024-04-02 15:14:46,780 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : Statevalue: null
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : Statevalue: null
+2024-04-02 15:14:46,780 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-04-02 15:14:46,780 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2024-04-02 15:14:46,781 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2024-04-02 15:14:46,976 [INFO] IP:3348 - RTE Config file name : RTE_Component
+2024-04-02 15:14:46,976 [INFO] IP:3366 - RTE template : RTE_Components.ftl
+2024-04-02 15:14:46,986 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp_save
+2024-04-02 15:14:47,198 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp
+2024-04-02 15:14:47,468 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp_save
+2024-04-02 15:14:47,559 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp
+2024-04-02 15:14:49,021 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 15:14:49,106 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp_save
+2024-04-02 15:14:49,188 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp
+2024-04-02 15:14:49,192 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp_save
+2024-04-02 15:14:49,255 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp
+2024-04-02 15:14:49,267 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 15:14:49,360 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 15:14:49,365 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 15:14:49,423 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 15:14:49,427 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 15:14:49,500 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 15:14:49,505 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 15:14:49,529 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c_save
+2024-04-02 15:14:49,689 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c
+2024-04-02 15:14:49,697 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h_save
+2024-04-02 15:14:49,767 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h
+2024-04-02 15:14:49,799 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 15:14:49,902 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 15:14:49,910 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 15:14:49,976 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 15:14:49,990 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 15:14:50,089 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 15:14:50,119 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c_save
+2024-04-02 15:14:50,243 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c
+2024-04-02 15:14:50,250 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp_save
+2024-04-02 15:14:50,318 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp
+2024-04-02 15:14:50,340 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h_save
+2024-04-02 15:14:50,432 [INFO] CodeEngine:335 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h
+2024-04-02 15:14:50,459 [WARN] IPConfigManager:3440 - IP not found : TIM
+2024-04-02 15:14:50,460 [WARN] CodeGenerator:3939 - IP not found : null
+2024-04-02 15:14:50,480 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h_save
+2024-04-02 15:14:50,563 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h
+2024-04-02 15:14:50,580 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c_save
+2024-04-02 15:14:50,741 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c
+2024-04-02 15:14:51,597 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 314mS.
+2024-04-02 15:14:51,598 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:51,598 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:51,598 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:51,598 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:51,598 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:14:51,604 [INFO] ProjectBuilder:8685 - Time for Copy ThirdParty[1] : 5mS.
+2024-04-02 15:14:51,609 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-04-02 15:14:51,914 [INFO] ConfigFileManager:1495 - The Die is : DIE470
+2024-04-02 15:14:53,620 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2010mS.
+2024-04-02 15:14:53,621 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.
+2024-04-02 15:14:53,640 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 15:54:48,950 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-04-02 15:54:49,966 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 770949544 Bytes (1073741824)
+2024-04-02 15:54:55,717 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 797918848 Bytes (1073741824)
+2024-04-02 15:54:58,515 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 775155856 Bytes (1073741824)
+2024-04-02 15:54:58,969 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DAC
+2024-04-02 15:54:58,969 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8L4
+2024-04-02 15:54:58,969 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 15:54:58,969 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-04-02 15:54:58,970 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-04-02 15:54:58,970 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-02 15:54:58,970 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: LPUART
+2024-04-02 15:54:58,970 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-02 15:54:58,970 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-04-02 15:54:58,971 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-02 15:54:58,971 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SAI
+2024-04-02 15:54:58,971 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:54:58,972 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:54:58,972 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:54:58,972 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:54:58,972 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:54:58,974 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-04-02 15:54:58,986 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-04-02 15:54:58,986 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 15:54:58,986 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 15:54:58,986 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 15:54:58,986 [INFO] Argument:325 - Argument : Initvalue: null
+2024-04-02 15:54:58,986 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 15:54:58,987 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 15:54:58,987 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 15:54:58,987 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 15:54:58,987 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 15:54:58,987 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 15:54:58,987 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 15:54:58,987 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 15:54:58,987 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 15:54:58,987 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 15:54:58,987 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 15:54:58,987 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 15:54:58,987 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 15:54:58,987 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 15:54:58,987 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 15:54:58,987 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 15:54:58,987 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : Statevalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : Statevalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2024-04-02 15:54:58,988 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2024-04-02 15:54:59,207 [INFO] IP:3348 - RTE Config file name : RTE_Component
+2024-04-02 15:54:59,208 [INFO] IP:3366 - RTE template : RTE_Components.ftl
+2024-04-02 15:54:59,256 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp_save
+2024-04-02 15:54:59,412 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp
+2024-04-02 15:54:59,632 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp_save
+2024-04-02 15:54:59,732 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp
+2024-04-02 15:55:01,201 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 15:55:01,299 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp_save
+2024-04-02 15:55:01,378 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp
+2024-04-02 15:55:01,382 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp_save
+2024-04-02 15:55:01,442 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp
+2024-04-02 15:55:01,457 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 15:55:01,560 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 15:55:01,565 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 15:55:01,623 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 15:55:01,631 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 15:55:01,708 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 15:55:01,713 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 15:55:01,738 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c_save
+2024-04-02 15:55:01,895 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c
+2024-04-02 15:55:01,903 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h_save
+2024-04-02 15:55:01,974 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h
+2024-04-02 15:55:02,000 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 15:55:02,073 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 15:55:02,081 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 15:55:02,149 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 15:55:02,165 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 15:55:02,241 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 15:55:02,273 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c_save
+2024-04-02 15:55:02,436 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c
+2024-04-02 15:55:02,444 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp_save
+2024-04-02 15:55:02,512 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp
+2024-04-02 15:55:02,539 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h_save
+2024-04-02 15:55:02,678 [INFO] CodeEngine:335 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h
+2024-04-02 15:55:02,705 [WARN] IPConfigManager:3440 - IP not found : TIM
+2024-04-02 15:55:02,706 [WARN] CodeGenerator:3939 - IP not found : null
+2024-04-02 15:55:02,727 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h_save
+2024-04-02 15:55:02,827 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h
+2024-04-02 15:55:02,846 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c_save
+2024-04-02 15:55:03,016 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c
+2024-04-02 15:55:03,870 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 363mS.
+2024-04-02 15:55:03,871 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:55:03,871 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:55:03,871 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:55:03,871 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:55:03,872 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 15:55:03,877 [INFO] ProjectBuilder:8685 - Time for Copy ThirdParty[1] : 4mS.
+2024-04-02 15:55:03,883 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-04-02 15:55:04,219 [INFO] ConfigFileManager:1495 - The Die is : DIE470
+2024-04-02 15:55:06,270 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2387mS.
+2024-04-02 15:55:06,271 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 15:55:06,277 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 16:01:18,014 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-04-02 16:01:18,812 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 789160360 Bytes (1073741824)
+2024-04-02 16:01:20,969 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 748497752 Bytes (1073741824)
+2024-04-02 16:01:23,712 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 860173144 Bytes (1073741824)
+2024-04-02 16:01:24,109 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DAC
+2024-04-02 16:01:24,109 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8L4
+2024-04-02 16:01:24,109 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 16:01:24,109 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-04-02 16:01:24,109 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-04-02 16:01:24,109 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-02 16:01:24,109 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: LPUART
+2024-04-02 16:01:24,109 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-02 16:01:24,109 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-04-02 16:01:24,110 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-02 16:01:24,110 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SAI
+2024-04-02 16:01:24,111 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:24,111 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:24,111 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:24,111 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:24,111 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:24,112 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-04-02 16:01:24,122 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-04-02 16:01:24,122 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 16:01:24,122 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 16:01:24,122 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 16:01:24,122 [INFO] Argument:325 - Argument : Initvalue: null
+2024-04-02 16:01:24,122 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 16:01:24,122 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 16:01:24,122 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 16:01:24,122 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 16:01:24,122 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 16:01:24,122 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 16:01:24,122 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 16:01:24,122 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 16:01:24,122 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 16:01:24,122 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 16:01:24,122 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 16:01:24,123 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 16:01:24,123 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 16:01:24,123 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : Statevalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:335 - Argument : Statevalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-04-02 16:01:24,123 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2024-04-02 16:01:24,124 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2024-04-02 16:01:24,124 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-04-02 16:01:24,124 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-04-02 16:01:24,124 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2024-04-02 16:01:24,124 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2024-04-02 16:01:24,124 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2024-04-02 16:01:24,124 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2024-04-02 16:01:24,350 [INFO] IP:3348 - RTE Config file name : RTE_Component
+2024-04-02 16:01:24,350 [INFO] IP:3366 - RTE template : RTE_Components.ftl
+2024-04-02 16:01:24,359 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp_save
+2024-04-02 16:01:24,490 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp
+2024-04-02 16:01:24,717 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp_save
+2024-04-02 16:01:24,810 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp
+2024-04-02 16:01:26,297 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 16:01:26,382 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp_save
+2024-04-02 16:01:26,469 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp
+2024-04-02 16:01:26,475 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp_save
+2024-04-02 16:01:26,536 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp
+2024-04-02 16:01:26,554 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 16:01:26,663 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 16:01:26,669 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 16:01:26,759 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 16:01:26,764 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 16:01:26,848 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 16:01:26,852 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 16:01:26,877 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c_save
+2024-04-02 16:01:27,082 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c
+2024-04-02 16:01:27,091 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h_save
+2024-04-02 16:01:27,163 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h
+2024-04-02 16:01:27,193 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 16:01:27,267 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 16:01:27,275 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 16:01:27,336 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 16:01:27,350 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 16:01:27,420 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 16:01:27,445 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c_save
+2024-04-02 16:01:27,570 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c
+2024-04-02 16:01:27,576 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp_save
+2024-04-02 16:01:27,638 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp
+2024-04-02 16:01:27,659 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h_save
+2024-04-02 16:01:27,758 [INFO] CodeEngine:335 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h
+2024-04-02 16:01:27,783 [WARN] IPConfigManager:3440 - IP not found : TIM
+2024-04-02 16:01:27,784 [WARN] CodeGenerator:3939 - IP not found : null
+2024-04-02 16:01:27,801 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h_save
+2024-04-02 16:01:27,890 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h
+2024-04-02 16:01:27,905 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c_save
+2024-04-02 16:01:28,070 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c
+2024-04-02 16:01:28,825 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 306mS.
+2024-04-02 16:01:28,825 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:28,825 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:28,826 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:28,826 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:28,826 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:01:28,831 [INFO] ProjectBuilder:8685 - Time for Copy ThirdParty[1] : 4mS.
+2024-04-02 16:01:28,835 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-04-02 16:01:29,172 [INFO] ConfigFileManager:1495 - The Die is : DIE470
+2024-04-02 16:01:31,109 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2274mS.
+2024-04-02 16:01:31,110 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 16:01:31,116 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 16:06:54,431 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-04-02 16:06:54,719 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 890983104 Bytes (1073741824)
+2024-04-02 16:06:56,703 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 731835096 Bytes (1073741824)
+2024-04-02 16:06:58,543 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 725336144 Bytes (1073741824)
+2024-04-02 16:06:59,065 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DAC
+2024-04-02 16:06:59,065 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8L4
+2024-04-02 16:06:59,065 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 16:06:59,065 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-04-02 16:06:59,065 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-04-02 16:06:59,065 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-02 16:06:59,066 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: LPUART
+2024-04-02 16:06:59,066 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-02 16:06:59,066 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-04-02 16:06:59,067 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-02 16:06:59,067 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SAI
+2024-04-02 16:06:59,068 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:06:59,068 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:06:59,068 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:06:59,068 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:06:59,068 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:06:59,070 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-04-02 16:06:59,081 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 16:06:59,081 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : Initvalue: null
+2024-04-02 16:06:59,081 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 16:06:59,081 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 16:06:59,081 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 16:06:59,081 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 16:06:59,081 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 16:06:59,081 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 16:06:59,081 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 16:06:59,081 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 16:06:59,081 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 16:06:59,081 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 16:06:59,082 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:325 - Argument : Statevalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:335 - Argument : Statevalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2024-04-02 16:06:59,082 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2024-04-02 16:06:59,083 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2024-04-02 16:06:59,083 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2024-04-02 16:06:59,290 [INFO] IP:3348 - RTE Config file name : RTE_Component
+2024-04-02 16:06:59,291 [INFO] IP:3366 - RTE template : RTE_Components.ftl
+2024-04-02 16:06:59,302 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp_save
+2024-04-02 16:06:59,499 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp
+2024-04-02 16:06:59,689 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp_save
+2024-04-02 16:06:59,786 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp
+2024-04-02 16:07:01,278 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 16:07:01,394 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp_save
+2024-04-02 16:07:01,497 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp
+2024-04-02 16:07:01,503 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp_save
+2024-04-02 16:07:01,569 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp
+2024-04-02 16:07:01,584 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 16:07:01,692 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 16:07:01,697 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 16:07:01,804 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 16:07:01,809 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 16:07:01,896 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 16:07:01,902 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 16:07:01,925 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c_save
+2024-04-02 16:07:02,105 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c
+2024-04-02 16:07:02,113 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h_save
+2024-04-02 16:07:02,188 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h
+2024-04-02 16:07:02,213 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 16:07:02,292 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 16:07:02,300 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 16:07:02,364 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 16:07:02,379 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 16:07:02,451 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 16:07:02,476 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c_save
+2024-04-02 16:07:02,610 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c
+2024-04-02 16:07:02,617 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp_save
+2024-04-02 16:07:02,680 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp
+2024-04-02 16:07:02,702 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h_save
+2024-04-02 16:07:02,805 [INFO] CodeEngine:335 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h
+2024-04-02 16:07:02,832 [WARN] IPConfigManager:3440 - IP not found : TIM
+2024-04-02 16:07:02,833 [WARN] CodeGenerator:3939 - IP not found : null
+2024-04-02 16:07:02,851 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h_save
+2024-04-02 16:07:02,942 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h
+2024-04-02 16:07:02,958 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c_save
+2024-04-02 16:07:03,118 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c
+2024-04-02 16:07:03,868 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 315mS.
+2024-04-02 16:07:03,869 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:07:03,869 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:07:03,869 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:07:03,869 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:07:03,869 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:07:03,877 [INFO] ProjectBuilder:8685 - Time for Copy ThirdParty[1] : 6mS.
+2024-04-02 16:07:03,884 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-04-02 16:07:04,237 [INFO] ConfigFileManager:1495 - The Die is : DIE470
+2024-04-02 16:07:06,296 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2412mS.
+2024-04-02 16:07:06,297 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.
+2024-04-02 16:07:06,303 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2024-04-02 16:22:41,768 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-04-02 16:22:42,848 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 732850200 Bytes (1073741824)
+2024-04-02 16:22:59,374 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 759590936 Bytes (1073741824)
+2024-04-02 16:23:02,169 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 809396248 Bytes (1073741824)
+2024-04-02 16:23:02,614 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DAC
+2024-04-02 16:23:02,614 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8L4
+2024-04-02 16:23:02,614 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0
+2024-04-02 16:23:02,614 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-04-02 16:23:02,614 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: ADC
+2024-04-02 16:23:02,614 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-04-02 16:23:02,614 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: LPUART
+2024-04-02 16:23:02,614 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-04-02 16:23:02,614 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: DMA
+2024-04-02 16:23:02,616 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-04-02 16:23:02,616 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SAI
+2024-04-02 16:23:02,617 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:02,617 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:02,617 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:02,617 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:02,617 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:02,618 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.14.1\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.10.0.202311202037\\db\
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : hdmavalue: null
+2024-04-02 16:23:02,627 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : Initvalue: null
+2024-04-02 16:23:02,627 [INFO] Argument:327 - 	 sub Args: 
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_VERY_HIGH
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : Lockvalue: null
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : Lockvalue: null
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : Statevalue: null
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : Statevalue: null
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : Parentvalue: null
+2024-04-02 16:23:02,627 [INFO] Argument:335 - Argument : Parentvalue: null
+2024-04-02 16:23:02,627 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2024-04-02 16:23:02,628 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2024-04-02 16:23:02,849 [INFO] IP:3348 - RTE Config file name : RTE_Component
+2024-04-02 16:23:02,849 [INFO] IP:3366 - RTE template : RTE_Components.ftl
+2024-04-02 16:23:02,859 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp_save
+2024-04-02 16:23:02,985 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\license.tmp
+2024-04-02 16:23:03,172 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp_save
+2024-04-02 16:23:03,283 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\gpio.tmp
+2024-04-02 16:23:04,744 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 16:23:04,831 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp_save
+2024-04-02 16:23:04,919 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma.tmp
+2024-04-02 16:23:04,924 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp_save
+2024-04-02 16:23:04,986 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\dma_GV.tmp
+2024-04-02 16:23:05,001 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 16:23:05,109 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 16:23:05,115 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 16:23:05,191 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 16:23:05,196 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 16:23:05,283 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 16:23:05,288 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-04-02 16:23:05,316 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c_save
+2024-04-02 16:23:05,541 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_it.c
+2024-04-02 16:23:05,549 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h_save
+2024-04-02 16:23:05,624 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_it.h
+2024-04-02 16:23:05,653 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp_save
+2024-04-02 16:23:05,737 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_init.tmp
+2024-04-02 16:23:05,745 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp_save
+2024-04-02 16:23:05,810 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_GV.tmp
+2024-04-02 16:23:05,829 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp_save
+2024-04-02 16:23:05,903 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\sai_msp.tmp
+2024-04-02 16:23:05,928 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c_save
+2024-04-02 16:23:06,056 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\stm32l4xx_hal_msp.c
+2024-04-02 16:23:06,062 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp_save
+2024-04-02 16:23:06,125 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\MXTmpFiles\system.tmp
+2024-04-02 16:23:06,147 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h_save
+2024-04-02 16:23:06,246 [INFO] CodeEngine:335 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\stm32l4xx_hal_conf.h
+2024-04-02 16:23:06,271 [WARN] IPConfigManager:3440 - IP not found : TIM
+2024-04-02 16:23:06,273 [WARN] CodeGenerator:3939 - IP not found : null
+2024-04-02 16:23:06,292 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h_save
+2024-04-02 16:23:06,390 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Inc\main.h
+2024-04-02 16:23:06,405 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c_save
+2024-04-02 16:23:06,567 [INFO] CodeEngine:279 - Generated code: C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\Core\Src\main.c
+2024-04-02 16:23:07,347 [INFO] ProjectBuilder:3076 - Time for Copy HAL[1] : 334mS.
+2024-04-02 16:23:07,349 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_GCC' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:07,349 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:07,349 [WARN] ThirdPartyIpManager:480 - Condition 'CM3_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:07,349 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_IAR' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:07,349 [WARN] ThirdPartyIpManager:480 - Condition 'CM4_Keil' not fulfilled in pack 'STMicroelectronics.X-CUBE-ALGOBUILD.1.3.0'
+2024-04-02 16:23:07,355 [INFO] ProjectBuilder:8685 - Time for Copy ThirdParty[1] : 5mS.
+2024-04-02 16:23:07,360 [INFO] ProjectBuilder:4485 - Project Generator version: 4.2.0-B44
+2024-04-02 16:23:07,718 [INFO] ConfigFileManager:1495 - The Die is : DIE470
+2024-04-02 16:23:09,910 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 2550mS.
+2024-04-02 16:23:09,911 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.
+2024-04-02 16:23:09,916 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
