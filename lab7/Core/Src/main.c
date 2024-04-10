@@ -172,6 +172,9 @@ void set_motor_speed(int motor_speed) {
   TIM4->CCR2 = temp_ccr2;
 }
 
+
+
+
 void screenInit () {
 	ILI9341_Unselect();
 	ILI9341_TouchUnselect();
@@ -237,6 +240,7 @@ void ftoa(float n, char* res, int afterpoint)
   * @brief  The application entry point.
   * @retval int
   */
+
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -312,14 +316,56 @@ int main(void)
 	 HAL_ADC_Start_DMA(&hadc1, ADC_BUFFER, BUFFER_LENGTH);
 
 	  //Test signal with harmonics
-//	  for (int i = 0; i < BUFFER_LENGTH; ++i){
-//		  float32_t r = (float32_t)i / (float32_t)SAMPLING_RATE;
-//		  r *= 3.14158265359 * 2;
-//		  r *= 400; //Hz
-//
-//		  float32_t s = sin(r) + sin(r*4) * 0.5 + sin(r*3) * 0.25;
-//		  signal[i] = s;
-//	  }
+	  for (int i = 0; i < BUFFER_LENGTH; ++i){
+		  float32_t r = (float32_t)i / (float32_t)SAMPLING_RATE;
+		  r *= 3.14158265359 * 2;
+		  r *= 400; //Hz
+
+		  float32_t s = sin(r) + sin(r*4) * 0.5 + sin(r*3) * 0.25;
+		  signal[i] = s;
+	  }
+
+//////// TEST CODE HPS //////////
+
+    arm_rfft_fast_instance_f32 fftInstance;
+
+
+    // Initialize the FFT instance
+    arm_rfft_fast_init_f32(&fftInstance, BUFFER_LENGTH);
+
+    float32_t output[BUFFER_LENGTH];
+    arm_rfft_fast_f32(&fftInstance, signal, output, 0);
+
+    output[0] = 0;
+    output[1] = 0;
+
+    // Rest of the frequency bins (upto N/2)
+    for (uint32_t i = 1; i < BUFFER_LENGTH / 2; ++i) {
+        output[2 * i] = sqrtf(output[2 * i] * output[2 * i] + output[2 * i + 1] * output[2 * i + 1]); // Real part
+        output[2 * i + 1] = 0; // Imaginary part is 0
+    }
+
+    for(int i = 0; i < BUFFER_LENGTH / 2; i++) {
+
+      output[i] = output[i] * output[2*i];
+
+      if(i < floorf(BUFFER_LENGTH / 3)) {
+        output[i] = output[i] * output[3*i];
+      }
+
+      if(i < floorf(BUFFER_LENGTH / 4)) {
+        output[i] = output[i] * output[4*i];
+      }
+
+    }
+
+    int max_peak = 0;
+    int max_mag = 0;
+    arm_max_f32(output, BUFFER_LENGTH, max_mag, max_peak);
+
+
+//////// TEST CODE HPS //////////
+
 
 
 	  while(convFlag == 0) {;}
@@ -331,6 +377,7 @@ int main(void)
 
 
 	  apply_hanning_window(&signal, BUFFER_LENGTH);
+
 
 
 	  autocorrelate(signal, BUFFER_LENGTH,  autocorrelation);
