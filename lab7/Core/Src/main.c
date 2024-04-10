@@ -36,7 +36,7 @@
 #include "ili9341_touch.h"
 
 #define BUFFER_LENGTH 4096
-#define SAMPLING_RATE 20000
+#define SAMPLING_RATE 4081.6
 
 #define PROCESSOR_CLOCK 4000000
 #define PRESCALER 8
@@ -319,7 +319,7 @@ int main(void)
 	  for (int i = 0; i < BUFFER_LENGTH; ++i){
 		  float32_t r = (float32_t)i / (float32_t)SAMPLING_RATE;
 		  r *= 3.14158265359 * 2;
-		  r *= 400; //Hz
+		  r *= 329; //Hz
 
 		  float32_t s = sin(r) + sin(r*4) * 0.5 + sin(r*3) * 0.25;
 		  signal[i] = s;
@@ -340,28 +340,28 @@ int main(void)
     output[1] = 0;
 
     // Rest of the frequency bins (upto N/2)
-    for (uint32_t i = 1; i < BUFFER_LENGTH / 2; ++i) {
-        output[2 * i] = sqrtf(output[2 * i] * output[2 * i] + output[2 * i + 1] * output[2 * i + 1]); // Real part
-        output[2 * i + 1] = 0; // Imaginary part is 0
+    float32_t HPS[BUFFER_LENGTH / 2];
+    for (uint32_t i = 0; i < BUFFER_LENGTH / 2; ++i) {
+        HPS[i] = sqrtf(output[2 * i] * output[2 * i] + output[2 * i + 1] * output[2 * i + 1]); // Real part
     }
 
-    for(int i = 0; i < BUFFER_LENGTH / 2; i++) {
+    for(int i = 0; i < BUFFER_LENGTH / 4; i++) {
 
-      output[i] = output[i] * output[2*i];
+      HPS[i] = HPS[i] * HPS[2*i];
 
-      if(i < floorf(BUFFER_LENGTH / 3)) {
-        output[i] = output[i] * output[3*i];
+      if(i < floorf(BUFFER_LENGTH / 6)) {
+        HPS[i] = HPS[i] * HPS[3*i];
       }
 
-      if(i < floorf(BUFFER_LENGTH / 4)) {
-        output[i] = output[i] * output[4*i];
+      if(i < floorf(BUFFER_LENGTH / 8)) {
+        HPS[i] = HPS[i] * HPS[4*i];
       }
 
     }
 
     int max_peak = 0;
     int max_mag = 0;
-    arm_max_f32(output, BUFFER_LENGTH, max_mag, max_peak);
+    arm_max_f32(HPS, BUFFER_LENGTH / 2, &max_mag, &max_peak);
 
 
 //////// TEST CODE HPS //////////
