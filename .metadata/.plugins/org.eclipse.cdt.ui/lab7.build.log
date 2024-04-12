@@ -1,55 +1,10 @@
-16:10:59 **** Incremental Build of configuration Debug for project lab7 ****
+14:42:09 **** Incremental Build of configuration Debug for project lab7 ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/ST/ARM/DSP/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c:72:10: warning: type defaults to 'int' in declaration of 'convFlag' [-Wimplicit-int]
-   72 | volatile convFlag;
-      |          ^~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:242:36: warning: passing argument 2 of 'HAL_ADC_Start_DMA' from incompatible pointer type [-Wincompatible-pointer-types]
-  242 |          HAL_ADC_Start_DMA(&hadc1, ADC_BUFFER, BUFFER_LENGTH);
-      |                                    ^~~~~~~~~~
-      |                                    |
-      |                                    volatile uint16_t * {aka volatile short unsigned int *}
-In file included from ../Core/Inc/stm32l4xx_hal_conf.h:278,
-                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h:1945:78: note: expected 'uint32_t *' {aka 'long unsigned int *'} but argument is of type 'volatile uint16_t *' {aka 'volatile short unsigned int *'}
- 1945 | HAL_StatusTypeDef       HAL_ADC_Start_DMA(ADC_HandleTypeDef *hadc, uint32_t *pData, uint32_t Length);
-      |                                                                    ~~~~~~~~~~^~~~~
-../Core/Src/main.c:263:32: warning: passing argument 1 of 'apply_hanning_window' from incompatible pointer type [-Wincompatible-pointer-types]
-  263 |           apply_hanning_window(&signal, BUFFER_LENGTH);
-      |                                ^~~~~~~
-      |                                |
-      |                                float32_t (*)[4096] {aka float (*)[4096]}
-../Core/Src/main.c:101:39: note: expected 'float32_t *' {aka 'float *'} but argument is of type 'float32_t (*)[4096]' {aka 'float (*)[4096]'}
-  101 | void apply_hanning_window(float32_t * signal, uint32_t length){
-      |                           ~~~~~~~~~~~~^~~~~~
-../Core/Src/main.c:271:56: warning: pointer targets in passing argument 3 of 'find_peaks' differ in signedness [-Wpointer-sign]
-  271 |           find_peaks(autocorrelation, BUFFER_LENGTH/2, peaks, &num_peaks); //returns peak indices
-      |                                                        ^~~~~
-      |                                                        |
-      |                                                        uint32_t * {aka long unsigned int *}
-../Core/Src/main.c:109:60: note: expected 'int32_t *' {aka 'long int *'} but argument is of type 'uint32_t *' {aka 'long unsigned int *'}
-  109 | void find_peaks(float32_t* data, uint32_t length, int32_t* peaks, uint32_t* num_peaks) {
-      |                                                   ~~~~~~~~~^~~~~
-../Core/Src/main.c:274:21: warning: unused variable 'freq' [-Wunused-variable]
-  274 |           float32_t freq = 0.0f;
-      |                     ^~~~
-../Core/Src/main.c:183:19: warning: variable 'string_offset' set but not used [-Wunused-but-set-variable]
-  183 |         float32_t string_offset;
-      |                   ^~~~~~~~~~~~~
-arm-none-eabi-gcc -o "lab7.elf" @"objects.list"  -l:libarm_cortexM4lf_math.a -mcpu=cortex-m4 -T"C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\lab7\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab7.map" -Wl,--gc-sections -static -L../Middlewares/ST/ARM/DSP/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: lab7.elf
- 
 arm-none-eabi-size  lab7.elf 
-arm-none-eabi-objdump -h -S lab7.elf  > "lab7.list"
    text	   data	    bss	    dec	    hex	filename
- 125048	     20	   2244	 127312	  1f150	lab7.elf
+ 142984	    136	   2656	 145776	  23970	lab7.elf
 Finished building: default.size.stdout
  
-Finished building: lab7.list
- 
 
-16:11:00 Build Finished. 0 errors, 6 warnings. (took 1s.24ms)
+14:42:09 Build Finished. 0 errors, 0 warnings. (took 444ms)
 

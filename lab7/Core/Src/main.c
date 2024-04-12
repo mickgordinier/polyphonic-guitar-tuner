@@ -36,9 +36,9 @@
 #include "ili9341_touch.h"
 
 #define BUFFER_LENGTH 4096
-#define SAMPLING_RATE 4081.6
+#define SAMPLING_RATE 2051.282
 
-#define PROCESSOR_CLOCK 4000000
+#define PROCESSOR_CLOCK 8000000
 #define PRESCALER 8
 
 /* USER CODE END Includes */
@@ -240,7 +240,6 @@ void ftoa(float n, char* res, int afterpoint)
   * @brief  The application entry point.
   * @retval int
   */
-
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -250,7 +249,7 @@ int main(void)
 	float32_t string_freqs[6] = {82.41, 110.0, 146.83, 196.0, 246.94, 329.63};
 	float32_t measured_freq;
 	char *strings[] = {"E (low)", "A", "D", "G", "B", "E (high)" };
-	char * E_high = "E (high)";
+	//char * E_high = "E (high)";
 	char *detected_string;
 	float32_t string_offset;
 
@@ -316,16 +315,22 @@ int main(void)
 	 HAL_ADC_Start_DMA(&hadc1, ADC_BUFFER, BUFFER_LENGTH);
 
 	  //Test signal with harmonics
-	  for (int i = 0; i < BUFFER_LENGTH; ++i){
-		  float32_t r = (float32_t)i / (float32_t)SAMPLING_RATE;
-		  r *= 3.14158265359 * 2;
-		  r *= 329; //Hz
+//	  for (int i = 0; i < BUFFER_LENGTH; ++i){
+//		  float32_t r = (float32_t)i / (float32_t)SAMPLING_RATE;
+//		  r *= 3.14158265359 * 2;
+//		  r *= 81.5; //Hz
+//
+//		  float32_t s = sin(r) + sin(r*4) * 0.5 + 0.25*sin(r*3) + sin(r*4) + sin(r*5) + sin(r*5);
+//		  signal[i] = s;
+//	  }
 
-		  float32_t s = sin(r) + sin(r*4) * 0.5 + sin(r*3) * 0.25;
-		  signal[i] = s;
+	  while(convFlag == 0) {;}
+
+	  for(int i = 0; i < BUFFER_LENGTH; i++) {
+		  signal[i] = (double)(ADC_BUFFER[i]);
 	  }
 
-//////// TEST CODE HPS //////////
+	apply_hanning_window(&signal, BUFFER_LENGTH);
 
     arm_rfft_fast_instance_f32 fftInstance;
 
@@ -357,56 +362,57 @@ int main(void)
         HPS[i] = HPS[i] * HPS[4*i];
       }
 
+      if(i < floorf(BUFFER_LENGTH / 10)) {
+    	  HPS[i] = HPS[i] * HPS[5*i];
+      }
+
+//      if(i < floorf(BUFFER_LENGTH / 12)) {
+//          	  HPS[i] = HPS[i] * HPS[6*i];
+//            }
+
+    }
+    //Filter lower and higher frequencies, 30Hz and 450 Hz
+    for(int i = 0; i < 40; ++i){
+    	HPS[i] = 0;
+    }
+    for(int i = 450; i < BUFFER_LENGTH / 2; ++i){
+    	HPS[i] = 0;
     }
 
     int max_peak = 0;
     int max_mag = 0;
     arm_max_f32(HPS, BUFFER_LENGTH / 2, &max_mag, &max_peak);
 
-
-//////// TEST CODE HPS //////////
-
+    float32_t measured_freq = max_peak * (2* SAMPLING_RATE/(BUFFER_LENGTH));
 
 
-	  while(convFlag == 0) {;}
-
-
-	  for(int i = 0; i < BUFFER_LENGTH; i++) {
-		  signal[i] = (double)(ADC_BUFFER[i]);
-	  }
-
-
-	  apply_hanning_window(&signal, BUFFER_LENGTH);
-
-
-
-	  autocorrelate(signal, BUFFER_LENGTH,  autocorrelation);
-
-	  uint32_t peaks[BUFFER_LENGTH/2];
-	  uint32_t num_peaks = 0;
-
-	  find_peaks(autocorrelation, BUFFER_LENGTH/2, peaks, &num_peaks); //returns peak indices
-
-
-	  float32_t freq = 0.0f;
-	     if (num_peaks > 0) {
-	         // Get the highest valid peak
-	         uint32_t max_peak_index = 0;
-	         float32_t max_value = 0;
-	         for (uint32_t i = 0; i < num_peaks; ++i) {
-	             int32_t peak = peaks[i];
-	             //peak greater than lowest period and smaller than largest possible period
-	             if (peak > LOWEST_PERIOD && peak < HIGHEST_PERIOD) { //if valid peak
-	                 if (autocorrelation[peak] > max_value) {
-	                     max_peak_index = peak;
-	                     max_value = autocorrelation[peak];
-	                 }
-	             }
-	         }
-	         if (max_value > 0) {
-	             measured_freq = (float32_t)SAMPLING_RATE / max_peak_index;
-	         }
-	     }
+//	  autocorrelate(signal, BUFFER_LENGTH,  autocorrelation);
+//
+//	  uint32_t peaks[BUFFER_LENGTH/2];
+//	  uint32_t num_peaks = 0;
+//
+//	  find_peaks(autocorrelation, BUFFER_LENGTH/2, peaks, &num_peaks); //returns peak indices
+//
+//
+//	  float32_t freq = 0.0f;
+//	     if (num_peaks > 0) {
+//	         // Get the highest valid peak
+//	         uint32_t max_peak_index = 0;
+//	         float32_t max_value = 0;
+//	         for (uint32_t i = 0; i < num_peaks; ++i) {
+//	             int32_t peak = peaks[i];
+//	             //peak greater than lowest period and smaller than largest possible period
+//	             if (peak > LOWEST_PERIOD && peak < HIGHEST_PERIOD) { //if valid peak
+//	                 if (autocorrelation[peak] > max_value) {
+//	                     max_peak_index = peak;
+//	                     max_value = autocorrelation[peak];
+//	                 }
+//	             }
+//	         }
+//	         if (max_value > 0) {
+//	             measured_freq = (float32_t)SAMPLING_RATE / max_peak_index;
+//	         }
+//	     }
 
 
 	     //Match frequency to string
@@ -432,11 +438,6 @@ int main(void)
 	     //assign detected string
 	     detected_string = strings[index];
 
-	     //manually compensate for high E being off
-	     if(strcmp(detected_string, E_high) == 0){
-	    	measured_freq += 2.0; //subject to change, but add 2Hz
-	     }
-
 	     string_offset = measured_freq - string_freqs[index];
 
 
@@ -451,7 +452,45 @@ int main(void)
 	     ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
 	     ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
-	      //set_motor_speed(44);
+	     if(index == 5){
+			 if(string_offset > 0){
+				 uint32_t delay = floor(150 * string_offset); // (500/3 )
+				  set_motor_speed(65);
+				  HAL_Delay(delay);
+				  set_motor_speed(50);
+			 }
+			 else if(string_offset < 0){
+				 uint32_t delay = floor(-1* (100 * string_offset)); // (500/3 )
+				 set_motor_speed(25);
+				 HAL_Delay(delay);
+				 set_motor_speed(50);
+			 }
+	     }
+
+	     if(index == 4){
+			 if(string_offset > 0){
+				 uint32_t delay = floor(80 * string_offset); // (500/3 )
+				  set_motor_speed(65);
+				  HAL_Delay(delay);
+				  set_motor_speed(50);
+			 }
+			 else if(string_offset < 0){
+				 uint32_t delay = floor(-1* (55 * string_offset)); // (500/3 )
+				 set_motor_speed(20);
+				 HAL_Delay(delay);
+				 set_motor_speed(50);
+			 }
+	     }
+
+//	     switch (index){
+//
+//
+//
+//
+//	     }
+
+	      //3Hz/s
+
 
 	     //for (int i = 0; i < 1000000; ++i);
 
@@ -784,7 +823,7 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 19;
+  htim1.Init.Prescaler = 194;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim1.Init.Period = 9;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -864,7 +903,7 @@ static void MX_TIM4_Init(void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 7;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 10000;
+  htim4.Init.Period = 20000;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim4) != HAL_OK)
@@ -878,7 +917,7 @@ static void MX_TIM4_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 750;
+  sConfigOC.Pulse = 1500;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)

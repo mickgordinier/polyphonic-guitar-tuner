@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := mick-pwm
+BUILD_ARTIFACT_NAME := mick-pwm-test
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-mick-pwm.elf \
+mick-pwm-test.elf \
 
 MAP_FILES += \
-mick-pwm.map \
+mick-pwm-test.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-mick-pwm.list \
+mick-pwm-test.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: mick-pwm.elf secondary-outputs
+main-build: mick-pwm-test.elf secondary-outputs
 
 # Tool invocations
-mick-pwm.elf mick-pwm.map: $(OBJS) $(USER_OBJS) N:\final_project_373\mick-pwm-test\STM32L4R5ZITXP_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "mick-pwm.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"N:\final_project_373\mick-pwm-test\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="mick-pwm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+mick-pwm-test.elf mick-pwm-test.map: $(OBJS) $(USER_OBJS) C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\mick-pwm-test\STM32L4R5ZITXP_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "mick-pwm-test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\nates\OneDrive\Documents\EECS373\polyphonic-guitar-tuner\mick-pwm-test\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="mick-pwm-test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-mick-pwm.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "mick-pwm.list"
+mick-pwm-test.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "mick-pwm-test.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout mick-pwm.elf mick-pwm.list mick-pwm.map
+	-$(RM) default.size.stdout mick-pwm-test.elf mick-pwm-test.list mick-pwm-test.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

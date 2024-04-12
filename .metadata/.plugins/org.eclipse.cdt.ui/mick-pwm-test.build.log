@@ -1,0 +1,10 @@
+14:41:45 **** Incremental Build of configuration Debug for project mick-pwm-test ****
+make -j12 all 
+arm-none-eabi-size  mick-pwm-test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13824	     20	   1644	  15488	   3c80	mick-pwm-test.elf
+Finished building: default.size.stdout
+ 
+
+14:41:45 Build Finished. 0 errors, 0 warnings. (took 316ms)
+
