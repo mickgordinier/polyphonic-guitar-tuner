@@ -285,8 +285,8 @@ int main(void)
   MX_TIM4_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  screenInit();
-  ILI9341_FillScreen(ILI9341_BLACK);
+ // screenInit();
+  //ILI9341_FillScreen(ILI9341_BLACK);
 
   //arm_rfft_fast_init_f32(&fftHandler, BUFFER_LENGTH);
 
@@ -324,13 +324,22 @@ int main(void)
 //		  signal[i] = s;
 //	  }
 
+	 //Calculate average of ADC values over a range, do this for both noise (to get a threshold) and for when the individual strings
+	 //are strummed
+
 	  while(convFlag == 0) {;}
 
 	  for(int i = 0; i < BUFFER_LENGTH; i++) {
 		  signal[i] = (double)(ADC_BUFFER[i]);
 	  }
 
+
 	apply_hanning_window(&signal, BUFFER_LENGTH);
+
+
+//	  if (average < 2048){ //DETERMINE APPROPRIATE THRESHOLD HERE
+//		  continue; //resample
+//	  }
 
     arm_rfft_fast_instance_f32 fftInstance;
 
@@ -344,10 +353,17 @@ int main(void)
     output[0] = 0;
     output[1] = 0;
 
+
     // Rest of the frequency bins (upto N/2)
     float32_t HPS[BUFFER_LENGTH / 2];
     for (uint32_t i = 0; i < BUFFER_LENGTH / 2; ++i) {
         HPS[i] = sqrtf(output[2 * i] * output[2 * i] + output[2 * i + 1] * output[2 * i + 1]); // Real part
+    }
+
+    float32_t average;
+    arm_mean_f32(HPS, BUFFER_LENGTH, &average);
+    if(average < 2000){ //Based on sampled data,see spreadsheet
+    	continue;
     }
 
     for(int i = 0; i < BUFFER_LENGTH / 4; i++) {
@@ -366,16 +382,13 @@ int main(void)
     	  HPS[i] = HPS[i] * HPS[5*i];
       }
 
-//      if(i < floorf(BUFFER_LENGTH / 12)) {
-//          	  HPS[i] = HPS[i] * HPS[6*i];
-//            }
 
     }
     //Filter lower and higher frequencies, 30Hz and 450 Hz
     for(int i = 0; i < 40; ++i){
     	HPS[i] = 0;
     }
-    for(int i = 450; i < BUFFER_LENGTH / 2; ++i){
+    for(int i = 370; i < BUFFER_LENGTH / 2; ++i){ //370 since likely will never be higher and issues with 3rd string harmonics
     	HPS[i] = 0;
     }
 
@@ -384,35 +397,6 @@ int main(void)
     arm_max_f32(HPS, BUFFER_LENGTH / 2, &max_mag, &max_peak);
 
     float32_t measured_freq = max_peak * (2* SAMPLING_RATE/(BUFFER_LENGTH));
-
-
-//	  autocorrelate(signal, BUFFER_LENGTH,  autocorrelation);
-//
-//	  uint32_t peaks[BUFFER_LENGTH/2];
-//	  uint32_t num_peaks = 0;
-//
-//	  find_peaks(autocorrelation, BUFFER_LENGTH/2, peaks, &num_peaks); //returns peak indices
-//
-//
-//	  float32_t freq = 0.0f;
-//	     if (num_peaks > 0) {
-//	         // Get the highest valid peak
-//	         uint32_t max_peak_index = 0;
-//	         float32_t max_value = 0;
-//	         for (uint32_t i = 0; i < num_peaks; ++i) {
-//	             int32_t peak = peaks[i];
-//	             //peak greater than lowest period and smaller than largest possible period
-//	             if (peak > LOWEST_PERIOD && peak < HIGHEST_PERIOD) { //if valid peak
-//	                 if (autocorrelation[peak] > max_value) {
-//	                     max_peak_index = peak;
-//	                     max_value = autocorrelation[peak];
-//	                 }
-//	             }
-//	         }
-//	         if (max_value > 0) {
-//	             measured_freq = (float32_t)SAMPLING_RATE / max_peak_index;
-//	         }
-//	     }
 
 
 	     //Match frequency to string
@@ -441,62 +425,149 @@ int main(void)
 	     string_offset = measured_freq - string_freqs[index];
 
 
-	     char charFreq[20];
-	     char desiredFreq[20];
-	     ftoa(measured_freq, charFreq, 2);
-	     ftoa(string_freqs[index], desiredFreq, 2);
-	     ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-	     ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	     ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-	     ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	     ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-	     ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//	     char charFreq[20];
+//	     char desiredFreq[20];
+//	     ftoa(measured_freq, charFreq, 2);
+//	     ftoa(string_freqs[index], desiredFreq, 2);
+//	     ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+//	     ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//	     ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+//	     ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//	     ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+//	     ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
-	     if(index == 5){
-			 if(string_offset > 0){
-				 uint32_t delay = floor(150 * string_offset); // (500/3 )
-				  set_motor_speed(65);
+	     //Tune strings (yeah yeah)
+	     switch (index){
+	     	 case 0: //E low
+	     		if(string_offset > 0){
+				 uint32_t delay = floor(70 * string_offset);
+				 if(delay > 1000){
+					delay = 1000;
+				 }
+				  set_motor_speed(70);
 				  HAL_Delay(delay);
 				  set_motor_speed(50);
-			 }
-			 else if(string_offset < 0){
-				 uint32_t delay = floor(-1* (100 * string_offset)); // (500/3 )
-				 set_motor_speed(25);
+				}
+				else if(string_offset < 0){
+				 uint32_t delay = floor(-1* (50 * string_offset));
+				 if(delay > 1000){
+					delay = 1000;
+				 }
+				 set_motor_speed(18);
 				 HAL_Delay(delay);
 				 set_motor_speed(50);
-			 }
-	     }
+				}
+	     		 break;
 
-	     if(index == 4){
-			 if(string_offset > 0){
-				 uint32_t delay = floor(80 * string_offset); // (500/3 )
-				  set_motor_speed(65);
+	     	 case 1: //A
+	     		if(string_offset > 0){
+				 uint32_t delay = floor(90 * string_offset);
+				 if(delay > 1000){
+					delay = 1000;
+				 }
+				  set_motor_speed(70);
 				  HAL_Delay(delay);
 				  set_motor_speed(50);
-			 }
-			 else if(string_offset < 0){
-				 uint32_t delay = floor(-1* (55 * string_offset)); // (500/3 )
+				}
+				else if(string_offset < 0){
+				 uint32_t delay = floor(-1* (100 * string_offset));
+				 if(delay > 1000){
+					delay = 1000;
+				 }
+				 set_motor_speed(18);
+				 HAL_Delay(delay);
+				 set_motor_speed(50);
+				}
+	     		 break;
+
+	     	 case 2: //D
+	     		if(string_offset > 0){
+				 uint32_t delay = floor(130 * string_offset); // (500/3 )
+				 if(delay > 1000){
+					delay = 1000;
+				 }
+				  set_motor_speed(70);
+				  HAL_Delay(delay);
+				  set_motor_speed(50);
+				}
+				else if(string_offset < 0){
+				 uint32_t delay = floor(-1* (130 * string_offset)); // (500/3 )
+				 if(delay > 1000){
+					delay = 1000;
+				 }
+				 set_motor_speed(18);
+				 HAL_Delay(delay);
+				 set_motor_speed(50);
+	     		}
+	     		 break;
+
+	     	 case 3: //G
+	     		if(string_offset > 0){
+				 uint32_t delay = floor(115 * string_offset);
+				 if(delay > 1000){
+				 	delay = 1000;
+				 }
+				  set_motor_speed(72);
+				  HAL_Delay(delay);
+				  set_motor_speed(50);
+				}
+				else if(string_offset < 0 && string_offset < -1){
+				 uint32_t delay = floor(-1* (160 * string_offset));
+				 if(delay > 1000){
+				 	delay = 1000;
+				 }
 				 set_motor_speed(20);
 				 HAL_Delay(delay);
 				 set_motor_speed(50);
-			 }
+				}
+	     		 break;
+
+	     	 case 4: //B
+	     		if(string_offset > 0){ // COULD TEST FOR EXPECTED VALUE (BASED ON 1H range) when in tune
+	     		 uint32_t delay = floor(80 * string_offset);	//OR could just do > 1 and let user decide when good, display in tune or sum
+				 if(delay > 1000){								//Since it has 1 Hz accuracy might be nice to have it turn small amounts
+				 	delay = 1000;
+				 }
+				  set_motor_speed(65);
+				  HAL_Delay(delay);
+				  set_motor_speed(50);
+	     		}
+	     		else if(string_offset < 0){
+				 uint32_t delay = floor(-1* (60 * string_offset));
+				 if(delay > 1000){
+				 	delay = 1000;
+				 }
+				 set_motor_speed(20);
+				 HAL_Delay(delay);
+				 set_motor_speed(50);
+	     		}
+	     		 break;
+
+	     	 case 5: //Low E
+	     		if(string_offset > 0){
+					 uint32_t delay = floor(150 * string_offset);
+					 if(delay > 1000){
+					 	delay = 1000;
+					 }
+					  set_motor_speed(65);
+					  HAL_Delay(delay);
+					  set_motor_speed(50);
+				 }
+	     		else if(string_offset < 0){
+					 uint32_t delay = floor(-1* (100 * string_offset));
+					 if(delay > 1000){
+					 	delay = 1000;
+					 }
+					 set_motor_speed(25);
+					 HAL_Delay(delay);
+					 set_motor_speed(50);
+				 }
+	     		 break;
+
 	     }
 
-//	     switch (index){
-//
-//
-//
-//
-//	     }
-
-	      //3Hz/s
-
-
-	     //for (int i = 0; i < 1000000; ++i);
-
-	     //set_motor_speed(55);
-
-
+	  //To prevent strum from previous affecting next
+	  HAL_Delay(1000);
 	  convFlag = 0;
 
     /* USER CODE END WHILE */
