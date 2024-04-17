@@ -113,11 +113,18 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	while (!start) {
+	if(!start) {
+		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+		ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+		ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
 		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	}
-	while (start) {
+	} else {
+		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
 		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
 		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
