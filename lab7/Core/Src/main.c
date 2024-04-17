@@ -37,6 +37,7 @@
 
 #define BUFFER_LENGTH 4096
 #define SAMPLING_RATE 2051.282
+#define MAX_DELAY 500
 
 #define PROCESSOR_CLOCK 8000000
 #define PRESCALER 8
@@ -359,13 +360,7 @@ int main(void)
     for (uint32_t i = 0; i < BUFFER_LENGTH / 2; ++i) {
         HPS[i] = sqrtf(output[2 * i] * output[2 * i] + output[2 * i + 1] * output[2 * i + 1]); // Real part
     }
-
-    float32_t average;
-    arm_mean_f32(HPS, BUFFER_LENGTH, &average);
-    if(average < 2000){ //Based on sampled data,see spreadsheet
-    	continue;
-    }
-
+//
     for(int i = 0; i < BUFFER_LENGTH / 4; i++) {
 
       HPS[i] = HPS[i] * HPS[2*i];
@@ -385,12 +380,19 @@ int main(void)
 
     }
     //Filter lower and higher frequencies, 30Hz and 450 Hz
-    for(int i = 0; i < 40; ++i){
+    for(int i = 0; i < 50; ++i){
     	HPS[i] = 0;
     }
     for(int i = 370; i < BUFFER_LENGTH / 2; ++i){ //370 since likely will never be higher and issues with 3rd string harmonics
     	HPS[i] = 0;
     }
+
+    float32_t average;
+	arm_mean_f32(HPS, BUFFER_LENGTH/2, &average);
+	if(average < (1E20)){ //Based on sampled data,see spreadsheet
+		continue;
+	}
+
 
     int max_peak = 0;
     int max_mag = 0;
@@ -411,7 +413,7 @@ int main(void)
 
 	     //find the argmin
 	     float32_t current_min = min_freqs[0];
-	     uint8_t index = 0;;
+	     uint8_t index = 0;
 	     for(int i = 0; i < 6; ++i){
 	    	 if (min_freqs[i] < current_min){
 	    		 current_min = min_freqs[i];
@@ -441,8 +443,8 @@ int main(void)
 	     	 case 0: //E low
 	     		if(string_offset > 0){
 				 uint32_t delay = floor(70 * string_offset);
-				 if(delay > 1000){
-					delay = 1000;
+				 if(delay > MAX_DELAY){
+					delay = MAX_DELAY;
 				 }
 				  set_motor_speed(70);
 				  HAL_Delay(delay);
@@ -450,8 +452,8 @@ int main(void)
 				}
 				else if(string_offset < 0){
 				 uint32_t delay = floor(-1* (50 * string_offset));
-				 if(delay > 1000){
-					delay = 1000;
+				 if(delay > MAX_DELAY){
+					delay = MAX_DELAY;
 				 }
 				 set_motor_speed(18);
 				 HAL_Delay(delay);
@@ -462,8 +464,8 @@ int main(void)
 	     	 case 1: //A
 	     		if(string_offset > 0){
 				 uint32_t delay = floor(90 * string_offset);
-				 if(delay > 1000){
-					delay = 1000;
+				 if(delay > MAX_DELAY){
+					delay = MAX_DELAY;
 				 }
 				  set_motor_speed(70);
 				  HAL_Delay(delay);
@@ -471,8 +473,8 @@ int main(void)
 				}
 				else if(string_offset < 0){
 				 uint32_t delay = floor(-1* (100 * string_offset));
-				 if(delay > 1000){
-					delay = 1000;
+				 if(delay > MAX_DELAY){
+					delay = MAX_DELAY;
 				 }
 				 set_motor_speed(18);
 				 HAL_Delay(delay);
@@ -483,8 +485,8 @@ int main(void)
 	     	 case 2: //D
 	     		if(string_offset > 0){
 				 uint32_t delay = floor(130 * string_offset); // (500/3 )
-				 if(delay > 1000){
-					delay = 1000;
+				 if(delay > MAX_DELAY){
+					delay = MAX_DELAY;
 				 }
 				  set_motor_speed(70);
 				  HAL_Delay(delay);
@@ -492,8 +494,8 @@ int main(void)
 				}
 				else if(string_offset < 0){
 				 uint32_t delay = floor(-1* (130 * string_offset)); // (500/3 )
-				 if(delay > 1000){
-					delay = 1000;
+				 if(delay > MAX_DELAY){
+					delay = MAX_DELAY;
 				 }
 				 set_motor_speed(18);
 				 HAL_Delay(delay);
@@ -504,8 +506,8 @@ int main(void)
 	     	 case 3: //G
 	     		if(string_offset > 0){
 				 uint32_t delay = floor(115 * string_offset);
-				 if(delay > 1000){
-				 	delay = 1000;
+				 if(delay > MAX_DELAY){
+				 	delay = MAX_DELAY;
 				 }
 				  set_motor_speed(72);
 				  HAL_Delay(delay);
@@ -513,8 +515,8 @@ int main(void)
 				}
 				else if(string_offset < 0 && string_offset < -1){
 				 uint32_t delay = floor(-1* (160 * string_offset));
-				 if(delay > 1000){
-				 	delay = 1000;
+				 if(delay > MAX_DELAY){
+				 	delay = MAX_DELAY;
 				 }
 				 set_motor_speed(20);
 				 HAL_Delay(delay);
@@ -525,8 +527,8 @@ int main(void)
 	     	 case 4: //B
 	     		if(string_offset > 0){ // COULD TEST FOR EXPECTED VALUE (BASED ON 1H range) when in tune
 	     		 uint32_t delay = floor(80 * string_offset);	//OR could just do > 1 and let user decide when good, display in tune or sum
-				 if(delay > 1000){								//Since it has 1 Hz accuracy might be nice to have it turn small amounts
-				 	delay = 1000;
+				 if(delay > MAX_DELAY){								//Since it has 1 Hz accuracy might be nice to have it turn small amounts
+				 	delay = MAX_DELAY;
 				 }
 				  set_motor_speed(65);
 				  HAL_Delay(delay);
@@ -534,8 +536,8 @@ int main(void)
 	     		}
 	     		else if(string_offset < 0){
 				 uint32_t delay = floor(-1* (60 * string_offset));
-				 if(delay > 1000){
-				 	delay = 1000;
+				 if(delay > MAX_DELAY){
+				 	delay = MAX_DELAY;
 				 }
 				 set_motor_speed(20);
 				 HAL_Delay(delay);
@@ -546,8 +548,8 @@ int main(void)
 	     	 case 5: //Low E
 	     		if(string_offset > 0){
 					 uint32_t delay = floor(150 * string_offset);
-					 if(delay > 1000){
-					 	delay = 1000;
+					 if(delay > MAX_DELAY){
+					 	delay = MAX_DELAY;
 					 }
 					  set_motor_speed(65);
 					  HAL_Delay(delay);
@@ -555,8 +557,8 @@ int main(void)
 				 }
 	     		else if(string_offset < 0){
 					 uint32_t delay = floor(-1* (100 * string_offset));
-					 if(delay > 1000){
-					 	delay = 1000;
+					 if(delay > MAX_DELAY){
+					 	delay = MAX_DELAY;
 					 }
 					 set_motor_speed(25);
 					 HAL_Delay(delay);
