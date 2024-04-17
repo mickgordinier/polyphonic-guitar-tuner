@@ -78,7 +78,7 @@ TIM_HandleTypeDef htim4;
 
 arm_rfft_fast_instance_f32 fftHandler;
 volatile convFlag;
-
+volatile startFlag = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -235,6 +235,16 @@ void ftoa(float n, char* res, int afterpoint)
         intToStr((int)fpart, res + i + 1, afterpoint);
     }
 }
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	if (GPIO_Pin == 64) {
+		if (startFlag) {
+			startFlag = 0;
+		} else {
+			startFlag = 1;
+		}
+	}
+}
 /* USER CODE END 0 */
 
 /**
@@ -244,7 +254,6 @@ void ftoa(float n, char* res, int afterpoint)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
 	convFlag = 0;
 	//E (low), A, D, G, B, E (high)
 	float32_t string_freqs[6] = {82.41, 110.0, 146.83, 196.0, 246.94, 329.63};
@@ -312,7 +321,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	 while (startFlag) {
 	 HAL_ADC_Start_DMA(&hadc1, ADC_BUFFER, BUFFER_LENGTH);
 
 	  //Test signal with harmonics
@@ -330,9 +339,10 @@ int main(void)
 
 	  while(convFlag == 0) {;}
 
+	  float32_t output[BUFFER_LENGTH];
 	  for(int i = 0; i < BUFFER_LENGTH; i++) {
 		  signal[i] = (double)(ADC_BUFFER[i]);
-	  }
+
 
 
 	apply_hanning_window(&signal, BUFFER_LENGTH);
@@ -348,11 +358,13 @@ int main(void)
     // Initialize the FFT instance
     arm_rfft_fast_init_f32(&fftInstance, BUFFER_LENGTH);
 
-    float32_t output[BUFFER_LENGTH];
+
     arm_rfft_fast_f32(&fftInstance, signal, output, 0);
 
     output[0] = 0;
     output[1] = 0;
+	  }
+
 
 
     // Rest of the frequency bins (upto N/2)
@@ -379,6 +391,9 @@ int main(void)
 
 
     }
+
+
+
     //Filter lower and higher frequencies, 30Hz and 450 Hz
     for(int i = 0; i < 50; ++i){
     	HPS[i] = 0;
@@ -568,6 +583,8 @@ int main(void)
 
 	     }
 
+
+
 	  //To prevent strum from previous affecting next
 	  HAL_Delay(1000);
 	  convFlag = 0;
@@ -575,7 +592,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+  }}
   /* USER CODE END 3 */
 }
 
@@ -1062,6 +1079,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PA6 */
+  GPIO_InitStruct.Pin = GPIO_PIN_6;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
   /*Configure GPIO pins : PB0 PB1 PB2 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -1186,6 +1209,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
