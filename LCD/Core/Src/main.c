@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include <string.h>
 #include <stdarg.h>
+#include <stdio.h>
 #include "ili9341.h"
 #include "fonts.h"
 #include "testimg.h"
@@ -47,17 +48,20 @@
 /* Private variables ---------------------------------------------------------*/
 SPI_HandleTypeDef hspi1;
 
+UART_HandleTypeDef huart1;
+
 /* USER CODE BEGIN PV */
-volatile start = 1;
-volatile detected_string = "A";
-volatile charFreq = "123";
-volatile desiredFreq = "124";
+uint8_t  start = 1;
+char *   detected_string = "A";
+uint16_t charFreq = 123;
+uint16_t desiredFreq = 124;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -69,6 +73,9 @@ void init() {
 	ILI9341_TouchUnselect();
 	ILI9341_Init();
 }
+
+uint8_t rx_buffer[6];
+
 /* USER CODE END 0 */
 
 /**
@@ -101,9 +108,15 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   init();
   ILI9341_FillScreen(ILI9341_BLACK);
+
+  HAL_UART_Receive_IT(&huart1, rx_buffer, sizeof(rx_buffer));
+
+  char temp_str[3];
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -113,25 +126,40 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
 	if(!start) {
 		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
 		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+
+		sprintf(temp_str, "%u", charFreq);
 		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+
+		sprintf(temp_str, "%u", desiredFreq);
 		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+
+//		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 	} else {
-		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+//		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+//		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+
 		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
 		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+
+		sprintf(temp_str, "%u", charFreq);
 		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+
+		sprintf(temp_str, "%u", desiredFreq);
 		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 	}
+
+	++charFreq;
+	++desiredFreq;
+	HAL_Delay(10000);
 	}
   /* USER CODE END 3 */
 }
@@ -217,6 +245,54 @@ static void MX_SPI1_Init(void)
   /* USER CODE BEGIN SPI1_Init 2 */
 
   /* USER CODE END SPI1_Init 2 */
+
+}
+
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 9600;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
 
 }
 
@@ -473,6 +549,23 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART1) // Make sure the callback is for the correct UART
+    {
+        // Assuming rx_buffer[1] contains a character and not a pointer to a string
+        start = rx_buffer[0];
+        detected_string = rx_buffer[1];
+        charFreq = (rx_buffer[3] << 8) | rx_buffer[2];
+        desiredFreq = (rx_buffer[5] << 8) | rx_buffer[4];
+
+        // Process data: Use the variables as needed
+
+        // Ready to receive the next piece of data
+        HAL_UART_Receive_IT(huart, rx_buffer, 6); // Use correct size as per your protocol
+    }
+}
 
 /* USER CODE END 4 */
 
