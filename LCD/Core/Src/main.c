@@ -51,10 +51,10 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-uint8_t  start = 1;
-char *   detected_string = "A";
-uint16_t charFreq = 123;
-uint16_t desiredFreq = 124;
+volatile uint8_t  start = 1;
+volatile char *   detected_string = "A";
+volatile uint16_t charFreq = 123;
+volatile uint16_t desiredFreq = 124;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,7 +74,7 @@ void init() {
 	ILI9341_Init();
 }
 
-uint8_t rx_buffer[6];
+uint8_t rx_buffer[16];
 
 /* USER CODE END 0 */
 
@@ -113,9 +113,21 @@ int main(void)
   init();
   ILI9341_FillScreen(ILI9341_BLACK);
 
-  HAL_UART_Receive_IT(&huart1, rx_buffer, sizeof(rx_buffer));
-
   char temp_str[3];
+
+  ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+  ILI9341_WriteString(100, 30, "C", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+
+	sprintf(temp_str, "%u", 102);
+	ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+	ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+
+	sprintf(temp_str, "%u", 356);
+	ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+	ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+
+
+	  HAL_UART_Receive_IT(&huart1, rx_buffer, sizeof(rx_buffer));
 
   /* USER CODE END 2 */
 
@@ -123,43 +135,51 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+	  if(HAL_UART_Receive(&huart1, rx_buffer, 16, HAL_MAX_DELAY) == HAL_OK)
+	      {
+	          // If data received successfully, process your data here
+	          // ProcessReceivedByte(rx_buffer[0]); // This is a placeholder function
+
+	          // If using a larger buffer, process data accordingly
+		  	  int hello_wotld = 1;
+	      }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  uint8_t hello[16];
+//	  for (int i = 0; i < 16; ++i) hello[i] = rx_buffer[i];
 
-	if(!start) {
-		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-
-		sprintf(temp_str, "%u", charFreq);
-		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-
-		sprintf(temp_str, "%u", desiredFreq);
-		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+//	if(!start) {
+//		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+//		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//
+//		sprintf(temp_str, "%u", charFreq);
+//		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+//		ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//
+//		sprintf(temp_str, "%u", desiredFreq);
+//		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+//		ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
 //		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 //		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	} else {
-//		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-//		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+//	} else {
+////		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+////		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+//
+//		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+//		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//
+//		sprintf(temp_str, "%u", charFreq);
+//		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+//		ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//
+//		sprintf(temp_str, "%u", desiredFreq);
+//		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+//		ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//	}
 
-		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-
-		sprintf(temp_str, "%u", charFreq);
-		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-
-		sprintf(temp_str, "%u", desiredFreq);
-		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	}
-
-	++charFreq;
-	++desiredFreq;
-	HAL_Delay(10000);
 	}
   /* USER CODE END 3 */
 }
@@ -554,16 +574,47 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     if (huart->Instance == USART1) // Make sure the callback is for the correct UART
     {
-        // Assuming rx_buffer[1] contains a character and not a pointer to a string
-        start = rx_buffer[0];
-        detected_string = rx_buffer[1];
-        charFreq = (rx_buffer[3] << 8) | rx_buffer[2];
-        desiredFreq = (rx_buffer[5] << 8) | rx_buffer[4];
+    	uint8_t first_key_idx = 16;
+
+    	for (uint8_t i = 0; i < 8; ++i) {
+    		if (rx_buffer[i] == 0xFF && rx_buffer[i+1] == 0xFF) {
+    			first_key_idx = i+2;
+    			break;
+    		}
+    	}
+
+    	if (first_key_idx == 16) {
+    		HAL_UART_Receive_IT(huart, rx_buffer, sizeof(rx_buffer));
+    		return;
+    	}
+
+        //uint8_t start2 = rx_buffer[first_key_idx];
+        char detected_string2[2];
+        detected_string2[0] = rx_buffer[first_key_idx+1];
+
+        uint16_t charFreq2 = (rx_buffer[first_key_idx+3] << 8) | rx_buffer[first_key_idx+2];
+        uint16_t desiredFreq2 = (rx_buffer[first_key_idx+5] << 8) | rx_buffer[first_key_idx+4];
+
+        char temp_str[4];
+        //ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+		ILI9341_WriteString(100, 30, &detected_string2, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+
+		sprintf(temp_str, "%u", charFreq2);
+		//ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+		ILI9341_WriteString(100, 90, &temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+
+		sprintf(temp_str, "%u", desiredFreq2);
+		//ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+		ILI9341_WriteString(100, 150, &temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
         // Process data: Use the variables as needed
+		HAL_UART_DeInit(huart);
+
+		    // Re-Initialize the UART peripheral
+		    HAL_UART_Init(huart);
 
         // Ready to receive the next piece of data
-        HAL_UART_Receive_IT(huart, rx_buffer, 6); // Use correct size as per your protocol
+		HAL_UART_Receive_IT(huart, rx_buffer, sizeof(rx_buffer)); // Use correct size as per your protocol
     }
 }
 

@@ -1,0 +1,55 @@
+23:51:53 **** Incremental Build of configuration Debug for project XBee_Communocation_Test ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:136:46: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  136 |                   HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
+      |                                              ^~~~
+      |                                              |
+      |                                              uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:138:46: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  138 |                   HAL_UART_Transmit(&huart1, &detected_string,     1, HAL_MAX_DELAY);
+      |                                              ^~~~~~~~~~~~~~~~
+      |                                              |
+      |                                              char *
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:139:46: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  139 |                   HAL_UART_Transmit(&huart1, &actual_guitar_freq,  2, HAL_MAX_DELAY);
+      |                                              ^~~~~~~~~~~~~~~~~~~
+      |                                              |
+      |                                              uint16_t * {aka short unsigned int *}
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:140:46: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  140 |                   HAL_UART_Transmit(&huart1, &desired_gutair_freq, 2, HAL_MAX_DELAY);
+      |                                              ^~~~~~~~~~~~~~~~~~~~
+      |                                              |
+      |                                              uint16_t * {aka short unsigned int *}
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "XBee_Communocation_Test.elf" @"objects.list"   -mcpu=cortex-m4 -T"N:\working_373_final\XBee_Communocation_Test\STM32L4R5ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="XBee_Communocation_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: XBee_Communocation_Test.elf has a LOAD segment with RWX permissions
+Finished building target: XBee_Communocation_Test.elf
+ 
+arm-none-eabi-size  XBee_Communocation_Test.elf 
+arm-none-eabi-objdump -h -S XBee_Communocation_Test.elf  > "XBee_Communocation_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  14632	     20	   1716	  16368	   3ff0	XBee_Communocation_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: XBee_Communocation_Test.list
+ 
+
+23:51:56 Build Finished. 0 errors, 5 warnings. (took 3s.417ms)
+

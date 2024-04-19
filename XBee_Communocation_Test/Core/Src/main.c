@@ -114,13 +114,15 @@ int main(void)
   //union Float_as_buffer desired_gutair_freq;
   uint16_t               desired_gutair_freq;
 
+  uint16_t               key = 0xFFFF;
+
   // Starting out with nothing
   start = 0b1;
   //actual_guitar_freq.f = 0;
-  actual_guitar_freq = 10;
+  actual_guitar_freq = 400;
   detected_string = 'B';
   //desired_gutair_freq.f = 0;
-  desired_gutair_freq = 30;
+  desired_gutair_freq = 450;
 
   /* USER CODE END 2 */
 
@@ -130,11 +132,16 @@ int main(void)
   {
 
 	  // Transmit the string message
-	  HAL_UART_Transmit(&huart1, &start,                   1, HAL_MAX_DELAY);
-	  HAL_UART_Transmit(&huart1, &detected_string,         1, HAL_MAX_DELAY);
-	  HAL_UART_Transmit(&huart1, &actual_guitar_freq,  2, HAL_MAX_DELAY);
-	  HAL_UART_Transmit(&huart1, &desired_gutair_freq, 2, HAL_MAX_DELAY);
+	  for (int i = 0; i < 3; ++i) {
+		  HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &start,               1, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &detected_string,     1, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &actual_guitar_freq,  2, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &desired_gutair_freq, 2, HAL_MAX_DELAY);
+	  }
 
+	  ++actual_guitar_freq;
+	  ++desired_gutair_freq;
 
 	  // Delay between messages
 	  HAL_Delay(10000); // One second delay
