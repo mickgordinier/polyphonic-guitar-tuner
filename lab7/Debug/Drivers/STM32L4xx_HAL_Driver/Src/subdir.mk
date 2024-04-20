@@ -1,9 +1,18 @@
+<<<<<<< Updated upstream
 ################################################################################
 # Automatically-generated file. Do not edit!
 # Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
+=======
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (11.3.rel1)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+>>>>>>> Stashed changes
 C_SRCS += \
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c \
 ../Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_adc.c \

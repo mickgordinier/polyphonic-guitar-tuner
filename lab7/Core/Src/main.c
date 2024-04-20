@@ -66,6 +66,7 @@ DMA_HandleTypeDef hdma_adc1;
 DAC_HandleTypeDef hdac1;
 
 UART_HandleTypeDef hlpuart1;
+UART_HandleTypeDef huart1;
 
 SAI_HandleTypeDef hsai_BlockA1;
 
@@ -73,6 +74,7 @@ SPI_HandleTypeDef hspi1;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
+TIM_HandleTypeDef htim5;
 
 /* USER CODE BEGIN PV */
 
@@ -93,6 +95,8 @@ static void MX_SAI1_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_TIM5_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -157,9 +161,21 @@ void autocorrelate(float32_t* x, uint32_t N, float32_t* autocorrelation) {
 
     arm_abs_f32(autocorrelation, autocorrelation, BUFFER_LENGTH);
 }
+void set_motor_speed_1(int motor_speed) {
+  // Can change motorspeed from 0 - 100
+  // 0 = Full Clockwise Rotation
+  // 50 = No Rotation
+  // 100 = Full Counterclockwise Rotation
 
+  // converting motor speed to pulse width (in ms)
+  double pulse_width = (1.28) + (0.44 * ((double)motor_speed/100));
 
-void set_motor_speed(int motor_speed) {
+  int temp_ccr1 = (pulse_width / 1000) * (PROCESSOR_CLOCK / PRESCALER);
+
+  TIM4->CCR1 = temp_ccr1;
+}
+
+void set_motor_speed_2(int motor_speed) {
   // Can change motorspeed from 0 - 100
   // 0 = Full Clockwise Rotation
   // 50 = No Rotation
@@ -173,8 +189,60 @@ void set_motor_speed(int motor_speed) {
   TIM4->CCR2 = temp_ccr2;
 }
 
+void set_motor_speed_3(int motor_speed) {
+  // Can change motorspeed from 0 - 100
+  // 0 = Full Clockwise Rotation
+  // 50 = No Rotation
+  // 100 = Full Counterclockwise Rotation
 
+  // converting motor speed to pulse width (in ms)
+  double pulse_width = (1.28) + (0.44 * ((double)motor_speed/100));
 
+  int temp_ccr3 = (pulse_width / 1000) * (PROCESSOR_CLOCK / PRESCALER);
+
+  TIM4->CCR3 = temp_ccr3;
+}
+
+void set_motor_speed_4(int motor_speed) {
+  // Can change motorspeed from 0 - 100
+  // 0 = Full Clockwise Rotation
+  // 50 = No Rotation
+  // 100 = Full Counterclockwise Rotation
+
+  // converting motor speed to pulse width (in ms)
+  double pulse_width = (1.28) + (0.44 * ((double)motor_speed/100));
+
+  int temp_ccr4 = (pulse_width / 1000) * (PROCESSOR_CLOCK / PRESCALER);
+
+  TIM4->CCR4 = temp_ccr4;
+}
+
+void set_motor_speed_5(int motor_speed) {
+  // Can change motorspeed from 0 - 100
+  // 0 = Full Clockwise Rotation
+  // 50 = No Rotation
+  // 100 = Full Counterclockwise Rotation
+
+  // converting motor speed to pulse width (in ms)
+  double pulse_width = (1.28) + (0.44 * ((double)motor_speed/100));
+
+  int temp_ccr1 = (pulse_width / 1000) * (PROCESSOR_CLOCK / PRESCALER);
+
+  TIM5->CCR1 = temp_ccr1;
+}
+void set_motor_speed_6(int motor_speed) {
+  // Can change motorspeed from 0 - 100
+  // 0 = Full Clockwise Rotation
+  // 50 = No Rotation
+  // 100 = Full Counterclockwise Rotation
+
+  // converting motor speed to pulse width (in ms)
+  double pulse_width = (1.28) + (0.44 * ((double)motor_speed/100));
+
+  int temp_ccr3 = (pulse_width / 1000) * (PROCESSOR_CLOCK / PRESCALER);
+
+  TIM5->CCR3 = temp_ccr3;
+}
 
 void screenInit () {
 	ILI9341_Unselect();
@@ -237,6 +305,7 @@ void ftoa(float n, char* res, int afterpoint)
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	int test = startFlag;
 	if (GPIO_Pin == 64) {
 		if (startFlag) {
 			startFlag = 0;
@@ -262,6 +331,16 @@ int main(void)
 	//char * E_high = "E (high)";
 	char *detected_string;
 	float32_t string_offset;
+
+
+	union Float_as_buffer {
+		  float f;
+		  uint8_t buf[4];
+	 };
+
+	uint16_t key = 0xFFFF;
+
+	uint8_t start = 0b1;
 
   /* USER CODE END 1 */
 
@@ -294,6 +373,8 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM4_Init();
   MX_SPI1_Init();
+  MX_TIM5_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
  // screenInit();
   //ILI9341_FillScreen(ILI9341_BLACK);
@@ -312,8 +393,14 @@ int main(void)
 //  float32_t freq_resolution = (float32_t)SAMPLING_RATE / (float32_t)BUFFER_LENGTH;
 
   HAL_TIM_Base_Start_IT(&htim1);
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
 
+
+  HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_3);
 
   /* USER CODE END 2 */
 
@@ -321,7 +408,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	 while (startFlag) {
+	while (startFlag) {
 	 HAL_ADC_Start_DMA(&hadc1, ADC_BUFFER, BUFFER_LENGTH);
 
 	  //Test signal with harmonics
@@ -343,7 +430,7 @@ int main(void)
 	  for(int i = 0; i < BUFFER_LENGTH; i++) {
 		  signal[i] = (double)(ADC_BUFFER[i]);
 
-
+	  }
 
 	apply_hanning_window(&signal, BUFFER_LENGTH);
 
@@ -363,9 +450,10 @@ int main(void)
 
     output[0] = 0;
     output[1] = 0;
-	  }
 
-
+//	  if(!startFlag){
+//	  	    	 continue;
+//	  	     }
 
     // Rest of the frequency bins (upto N/2)
     float32_t HPS[BUFFER_LENGTH / 2];
@@ -391,7 +479,6 @@ int main(void)
 
 
     }
-
 
 
     //Filter lower and higher frequencies, 30Hz and 450 Hz
@@ -442,37 +529,39 @@ int main(void)
 	     string_offset = measured_freq - string_freqs[index];
 
 
-//	     char charFreq[20];
-//	     char desiredFreq[20];
-//	     ftoa(measured_freq, charFreq, 2);
-//	     ftoa(string_freqs[index], desiredFreq, 2);
-//	     ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-//	     ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-//	     ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-//	     ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-//	     ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-//	     ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+	     union Float_as_buffer actual_guitar_freq;
+	     actual_guitar_freq.f = measured_freq;
 
+	 // Transmit the string message
+	  for (int i = 0; i < 3; ++i) {
+		  HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &start,               1, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &actual_guitar_freq,  4, HAL_MAX_DELAY);
+	  }
+
+//	     if(!startFlag){
+//	    	 continue;
+//	     }
 	     //Tune strings (yeah yeah)
 	     switch (index){
 	     	 case 0: //E low
 	     		if(string_offset > 0){
-				 uint32_t delay = floor(70 * string_offset);
+				 uint32_t delay = floor(80 * string_offset);
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				  set_motor_speed(70);
+				  set_motor_speed_1(70);
 				  HAL_Delay(delay);
-				  set_motor_speed(50);
+				  set_motor_speed_1(50);
 				}
 				else if(string_offset < 0){
-				 uint32_t delay = floor(-1* (50 * string_offset));
+				 uint32_t delay = floor(-1* (75 * string_offset));
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				 set_motor_speed(18);
+				 set_motor_speed_1(17);
 				 HAL_Delay(delay);
-				 set_motor_speed(50);
+				 set_motor_speed_1(50);
 				}
 	     		 break;
 
@@ -482,18 +571,18 @@ int main(void)
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				  set_motor_speed(70);
+				  set_motor_speed_2(72);
 				  HAL_Delay(delay);
-				  set_motor_speed(50);
+				  set_motor_speed_2(50);
 				}
 				else if(string_offset < 0){
 				 uint32_t delay = floor(-1* (100 * string_offset));
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				 set_motor_speed(18);
+				 set_motor_speed_2(18);
 				 HAL_Delay(delay);
-				 set_motor_speed(50);
+				 set_motor_speed_2(50);
 				}
 	     		 break;
 
@@ -503,18 +592,18 @@ int main(void)
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				  set_motor_speed(70);
+				  set_motor_speed_3(70);
 				  HAL_Delay(delay);
-				  set_motor_speed(50);
+				  set_motor_speed_3(50);
 				}
 				else if(string_offset < 0){
 				 uint32_t delay = floor(-1* (130 * string_offset)); // (500/3 )
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				 set_motor_speed(18);
+				 set_motor_speed_3(18);
 				 HAL_Delay(delay);
-				 set_motor_speed(50);
+				 set_motor_speed_3(50);
 	     		}
 	     		 break;
 
@@ -524,18 +613,18 @@ int main(void)
 				 if(delay > MAX_DELAY){
 				 	delay = MAX_DELAY;
 				 }
-				  set_motor_speed(72);
+				  set_motor_speed_4(72);
 				  HAL_Delay(delay);
-				  set_motor_speed(50);
+				  set_motor_speed_4(50);
 				}
 				else if(string_offset < 0 && string_offset < -1){
 				 uint32_t delay = floor(-1* (160 * string_offset));
 				 if(delay > MAX_DELAY){
 				 	delay = MAX_DELAY;
 				 }
-				 set_motor_speed(20);
+				 set_motor_speed_4(20);
 				 HAL_Delay(delay);
-				 set_motor_speed(50);
+				 set_motor_speed_4(50);
 				}
 	     		 break;
 
@@ -545,18 +634,18 @@ int main(void)
 				 if(delay > MAX_DELAY){								//Since it has 1 Hz accuracy might be nice to have it turn small amounts
 				 	delay = MAX_DELAY;
 				 }
-				  set_motor_speed(65);
+				  set_motor_speed_5(65);
 				  HAL_Delay(delay);
-				  set_motor_speed(50);
+				  set_motor_speed_5(50);
 	     		}
 	     		else if(string_offset < 0){
 				 uint32_t delay = floor(-1* (60 * string_offset));
 				 if(delay > MAX_DELAY){
 				 	delay = MAX_DELAY;
 				 }
-				 set_motor_speed(20);
+				 set_motor_speed_5(20);
 				 HAL_Delay(delay);
-				 set_motor_speed(50);
+				 set_motor_speed_5(50);
 	     		}
 	     		 break;
 
@@ -566,18 +655,18 @@ int main(void)
 					 if(delay > MAX_DELAY){
 					 	delay = MAX_DELAY;
 					 }
-					  set_motor_speed(65);
+					  set_motor_speed_6(65);
 					  HAL_Delay(delay);
-					  set_motor_speed(50);
+					  set_motor_speed_6(50);
 				 }
 	     		else if(string_offset < 0){
 					 uint32_t delay = floor(-1* (100 * string_offset));
 					 if(delay > MAX_DELAY){
 					 	delay = MAX_DELAY;
 					 }
-					 set_motor_speed(25);
+					 set_motor_speed_6(25);
 					 HAL_Delay(delay);
-					 set_motor_speed(50);
+					 set_motor_speed_6(50);
 				 }
 	     		 break;
 
@@ -586,13 +675,14 @@ int main(void)
 
 
 	  //To prevent strum from previous affecting next
-	  HAL_Delay(1000);
+	  HAL_Delay(250);
 	  convFlag = 0;
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }}
+	 }
+  }
   /* USER CODE END 3 */
 }
 
@@ -817,6 +907,54 @@ static void MX_LPUART1_UART_Init(void)
 }
 
 /**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 9600;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
   * @brief SAI1 Initialization Function
   * @param None
   * @retval None
@@ -928,7 +1066,7 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  if (HAL_TIM_OC_Init(&htim1) != HAL_OK)
+  if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
   }
@@ -939,14 +1077,22 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.OCMode = TIM_OCMODE_TIMING;
-  sConfigOC.Pulse = 5;
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
-  if (HAL_TIM_OC_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
   {
     Error_Handler();
   }
@@ -1010,7 +1156,19 @@ static void MX_TIM4_Init(void)
   sConfigOC.Pulse = 1500;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
   if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -1018,6 +1176,59 @@ static void MX_TIM4_Init(void)
 
   /* USER CODE END TIM4_Init 2 */
   HAL_TIM_MspPostInit(&htim4);
+
+}
+
+/**
+  * @brief TIM5 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM5_Init(void)
+{
+
+  /* USER CODE BEGIN TIM5_Init 0 */
+
+  /* USER CODE END TIM5_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM5_Init 1 */
+
+  /* USER CODE END TIM5_Init 1 */
+  htim5.Instance = TIM5;
+  htim5.Init.Prescaler = 7;
+  htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim5.Init.Period = 20000;
+  htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_PWM_Init(&htim5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim5, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 1500;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim5, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim5, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM5_Init 2 */
+
+  /* USER CODE END TIM5_Init 2 */
+  HAL_TIM_MspPostInit(&htim5);
 
 }
 
@@ -1061,7 +1272,11 @@ static void MX_GPIO_Init(void)
   HAL_PWREx_EnableVddIO2();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_14
+                          |GPIO_PIN_7, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_6, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PF0 PF1 PF2 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2;
@@ -1081,12 +1296,14 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : PA6 */
   GPIO_InitStruct.Pin = GPIO_PIN_6;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB0 PB1 PB2 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2;
+  /*Configure GPIO pins : PB0 PB1 PB2 PB14
+                           PB7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_14
+                          |GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -1108,14 +1325,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF13_SAI2;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PB14 */
-  GPIO_InitStruct.Pin = GPIO_PIN_14;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF14_TIM15;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
   /*Configure GPIO pins : PD8 PD9 */
   GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -1123,6 +1332,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF7_USART3;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PG5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PG6 */
+  GPIO_InitStruct.Pin = GPIO_PIN_6;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PC6 */
   GPIO_InitStruct.Pin = GPIO_PIN_6;
@@ -1188,8 +1410,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB3 PB4 PB5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5;
+  /*Configure GPIO pins : PB4 PB5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;

@@ -218,7 +218,8 @@ void DMA1_Channel1_IRQHandler(void)
 void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
-  for (int i = 0; i < 90000; i++);
+	for (int i = 0; i < 1000000; i++);
+	//HAL_Delay(250);
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
   /* USER CODE BEGIN EXTI9_5_IRQn 1 */
