@@ -1,18 +1,9 @@
-<<<<<<< Updated upstream
-################################################################################
-# Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (12.3.rel1)
-################################################################################
-
-# Add inputs and outputs from these tool invocations to the build variables 
-=======
 ################################################################################
 # Automatically-generated file. Do not edit!
 # Toolchain: GNU Tools for STM32 (11.3.rel1)
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
->>>>>>> Stashed changes
 C_SRCS += \
 ../Core/Src/fonts.c \
 ../Core/Src/ili9341.c \
