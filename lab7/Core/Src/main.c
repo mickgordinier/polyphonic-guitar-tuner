@@ -81,6 +81,9 @@ TIM_HandleTypeDef htim5;
 arm_rfft_fast_instance_f32 fftHandler;
 volatile convFlag;
 volatile startFlag = 0;
+volatile previous = 0;
+char charFreq[20];
+char desiredFreq[20];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -327,7 +330,7 @@ int main(void)
 	//E (low), A, D, G, B, E (high)
 	float32_t string_freqs[6] = {82.41, 110.0, 146.83, 196.0, 246.94, 329.63};
 	float32_t measured_freq;
-	char *strings[] = {"E (low)", "A", "D", "G", "B", "E (high)" };
+	char *strings[] = {"E (low)", "A       ", "D       ", "G       ", "B       ", "E (high)" };
 	//char * E_high = "E (high)";
 	char *detected_string;
 	float32_t string_offset;
@@ -402,12 +405,42 @@ int main(void)
   HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_3);
 
+  screenInit();
+  ILI9341_FillScreen(ILI9341_BLACK);
+  ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+  ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	if (startFlag) {
+		if (previous != startFlag) {
+			ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+			ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+			ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+			//ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+			ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+			//ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+			ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+			//ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		} else {
+			ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+			ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+			ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		}
+	} else {
+		if (previous != startFlag) {
+			ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+			ILI9341_WriteString(100, 30, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+			ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+			ILI9341_WriteString(100, 90, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+			ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+			ILI9341_WriteString(100, 150, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		}
+	}
+	previous = startFlag;
 	while (startFlag) {
 	 HAL_ADC_Start_DMA(&hadc1, ADC_BUFFER, BUFFER_LENGTH);
 
@@ -539,6 +572,9 @@ int main(void)
 		  HAL_UART_Transmit(&huart1, &actual_guitar_freq,  4, HAL_MAX_DELAY);
 	  }
 
+
+	  ftoa(measured_freq, charFreq, 2);
+	  ftoa(string_freqs[index], desiredFreq, 2);
 //	     if(!startFlag){
 //	    	 continue;
 //	     }
