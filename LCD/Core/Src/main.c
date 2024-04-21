@@ -570,48 +570,123 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+void reverse(char* str, int len)
+{
+    int i = 0, j = len - 1, temp;
+    while (i < j) {
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+        i++;
+        j--;
+    }
+}
+
+int intToStr(int x, char str[], int d)
+{
+    int i = 0;
+    while (x) {
+        str[i++] = (x % 10) + '0';
+        x = x / 10;
+    }
+
+    // If number of digits required is more, then
+    // add 0s at the beginning
+    while (i < d)
+        str[i++] = '0';
+
+    reverse(str, i);
+    str[i] = '\0';
+    return i;
+}
+
+void ftoa(float n, char* res, int afterpoint)
+{
+    // Extract integer part
+    int ipart = (int)n;
+
+    // Extract floating part
+    float fpart = n - (float)ipart;
+
+    // convert integer part to string
+    int i = intToStr(ipart, res, 0);
+
+    // check for display option after point
+    if (afterpoint != 0) {
+        res[i] = '.'; // add dot
+
+        // Get the value of fraction part upto given no.
+        // of points after dot. The third parameter
+        // is needed to handle cases like 233.007
+        fpart = fpart * pow(10, afterpoint);
+
+        intToStr((int)fpart, res + i + 1, afterpoint);
+    }
+}
+
+union Float_as_buffer {
+	  float f;
+	  uint8_t buf[4];
+ };
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     if (huart->Instance == USART1) // Make sure the callback is for the correct UART
     {
-    	uint8_t first_key_idx = 16;
+    	uint8_t first_key_idx = 7;
 
-    	for (uint8_t i = 0; i < 8; ++i) {
+    	for (uint8_t i = 0; i < 7; ++i) {
     		if (rx_buffer[i] == 0xFF && rx_buffer[i+1] == 0xFF) {
     			first_key_idx = i+2;
     			break;
     		}
     	}
 
-    	if (first_key_idx == 16) {
+    	if (first_key_idx == 7) {
+    		// Process data: Use the variables as needed
+			HAL_UART_DeInit(huart);
+
+			// Re-Initialize the UART peripheral
+			HAL_UART_Init(huart);
+
     		HAL_UART_Receive_IT(huart, rx_buffer, sizeof(rx_buffer));
     		return;
     	}
 
-        //uint8_t start2 = rx_buffer[first_key_idx];
-        char detected_string2[2];
-        detected_string2[0] = rx_buffer[first_key_idx+1];
 
-        uint16_t charFreq2 = (rx_buffer[first_key_idx+3] << 8) | rx_buffer[first_key_idx+2];
-        uint16_t desiredFreq2 = (rx_buffer[first_key_idx+5] << 8) | rx_buffer[first_key_idx+4];
+        uint8_t start_byte = rx_buffer[first_key_idx];
 
-        char temp_str[4];
+        union Float_as_buffer detected_freq_FAB;
+
+        detected_freq_FAB.f = 0;
+
+        for (int rx_buf_idx = 0; rx_buf_idx < 4; ++rx_buf_idx) {
+        	detected_freq_FAB.buf[rx_buf_idx] = rx_buffer[first_key_idx+1];
+        }
+
+
+
         //ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 30, &detected_string2, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
-		sprintf(temp_str, "%u", charFreq2);
+        char char_detected_freq[7];
+
+        ftoa(detected_freq_FAB.f, char_detected_freq, 2);
+
+        //ILI9341_WriteString(100, 30, &detected_string2, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+
+		//sprintf(temp_str, "%u", charFreq2);
 		//ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 90, &temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		ILI9341_WriteString(100, 90, &char_detected_freq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
-		sprintf(temp_str, "%u", desiredFreq2);
+		//sprintf(temp_str, "%u", desiredFreq2);
 		//ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 150, &temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		//ILI9341_WriteString(100, 150, &temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
         // Process data: Use the variables as needed
 		HAL_UART_DeInit(huart);
 
-		    // Re-Initialize the UART peripheral
-		    HAL_UART_Init(huart);
+		// Re-Initialize the UART peripheral
+		HAL_UART_Init(huart);
 
         // Ready to receive the next piece of data
 		HAL_UART_Receive_IT(huart, rx_buffer, sizeof(rx_buffer)); // Use correct size as per your protocol

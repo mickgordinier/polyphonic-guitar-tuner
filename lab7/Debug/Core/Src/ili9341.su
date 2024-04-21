@@ -6,7 +6,7 @@
 ../Core/Src/ili9341.c:46:13:ILI9341_SetAddressWindow	32	static
 ../Core/Src/ili9341.c:65:6:ILI9341_Init	120	static
 ../Core/Src/ili9341.c:220:6:ILI9341_DrawPixel	24	static
-../Core/Src/ili9341.c:233:13:ILI9341_WriteChar	48	static
+../Core/Src/ili9341.c:233:13:ILI9341_WriteChar	40	static
 ../Core/Src/ili9341.c:252:6:ILI9341_WriteString	32	static
 ../Core/Src/ili9341.c:278:6:ILI9341_FillRectangle	32	static
 ../Core/Src/ili9341.c:299:6:ILI9341_FillScreen	24	static
