@@ -21,9 +21,14 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#define ARM_MATH_CM4
+#include "arm_math.h"
+#include "math.h"
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
-#include <stdio.h>
 #include "ili9341.h"
 #include "fonts.h"
 #include "testimg.h"
@@ -281,7 +286,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.Mode = UART_MODE_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
@@ -713,7 +718,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
           // CALCULATE //
 
-          ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK):          
+          ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
           ILI9341_WriteString(100, 90, char_detected_freq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
           ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
         }

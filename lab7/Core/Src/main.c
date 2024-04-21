@@ -523,9 +523,9 @@ int main(void)
 
     float32_t average;
 	arm_mean_f32(HPS, BUFFER_LENGTH/2, &average);
-	if(average < (1E20)){ //Based on sampled data,see spreadsheet
-		continue;
-	}
+//	if(average < (1E20)){ //Based on sampled data,see spreadsheet
+//		continue;
+//	}
 
 
     int max_peak = 0;
@@ -566,7 +566,7 @@ int main(void)
 	 // Transmit the string message
 	  for (int i = 0; i < 3; ++i) {
 		  HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
-		  HAL_UART_Transmit(&huart1, &start,               1, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &startFlag,               1, HAL_MAX_DELAY);
 		  HAL_UART_Transmit(&huart1, &actual_guitar_freq.buf,  4, HAL_MAX_DELAY);
 	  }
 
