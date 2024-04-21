@@ -79,8 +79,6 @@ TIM_HandleTypeDef htim5;
 arm_rfft_fast_instance_f32 fftHandler;
 volatile convFlag;
 volatile startFlag = 0;
-volatile previous = 0;
-int firstPress = 0;
 char charFreq[20];
 char desiredFreq[20];
 /* USER CODE END PV */
@@ -315,29 +313,29 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		}
 	}
 
-	if(startFlag){
+	// if(startFlag){
 
-		ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		//ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		//ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		//ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+	// 	ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+	// 	ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+	// 	ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+	// 	//ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+	// 	ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+	// 	//ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+	// 	ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+	// 	//ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
-	}
+	// }
 
-	if(!startFlag){
-		ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(100, 30, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(100, 90, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(100, 150, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-		ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	}
+	// if(!startFlag){
+	// 	ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+	// 	ILI9341_WriteString(100, 30, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+	// 	ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+	// 	ILI9341_WriteString(100, 90, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+	// 	ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+	// 	ILI9341_WriteString(100, 150, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+	// 	ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+	// 	ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+	// }
 
 
 
@@ -525,9 +523,9 @@ int main(void)
 
     float32_t average;
 	arm_mean_f32(HPS, BUFFER_LENGTH/2, &average);
-//	if(average < (1E20)){ //Based on sampled data,see spreadsheet
-//		continue;
-//	}
+	if(average < (1E20)){ //Based on sampled data,see spreadsheet
+		continue;
+	}
 
 
     int max_peak = 0;
@@ -535,7 +533,6 @@ int main(void)
     arm_max_f32(HPS, BUFFER_LENGTH / 2, &max_mag, &max_peak);
 
     float32_t measured_freq = max_peak * (2* SAMPLING_RATE/(BUFFER_LENGTH));
-
 
 	     //Match frequency to string
 
@@ -584,9 +581,9 @@ int main(void)
 
 
 
-		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		// ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		// ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		// ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
 
 	     //Tune strings (yeah yeah)
@@ -722,7 +719,7 @@ int main(void)
 
 
 	  //To prevent strum from previous affecting next
-	  HAL_Delay(5000);
+	  HAL_Delay(250);
 	  convFlag = 0;
 
     /* USER CODE END WHILE */

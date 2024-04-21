@@ -51,10 +51,13 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-volatile uint8_t  start = 1;
-volatile char *   detected_string = "A";
-volatile uint16_t charFreq = 123;
-volatile uint16_t desiredFreq = 124;
+volatile uint8_t  start = 0;
+float32_t string_freqs[6] = {82.41, 110.0, 146.83, 196.0, 246.94, 329.63};
+float32_t measured_freq;
+char *strings[] = {"E (low)", "A       ", "D       ", "G       ", "B       ", "E (high)" };
+char *detected_string;
+float32_t string_offset;
+uint8_t previous = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -112,19 +115,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
   init();
   ILI9341_FillScreen(ILI9341_BLACK);
+  ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+  ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
-  char temp_str[3];
-
-  ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-  ILI9341_WriteString(100, 30, "C", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-
-	sprintf(temp_str, "%u", 102);
-	ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-	ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-
-	sprintf(temp_str, "%u", 356);
-	ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-	ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
 
 	  HAL_UART_Receive_IT(&huart1, rx_buffer, sizeof(rx_buffer));
@@ -654,35 +647,80 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     	}
 
 
-        uint8_t start_byte = rx_buffer[first_key_idx];
+        uint8_t start = rx_buffer[first_key_idx];
 
-        union Float_as_buffer detected_freq_FAB;
-
-        detected_freq_FAB.f = 0;
-
-        for (int rx_buf_idx = 0; rx_buf_idx < 4; ++rx_buf_idx) {
-        	detected_freq_FAB.buf[rx_buf_idx] = rx_buffer[first_key_idx+1];
+        if((start != previous) && (start == 1)) {
+          	ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		        ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		        ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+		        //ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		        ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+		        //ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		        ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
+		        //ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
         }
 
+        if((start != previous) && (start == 0)) {
+        		ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+		        ILI9341_WriteString(100, 30, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		        ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+		        ILI9341_WriteString(100, 90, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		        ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
+		        ILI9341_WriteString(100, 150, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
+		        ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+		        ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+        }
+
+        if(start) {
+          union Float_as_buffer detected_freq_FAB;
+
+          detected_freq_FAB.f = 0;
+
+          for (int rx_buf_idx = 0; rx_buf_idx < 4; ++rx_buf_idx) {
+            detected_freq_FAB.buf[rx_buf_idx] = rx_buffer[first_key_idx+1];
+          }
+
+          // CALCULATE //
+
+          char char_detected_freq[7];
+          char desiredFreq[7];
+          ftoa(detected_freq_FAB.f, char_detected_freq, 2);
+
+          //Match frequency to string
+
+          //find smallest magnitude of distance
+          float32_t min_freqs[6];
+            for(int i = 0; i < 6; ++i){
+            min_freqs[i] = string_freqs[i] - measured_freq;
+          }
+
+          arm_abs_f32(min_freqs, min_freqs, 6);
+
+          //find the argmin
+          float32_t current_min = min_freqs[0];
+          uint8_t index = 0;
+          for(int i = 0; i < 6; ++i){
+            if (min_freqs[i] < current_min){
+              current_min = min_freqs[i];
+              index = i;
+            }
+          }
+
+          //assign detected string
+          detected_string = strings[index];
+          string_offset = measured_freq - string_freqs[index];
+          ftoa(string_freqs[index], desiredFreq, 2);
+
+          // CALCULATE //
+
+          ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK):          
+          ILI9341_WriteString(100, 90, char_detected_freq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+          ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+        }
+        
+        previous = start;
 
 
-        //ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-
-        char char_detected_freq[7];
-
-        ftoa(detected_freq_FAB.f, char_detected_freq, 2);
-
-        //ILI9341_WriteString(100, 30, &detected_string2, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-
-		//sprintf(temp_str, "%u", charFreq2);
-		//ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		ILI9341_WriteString(100, 90, &char_detected_freq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-
-		//sprintf(temp_str, "%u", desiredFreq2);
-		//ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-		//ILI9341_WriteString(100, 150, &temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-
-        // Process data: Use the variables as needed
 		HAL_UART_DeInit(huart);
 
 		// Re-Initialize the UART peripheral
