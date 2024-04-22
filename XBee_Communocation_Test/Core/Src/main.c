@@ -103,26 +103,16 @@ int main(void)
   // Start Bit   - Bit 0
   uint8_t               start;
 
-  // Character representing closest string
-  char                  detected_string;
-
   // Actual Guitar Frequency Calculated from Piezo
   //union Float_as_buffer actual_guitar_freq;
-  uint16_t               actual_guitar_freq;
+  union Float_as_buffer actual_guitar_freq;
 
   // Frequency of closest string
-  //union Float_as_buffer desired_gutair_freq;
-  uint16_t               desired_gutair_freq;
-
   uint16_t               key = 0xFFFF;
 
-  // Starting out with nothing
+  // Starting out with stuff
   start = 0b1;
-  //actual_guitar_freq.f = 0;
-  actual_guitar_freq = 400;
-  detected_string = 'B';
-  //desired_gutair_freq.f = 0;
-  desired_gutair_freq = 450;
+  actual_guitar_freq.f = 426.23;
 
   /* USER CODE END 2 */
 
@@ -135,16 +125,12 @@ int main(void)
 	  for (int i = 0; i < 3; ++i) {
 		  HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
 		  HAL_UART_Transmit(&huart1, &start,               1, HAL_MAX_DELAY);
-		  HAL_UART_Transmit(&huart1, &detected_string,     1, HAL_MAX_DELAY);
-		  HAL_UART_Transmit(&huart1, &actual_guitar_freq,  2, HAL_MAX_DELAY);
-		  HAL_UART_Transmit(&huart1, &desired_gutair_freq, 2, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &actual_guitar_freq,  4, HAL_MAX_DELAY);
 	  }
-
-	  ++actual_guitar_freq;
-	  ++desired_gutair_freq;
+	  ++actual_guitar_freq.f;
 
 	  // Delay between messages
-	  HAL_Delay(10000); // One second delay
+	  HAL_Delay(5000); // One second delay
 
     /* USER CODE END WHILE */
 

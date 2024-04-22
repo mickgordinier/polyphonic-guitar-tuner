@@ -82,7 +82,7 @@ void init() {
 	ILI9341_Init();
 }
 
-uint8_t rx_buffer[16];
+uint8_t rx_buffer[14];
 
 /* USER CODE END 0 */
 
@@ -116,16 +116,14 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
-  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   init();
   ILI9341_FillScreen(ILI9341_BLACK);
   ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
   ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
 
-
-
-	  HAL_UART_Receive_IT(&huart1, rx_buffer, sizeof(rx_buffer));
+  MX_USART1_UART_Init();
+  HAL_UART_Receive_IT(&huart1, rx_buffer, sizeof(rx_buffer));
 
   /* USER CODE END 2 */
 
@@ -134,18 +132,18 @@ int main(void)
   while (1)
   {
 
-	  if(HAL_UART_Receive(&huart1, rx_buffer, 16, HAL_MAX_DELAY) == HAL_OK)
-	      {
-	          // If data received successfully, process your data here
-	          // ProcessReceivedByte(rx_buffer[0]); // This is a placeholder function
-
-	          // If using a larger buffer, process data accordingly
-		  	  int hello_wotld = 1;
-	      }
+//	  if(HAL_UART_Receive(&huart1, rx_buffer, 16, HAL_MAX_DELAY) == HAL_OK)
+//	      {
+//	          // If data received successfully, process your data here
+//	          // ProcessReceivedByte(rx_buffer[0]); // This is a placeholder function
+//
+//	          // If using a larger buffer, process data accordingly
+//		  	  int hello_wotld = 1;
+//	      }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  uint8_t hello[16];
+//	  uint8_t hello[16];
 //	  for (int i = 0; i < 16; ++i) hello[i] = rx_buffer[i];
 
 //	if(!start) {
@@ -286,7 +284,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Mode = UART_MODE_RX;
+  huart1.Init.Mode = UART_MODE_TX_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
@@ -679,13 +677,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         if(start) {
           union Float_as_buffer detected_freq_FAB;
 
-          detected_freq_FAB.f = 0;
-
-          for (int rx_buf_idx = 0; rx_buf_idx < 4; ++rx_buf_idx) {
-            detected_freq_FAB.buf[rx_buf_idx] = rx_buffer[first_key_idx+1];
-          }
+          detected_freq_FAB.buf[0]   = rx_buffer[first_key_idx+1];
+          detected_freq_FAB.buf[1] = rx_buffer[first_key_idx+2];
+          detected_freq_FAB.buf[2] = rx_buffer[first_key_idx+3];
+          detected_freq_FAB.buf[3] = rx_buffer[first_key_idx+4];
 
           // CALCULATE //
+          float test = detected_freq_FAB.f;
 
           char char_detected_freq[7];
           char desiredFreq[7];
