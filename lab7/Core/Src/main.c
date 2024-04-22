@@ -313,32 +313,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		}
 	}
 
-	// if(startFlag){
-
-	// 	ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-	// 	ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-	// 	ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-	// 	//ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	// 	ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-	// 	//ILI9341_WriteString(100, 90, charFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	// 	ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-	// 	//ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-
-	// }
-
-	// if(!startFlag){
-	// 	ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-	// 	ILI9341_WriteString(100, 30, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-	// 	ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-	// 	ILI9341_WriteString(100, 90, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-	// 	ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
-	// 	ILI9341_WriteString(100, 150, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-	// 	ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	// 	ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-	// }
-
-
-
 }
 /* USER CODE END 0 */
 
@@ -429,26 +403,40 @@ int main(void)
   HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_3);
 
-  screenInit();
-  ILI9341_FillScreen(ILI9341_BLACK);
-  ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-  ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//  screenInit();
+//  ILI9341_FillScreen(ILI9341_BLACK);
+//  ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+//  ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint8_t previous = 0;
   while (1)
   {
 	while (!startFlag) {
-		actual_guitar_freq.f = 0;
+		actual_guitar_freq.f = 0.0;
 		for (int i = 0; i < 3; ++i) {
 			  HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
 			  HAL_UART_Transmit(&huart1, &startFlag,               1, HAL_MAX_DELAY);
 			  HAL_UART_Transmit(&huart1, &actual_guitar_freq.buf,  4, HAL_MAX_DELAY);
 		  }
+		previous = 0;
 	}
 
 	while (startFlag) {
+
+	if (previous == 0){
+		//write blank frequencies, so when button is first pressed freqs displayed are blank until strummed
+		actual_guitar_freq.f = 0.0;
+		for (int i = 0; i < 3; ++i) {
+		  HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &startFlag,               1, HAL_MAX_DELAY);
+		  HAL_UART_Transmit(&huart1, &actual_guitar_freq.buf,  4, HAL_MAX_DELAY);
+	  }
+		previous = 1;
+
+	}
 	 HAL_ADC_Start_DMA(&hadc1, ADC_BUFFER, BUFFER_LENGTH);
 
 	  //Test signal with harmonics
@@ -491,9 +479,9 @@ int main(void)
     output[0] = 0;
     output[1] = 0;
 
-//	  if(!startFlag){
-//	  	    	 continue;
-//	  	     }
+	  if(!startFlag){
+	  	    	 continue;
+	  	     }
 
     // Rest of the frequency bins (upto N/2)
     float32_t HPS[BUFFER_LENGTH / 2];
@@ -531,9 +519,9 @@ int main(void)
 
     float32_t average;
 	arm_mean_f32(HPS, BUFFER_LENGTH/2, &average);
-//	if(average < (1E20)){ //Based on sampled data,see spreadsheet
-//		continue;
-//	}
+	if(average < (2E20)){ //Based on sampled data,see spreadsheet
+		continue;
+	}
 
 
     int max_peak = 0;

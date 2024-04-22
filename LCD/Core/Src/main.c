@@ -59,7 +59,7 @@ UART_HandleTypeDef huart1;
 volatile uint8_t  start = 0;
 float32_t string_freqs[6] = {82.41, 110.0, 146.83, 196.0, 246.94, 329.63};
 float32_t measured_freq;
-char *strings[] = {"E (low)", "A       ", "D       ", "G       ", "B       ", "E (high)" };
+char *strings[] = {"E (low) ", "A       ", "D       ", "G       ", "B       ", "E (high)"};
 char *detected_string;
 float32_t string_offset;
 uint8_t previous = 0;
@@ -680,10 +680,19 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
           ftoa(string_freqs[index], desiredFreq, 2);
 
           // CALCULATE //
+          if(detected_freq_FAB.f == 0.0){
+        	  //So initially when we click start it doesnt display a freq (blank)
+        	  char blank[7] = "       ";
+        	  strcpy(char_detected_freq, "       ");
+        	  strcpy(desiredFreq, "       ");
+        	  detected_string = blank;
+          }
 
           ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
           ILI9341_WriteString(100, 90, char_detected_freq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
           ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+
+
         }
 
 
