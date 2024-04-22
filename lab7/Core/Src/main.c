@@ -364,6 +364,8 @@ int main(void)
 		  uint8_t buf[4];
 	 };
 
+	union Float_as_buffer actual_guitar_freq;
+
 	uint16_t key = 0xFFFF;
 
 	uint8_t start = 0b1;
@@ -437,8 +439,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-
+	while (!startFlag) {
+		actual_guitar_freq.f = 0;
+		for (int i = 0; i < 3; ++i) {
+			  HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
+			  HAL_UART_Transmit(&huart1, &startFlag,               1, HAL_MAX_DELAY);
+			  HAL_UART_Transmit(&huart1, &actual_guitar_freq.buf,  4, HAL_MAX_DELAY);
+		  }
+	}
 
 	while (startFlag) {
 	 HAL_ADC_Start_DMA(&hadc1, ADC_BUFFER, BUFFER_LENGTH);
@@ -560,7 +568,6 @@ int main(void)
 	     string_offset = measured_freq - string_freqs[index];
 
 
-	     union Float_as_buffer actual_guitar_freq;
 	     actual_guitar_freq.f = measured_freq;
 
 	 // Transmit the string message

@@ -583,9 +583,9 @@ static void MX_USART1_UART_Init(void)
  800061e:	4b1c      	ldr	r3, [pc, #112]	@ (8000690 <MX_USART1_UART_Init+0x90>)
  8000620:	2200      	movs	r2, #0
  8000622:	611a      	str	r2, [r3, #16]
-  huart1.Init.Mode = UART_MODE_TX;
+  huart1.Init.Mode = UART_MODE_TX_RX;
  8000624:	4b1a      	ldr	r3, [pc, #104]	@ (8000690 <MX_USART1_UART_Init+0x90>)
- 8000626:	2208      	movs	r2, #8
+ 8000626:	220c      	movs	r2, #12
  8000628:	615a      	str	r2, [r3, #20]
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
  800062a:	4b19      	ldr	r3, [pc, #100]	@ (8000690 <MX_USART1_UART_Init+0x90>)

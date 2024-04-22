@@ -131,50 +131,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-//	  if(HAL_UART_Receive(&huart1, rx_buffer, 16, HAL_MAX_DELAY) == HAL_OK)
-//	      {
-//	          // If data received successfully, process your data here
-//	          // ProcessReceivedByte(rx_buffer[0]); // This is a placeholder function
-//
-//	          // If using a larger buffer, process data accordingly
-//		  	  int hello_wotld = 1;
-//	      }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//	  uint8_t hello[16];
-//	  for (int i = 0; i < 16; ++i) hello[i] = rx_buffer[i];
 
-//	if(!start) {
-//		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-//		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-//
-//		sprintf(temp_str, "%u", charFreq);
-//		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-//		ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-//
-//		sprintf(temp_str, "%u", desiredFreq);
-//		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-//		ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-
-//		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-//		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-//	} else {
-////		ILI9341_WriteString(55, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-////		ILI9341_WriteString(55, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-//
-//		ILI9341_WriteString(10, 0, "Detected String:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-//		ILI9341_WriteString(100, 30, detected_string, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-//
-//		sprintf(temp_str, "%u", charFreq);
-//		ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-//		ILI9341_WriteString(100, 90, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-//
-//		sprintf(temp_str, "%u", desiredFreq);
-//		ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
-//		ILI9341_WriteString(100, 150, temp_str, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-//	}
 
 	}
   /* USER CODE END 3 */
@@ -652,7 +612,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
         uint8_t start = rx_buffer[first_key_idx];
 
-        if((start != previous) && (start == 1)) {
+        if(!previous && start) {
           	ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
 		        ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
 		        ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_WHITE, ILI9341_BLACK);
@@ -663,16 +623,21 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		        //ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
         }
 
-        if((start != previous) && (start == 0)) {
+        if(previous && !start) {
         		ILI9341_WriteString(10, 0, "String Detected:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
 		        ILI9341_WriteString(100, 30, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
 		        ILI9341_WriteString(10, 60, "Actual Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
 		        ILI9341_WriteString(100, 90, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
 		        ILI9341_WriteString(10, 120, "Desired Frequency:", Font_11x18, ILI9341_BLACK, ILI9341_BLACK);
 		        ILI9341_WriteString(100, 150, "        ", Font_16x26, ILI9341_BLACK, ILI9341_BLACK);
-		        ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
-		        ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
         }
+
+        if (!start) {
+        	ILI9341_WriteString(35, 30, "PUSH BUTTON", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+        	ILI9341_WriteString(45, 60, "TO START", Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
+        }
+
+        previous = start;
 
         if(start) {
           union Float_as_buffer detected_freq_FAB;
@@ -694,7 +659,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
           //find smallest magnitude of distance
           float32_t min_freqs[6];
             for(int i = 0; i < 6; ++i){
-            min_freqs[i] = string_freqs[i] - measured_freq;
+            min_freqs[i] = string_freqs[i] - detected_freq_FAB.f;
           }
 
           arm_abs_f32(min_freqs, min_freqs, 6);
@@ -711,7 +676,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
           //assign detected string
           detected_string = strings[index];
-          string_offset = measured_freq - string_freqs[index];
+          string_offset = detected_freq_FAB.f - string_freqs[index];
           ftoa(string_freqs[index], desiredFreq, 2);
 
           // CALCULATE //
@@ -720,8 +685,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
           ILI9341_WriteString(100, 90, char_detected_freq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
           ILI9341_WriteString(100, 150, desiredFreq, Font_16x26, ILI9341_WHITE, ILI9341_BLACK);
         }
-        
-        previous = start;
 
 
 		HAL_UART_DeInit(huart);
