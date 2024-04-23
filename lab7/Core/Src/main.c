@@ -79,6 +79,7 @@ TIM_HandleTypeDef htim5;
 arm_rfft_fast_instance_f32 fftHandler;
 volatile convFlag;
 volatile startFlag = 0;
+uint8_t loop = 10;
 char charFreq[20];
 char desiredFreq[20];
 /* USER CODE END PV */
@@ -303,6 +304,17 @@ void ftoa(float n, char* res, int afterpoint)
     }
 }
 
+
+void transmit() {
+	uint16_t key = 0xFFFF;
+	uint32_t actual_guitar_freq = 0xFEED;
+	for (int i = 0; i < 3; ++i) {
+	  HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
+	  HAL_UART_Transmit(&huart1, &startFlag,               1, HAL_MAX_DELAY);
+	  HAL_UART_Transmit(&huart1, &actual_guitar_freq,  4, HAL_MAX_DELAY);
+    }
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 
 	if (GPIO_Pin == 64) {
@@ -310,8 +322,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 			startFlag = 0;
 		} else {
 			startFlag = 1;
+			loop = 0;
 		}
 	}
+
 
 }
 /* USER CODE END 0 */
@@ -412,6 +426,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   uint8_t previous = 0;
+  uint8_t hold = 0;
   while (1)
   {
 	while (!startFlag) {
@@ -426,17 +441,18 @@ int main(void)
 
 	while (startFlag) {
 
-	if (previous == 0){
-		//write blank frequencies, so when button is first pressed freqs displayed are blank until strummed
-		actual_guitar_freq.f = 0.0;
+
+		uint16_t key = 0xFFFF;
+		uint32_t holder = 0x0000;
+		if(loop < 10) {
 		for (int i = 0; i < 3; ++i) {
 		  HAL_UART_Transmit(&huart1, &key,                 2, HAL_MAX_DELAY);
 		  HAL_UART_Transmit(&huart1, &startFlag,               1, HAL_MAX_DELAY);
-		  HAL_UART_Transmit(&huart1, &actual_guitar_freq.buf,  4, HAL_MAX_DELAY);
-	  }
-		previous = 1;
+		  HAL_UART_Transmit(&huart1, &holder,  4, HAL_MAX_DELAY);
+		}
+		}
+		loop += 1;
 
-	}
 	 HAL_ADC_Start_DMA(&hadc1, ADC_BUFFER, BUFFER_LENGTH);
 
 	  //Test signal with harmonics
@@ -520,6 +536,7 @@ int main(void)
     float32_t average;
 	arm_mean_f32(HPS, BUFFER_LENGTH/2, &average);
 	if(average < (2E20)){ //Based on sampled data,see spreadsheet
+		hold = 1;
 		continue;
 	}
 
@@ -589,7 +606,7 @@ int main(void)
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				  set_motor_speed_1(70);
+				  set_motor_speed_1(68);
 				  HAL_Delay(delay);
 				  set_motor_speed_1(50);
 				}
@@ -598,7 +615,7 @@ int main(void)
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				 set_motor_speed_1(17);
+				 set_motor_speed_1(20);
 				 HAL_Delay(delay);
 				 set_motor_speed_1(50);
 				}
@@ -606,20 +623,20 @@ int main(void)
 
 	     	 case 1: //A
 	     		if(string_offset > 0){
-				 uint32_t delay = floor(90 * string_offset);
+				 uint32_t delay = floor(85 * string_offset);
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				  set_motor_speed_2(72);
+				  set_motor_speed_2(74);
 				  HAL_Delay(delay);
 				  set_motor_speed_2(50);
 				}
 				else if(string_offset < 0){
-				 uint32_t delay = floor(-1* (100 * string_offset));
+				 uint32_t delay = floor(-1* (115 * string_offset));
 				 if(delay > MAX_DELAY){
 					delay = MAX_DELAY;
 				 }
-				 set_motor_speed_2(18);
+				 set_motor_speed_2(15);
 				 HAL_Delay(delay);
 				 set_motor_speed_2(50);
 				}
@@ -690,20 +707,20 @@ int main(void)
 
 	     	 case 5: //Low E
 	     		if(string_offset > 0){
-					 uint32_t delay = floor(125 * string_offset);
+					 uint32_t delay = floor(135 * string_offset);
 					 if(delay > MAX_DELAY){
 					 	delay = MAX_DELAY;
 					 }
-					  set_motor_speed_6(65);
+					  set_motor_speed_6(68);
 					  HAL_Delay(delay);
 					  set_motor_speed_6(50);
 				 }
 	     		else if(string_offset < 0){
-					 uint32_t delay = floor(-1* (80 * string_offset));
+					 uint32_t delay = floor(-1* (95 * string_offset));
 					 if(delay > MAX_DELAY){
 					 	delay = MAX_DELAY;
 					 }
-					 set_motor_speed_6(25);
+					 set_motor_speed_6(22);
 					 HAL_Delay(delay);
 					 set_motor_speed_6(50);
 				 }

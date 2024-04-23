@@ -63,6 +63,7 @@ char *strings[] = {"E (low) ", "A       ", "D       ", "G       ", "B       ", "
 char *detected_string;
 float32_t string_offset;
 uint8_t previous = 0;
+uint8_t first = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -639,16 +640,20 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
         previous = start;
 
-        if(start) {
-          union Float_as_buffer detected_freq_FAB;
+        union Float_as_buffer detected_freq_FAB;
 
-          detected_freq_FAB.buf[0]   = rx_buffer[first_key_idx+1];
-          detected_freq_FAB.buf[1] = rx_buffer[first_key_idx+2];
-          detected_freq_FAB.buf[2] = rx_buffer[first_key_idx+3];
-          detected_freq_FAB.buf[3] = rx_buffer[first_key_idx+4];
+        detected_freq_FAB.buf[0]   = rx_buffer[first_key_idx+1];
+        detected_freq_FAB.buf[1] = rx_buffer[first_key_idx+2];
+        detected_freq_FAB.buf[2] = rx_buffer[first_key_idx+3];
+        detected_freq_FAB.buf[3] = rx_buffer[first_key_idx+4];
+        float test = detected_freq_FAB.f;
+
+
+        if(start && (test != 0)) {
+
 
           // CALCULATE //
-          float test = detected_freq_FAB.f;
+
 
           char char_detected_freq[7];
           char desiredFreq[7];
